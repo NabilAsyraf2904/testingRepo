@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<api-library>
+    <name>GenerateId</name>
+    <code>GENERATEID</code>
+    <version>01.00.0000</version>
+    <implementationType>JAVASCRIPT</implementationType>
+    <sources>
+        <source>
+            <fileName>GenerateId.js</fileName>
+            <apiDefinitions>
+                <api apiid="GENERATEID:01.00.0000:GenerateId.js:generateid:name:dob">
+                    <classification>ORCHESTRATION</classification>
+                    <duplicateFnFlag>false</duplicateFnFlag>
+                    <name>generateid</name>
+                    <inputParameters>
+                        <input>
+                            <icon>/oracle/ics/webconsole/view/images/string_24_ena.png</icon>
+                            <name>name</name>
+                            <type>string</type>
+                        </input>
+                        <input>
+                            <icon>/oracle/ics/webconsole/view/images/string_24_ena.png</icon>
+                            <name>dob</name>
+                            <type>string</type>
+                        </input>
+                    </inputParameters>
+                    <libraryCode>GENERATEID</libraryCode>
+                    <classification>ORCHESTRATION</classification>
+                    <classification>XPATH</classification>
+                    <outputParameters>
+                        <output>
+                            <icon>/oracle/ics/webconsole/view/images/string_24_ena.png</icon>
+                            <name>result</name>
+                            <type>string</type>
+                        </output>
+                    </outputParameters>
+                    <unsupportedSyntax>false</unsupportedSyntax>
+                </api>
+            </apiDefinitions>
+            <libraryCode>GENERATEID</libraryCode>
+        </source>
+    </sources>
+</api-library>

@@ -1,0 +1,1 @@
+{"id":"SM_POC_MULTIPLE_METHOD_01.00.0000","icsProject":{"version":"01.00.0000","percentageComplete":100,"modelType":"FREEFORM","projectCode":"SM_POC_MULTIPLE_METHOD","processorCount":{"INTEGRATION_METADATA":1,"PICK":1,"MESSAGE_TRACKER":3,"TRANSFORMER":6,"FOR":1,"SOURCE":3,"TARGET":3},"smartTags":"app:REST,style:App Driven Orchestration"}}

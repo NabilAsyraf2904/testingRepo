@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<object-persistence xmlns="http://www.eclipse.org/eclipselink/xsds/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:eclipselink="http://www.eclipse.org/eclipselink/xsds/persistence" version="Eclipse Persistence Services - 2.6.9.v20200130-0143b822bc">
+   <name>atpSelectAzemployee-OR</name>
+   <class-mapping-descriptors>
+      <class-mapping-descriptor xsi:type="object-relational-class-mapping-descriptor">
+         <class>atpSelectAzemployee.Azemployee</class>
+         <alias>AZEMPLOYEE</alias>
+         <primary-key>
+            <field table="AZEMPLOYEE" name="EMPLOYEE_ID" xsi:type="column"/>
+            <field table="AZEMPLOYEE" name="EMPLOYEE_NUMBER" xsi:type="column"/>
+            <field table="AZEMPLOYEE" name="EMPLOYEE_NAME" xsi:type="column"/>
+            <field table="AZEMPLOYEE" name="EMPLOYEE_EMAIL" xsi:type="column"/>
+            <field table="AZEMPLOYEE" name="EMPLOYEE_DEPARTMENT_NUMBER" xsi:type="column"/>
+            <field table="AZEMPLOYEE" name="EMPLOYEE_STATUS" xsi:type="column"/>
+            <field table="AZEMPLOYEE" name="DEPARTMENT_ID" xsi:type="column"/>
+            <field table="AZEMPLOYEE" name="DEPARTMENT_NUMBER" xsi:type="column"/>
+            <field table="AZEMPLOYEE" name="DEPARTMENT_NAME" xsi:type="column"/>
+            <field table="AZEMPLOYEE" name="DEPARTMENT_LOCATION_NUMBER" xsi:type="column"/>
+            <field table="AZEMPLOYEE" name="DEPARTMENT_STATUS" xsi:type="column"/>
+            <field table="AZEMPLOYEE" name="LOCATION_ID" xsi:type="column"/>
+            <field table="AZEMPLOYEE" name="LOCATION_NUMBER" xsi:type="column"/>
+            <field table="AZEMPLOYEE" name="LOCATION_NAME" xsi:type="column"/>
+            <field table="AZEMPLOYEE" name="LOCATION_STATUS" xsi:type="column"/>
+         </primary-key>
+         <events/>
+         <querying>
+            <queries>
+               <query name="atpSelectAzemployeeSelect" xsi:type="read-all-query">
+                  <arguments>
+                     <argument name="EmployeeNumber">
+                        <type>java.lang.String</type>
+                     </argument>
+                  </arguments>
+                  <timeout>220</timeout>
+                  <call xsi:type="sql-call">
+                     <sql>SELECT EMPLOYEE_ID, EMPLOYEE_NUMBER, EMPLOYEE_NAME, EMPLOYEE_EMAIL, EMPLOYEE_DEPARTMENT_NUMBER, EMPLOYEE_STATUS, DEPARTMENT_ID, DEPARTMENT_NUMBER, DEPARTMENT_NAME, DEPARTMENT_LOCATION_NUMBER, DEPARTMENT_STATUS, LOCATION_ID, LOCATION_NUMBER, LOCATION_NAME, LOCATION_STATUS FROM AZEMPLOYEE WHERE EMPLOYEE_NUMBER = #EmployeeNumber</sql>
+                  </call>
+                  <fetch-size>200</fetch-size>
+                  <reference-class>atpSelectAzemployee.Azemployee</reference-class>
+                  <container xsi:type="list-container-policy">
+                     <collection-type>java.util.Vector</collection-type>
+                  </container>
+               </query>
+            </queries>
+         </querying>
+         <attribute-mappings>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>employeeId</attribute-name>
+               <field table="AZEMPLOYEE" name="EMPLOYEE_ID" xsi:type="column"/>
+               <attribute-classification>java.math.BigDecimal</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>employeeNumber</attribute-name>
+               <field table="AZEMPLOYEE" name="EMPLOYEE_NUMBER" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>employeeName</attribute-name>
+               <field table="AZEMPLOYEE" name="EMPLOYEE_NAME" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>employeeEmail</attribute-name>
+               <field table="AZEMPLOYEE" name="EMPLOYEE_EMAIL" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>employeeDepartmentNumber</attribute-name>
+               <field table="AZEMPLOYEE" name="EMPLOYEE_DEPARTMENT_NUMBER" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>employeeStatus</attribute-name>
+               <field table="AZEMPLOYEE" name="EMPLOYEE_STATUS" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>departmentId</attribute-name>
+               <field table="AZEMPLOYEE" name="DEPARTMENT_ID" xsi:type="column"/>
+               <attribute-classification>java.math.BigDecimal</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>departmentNumber</attribute-name>
+               <field table="AZEMPLOYEE" name="DEPARTMENT_NUMBER" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>departmentName</attribute-name>
+               <field table="AZEMPLOYEE" name="DEPARTMENT_NAME" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>departmentLocationNumber</attribute-name>
+               <field table="AZEMPLOYEE" name="DEPARTMENT_LOCATION_NUMBER" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>departmentStatus</attribute-name>
+               <field table="AZEMPLOYEE" name="DEPARTMENT_STATUS" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>locationId</attribute-name>
+               <field table="AZEMPLOYEE" name="LOCATION_ID" xsi:type="column"/>
+               <attribute-classification>java.math.BigDecimal</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>locationNumber</attribute-name>
+               <field table="AZEMPLOYEE" name="LOCATION_NUMBER" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>locationName</attribute-name>
+               <field table="AZEMPLOYEE" name="LOCATION_NAME" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>locationStatus</attribute-name>
+               <field table="AZEMPLOYEE" name="LOCATION_STATUS" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+         </attribute-mappings>
+         <descriptor-type>independent</descriptor-type>
+         <caching>
+            <cache-type>weak-reference</cache-type>
+            <cache-size>-1</cache-size>
+            <always-refresh>true</always-refresh>
+         </caching>
+         <remote-caching>
+            <cache-type>weak-reference</cache-type>
+            <cache-size>-1</cache-size>
+         </remote-caching>
+         <instantiation/>
+         <copying xsi:type="instantiation-copy-policy"/>
+         <tables>
+            <table name="AZEMPLOYEE"/>
+         </tables>
+         <structure>structureName</structure>
+      </class-mapping-descriptor>
+   </class-mapping-descriptors>
+   <login xsi:type="database-login">
+      <platform-class>org.eclipse.persistence.platform.database.oracle.Oracle10Platform</platform-class>
+      <connection-url></connection-url>
+   </login>
+</object-persistence>

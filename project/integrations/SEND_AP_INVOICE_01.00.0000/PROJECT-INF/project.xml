@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns3:icsproject name="project_1" version="9.9" cversion="103" modelType="freeform" xmlns="http://www.oracle.com/2014/03/ics/project/definition" xmlns:ns2="http://www.oracle.com/2014/03/ics/flow/definition" xmlns:ns3="http://www.oracle.com/2014/03/ics/project">
+    <projectCode>SEND_AP_INVOICE</projectCode>
+    <projectVersion>01.00.0000</projectVersion>
+    <projectName>Send AP Invoice</projectName>
+    <percentComplete>100</percentComplete>
+    <projectHasErrors>false</projectHasErrors>
+    <projectHasWarnings>false</projectHasWarnings>
+    <ns3:icsflow name="flow_1">
+        <ns2:application name="application_8">
+            <ns2:role>source</ns2:role>
+            <ns2:adapter>
+                <ns2:type>app-adapter</ns2:type>
+                <ns2:code>APPLICATION_EVENT_CONNECTION</ns2:code>
+                <ns2:name>SERVICEREQUESTCREATED1</ns2:name>
+                <ns2:property name="hasAttachment" value="false"/>
+            </ns2:adapter>
+            <ns2:mep>fire-and-forget</ns2:mep>
+            <ns2:eventTypes>
+                <ns2:eventType name="SERVICEREQUESTCREATED" revision="5"/>
+            </ns2:eventTypes>
+            <ns2:outbound name="outbound_9">
+                <ns2:operation>execute</ns2:operation>
+                <ns2:resourceGroup name="resourcegroup_15">
+                    <ns2:resource name="resource_17" location="../resources/application_8/outbound_9/resourcegroup_15/SERVICEREQUESTCREATED1_REQUEST.wsdl" type="wsdl"/>
+                    <ns2:resource name="resource_210" location="../resources/application_8/outbound_9/resourcegroup_15/SERVICEREQUESTCREATED1_REQUEST.jca" type="jca"/>
+                </ns2:resourceGroup>
+                <ns2:output name="output_19">
+                    <ns2:role>request</ns2:role>
+                    <ns2:messageContextRef refUri="messagecontext_18"/>
+                </ns2:output>
+            </ns2:outbound>
+        </ns2:application>
+        <ns2:processor name="processor_1">
+            <ns2:type>messageTracker</ns2:type>
+            <ns2:role>messageTracker:global</ns2:role>
+            <ns2:trackingVariableGroup>
+                <ns2:trackingVariable>
+                    <ns2:role>tracking_var_1</ns2:role>
+                    <ns2:primary>true</ns2:primary>
+                    <ns2:name>InvoiceId</ns2:name>
+                    <ns2:xpath>/execute/request-wrapper/InvoiceId</ns2:xpath>
+                    <ns2:messageContextRef refUri="messagecontext_18"/>
+                    <ns2:output name="output_3">
+                        <ns2:messageContextRef refUri="messagecontext_2"/>
+                    </ns2:output>
+                </ns2:trackingVariable>
+                <ns2:trackingVariable>
+                    <ns2:role>tracking_var_2</ns2:role>
+                    <ns2:primary>false</ns2:primary>
+                    <ns2:name>InvoiceNumber</ns2:name>
+                    <ns2:xpath>/execute/request-wrapper/InvoiceNumber</ns2:xpath>
+                    <ns2:messageContextRef refUri="messagecontext_18"/>
+                    <ns2:output name="output_5">
+                        <ns2:messageContextRef refUri="messagecontext_4"/>
+                    </ns2:output>
+                </ns2:trackingVariable>
+                <ns2:trackingVariable>
+                    <ns2:role>tracking_var_3</ns2:role>
+                    <ns2:primary>false</ns2:primary>
+                    <ns2:name>Result</ns2:name>
+                    <ns2:xpath>/execute/request-wrapper/Result</ns2:xpath>
+                    <ns2:messageContextRef refUri="messagecontext_18"/>
+                    <ns2:output name="output_7">
+                        <ns2:messageContextRef refUri="messagecontext_6"/>
+                    </ns2:output>
+                </ns2:trackingVariable>
+            </ns2:trackingVariableGroup>
+        </ns2:processor>
+        <ns2:processor name="processor_10">
+            <ns2:type>integrationMetadata</ns2:type>
+            <ns2:role>undefined</ns2:role>
+            <ns2:resourceGroup name="resourcegroup_11">
+                <ns2:resource name="resource_12" location="../resources/processor_10/resourcegroup_11/ICSIntegrationMetadata.xsd" type="xsd"/>
+            </ns2:resourceGroup>
+            <ns2:output name="output_14">
+                <ns2:messageContextRef refUri="messagecontext_13"/>
+            </ns2:output>
+        </ns2:processor>
+        <ns2:processor name="processor_20">
+            <ns2:type>activityStreamLogger</ns2:type>
+            <ns2:role>undefined</ns2:role>
+            <ns2:resourceGroup name="resourcegroup_221">
+                <ns2:role>exprBuilderProperties</ns2:role>
+                <ns2:resource name="resource_222" location="../resources/processor_20/resourcegroup_221/expr.properties" type="properties"/>
+            </ns2:resourceGroup>
+            <ns2:resourceRef refUri="messagecontext_18">
+                <ns2:role>primary-source</ns2:role>
+            </ns2:resourceRef>
+            <ns2:property name="traceOnly" value="false"/>
+            <ns2:processorName>Logger1</ns2:processorName>
+            <ns2:processorDescription></ns2:processorDescription>
+        </ns2:processor>
+        <ns2:processor name="processor_29">
+            <ns2:type>notification</ns2:type>
+            <ns2:role>undefined</ns2:role>
+            <ns2:resourceGroup name="resourcegroup_242">
+                <ns2:role>NotificationData</ns2:role>
+                <ns2:resource name="resource_243" location="../resources/processor_29/resourcegroup_242/notification_from.data" type="undefined"/>
+                <ns2:resource name="resource_244" location="../resources/processor_29/resourcegroup_242/notification_to.data" type="undefined"/>
+                <ns2:resource name="resource_245" location="../resources/processor_29/resourcegroup_242/notification_subject.data" type="undefined"/>
+                <ns2:resource name="resource_246" location="../resources/processor_29/resourcegroup_242/notification_body.data" type="undefined"/>
+            </ns2:resourceGroup>
+            <ns2:resourceGroup name="resourcegroup_254">
+                <ns2:role>exprBuilderProperties</ns2:role>
+                <ns2:resource name="resource_255" location="../resources/processor_29/resourcegroup_254/resultexpr.properties" type="properties">
+                    <ns2:role>result</ns2:role>
+                </ns2:resource>
+                <ns2:resource name="resource_256" location="../resources/processor_29/resourcegroup_254/SUBJECT_PARAM_1expr.properties" type="properties">
+                    <ns2:role>SUBJECT_PARAM_1</ns2:role>
+                </ns2:resource>
+                <ns2:resource name="resource_257" location="../resources/processor_29/resourcegroup_254/invoiceNumberexpr.properties" type="properties">
+                    <ns2:role>invoiceNumber</ns2:role>
+                </ns2:resource>
+                <ns2:resource name="resource_258" location="../resources/processor_29/resourcegroup_254/FROM_PARAM_1expr.properties" type="properties">
+                    <ns2:role>FROM_PARAM_1</ns2:role>
+                </ns2:resource>
+                <ns2:resource name="resource_259" location="../resources/processor_29/resourcegroup_254/invoiceIdexpr.properties" type="properties">
+                    <ns2:role>invoiceId</ns2:role>
+                </ns2:resource>
+                <ns2:resource name="resource_260" location="../resources/processor_29/resourcegroup_254/TO_PARAM_1expr.properties" type="properties">
+                    <ns2:role>TO_PARAM_1</ns2:role>
+                </ns2:resource>
+            </ns2:resourceGroup>
+            <ns2:resourceRef refUri="messagecontext_18">
+                <ns2:role>primary-source</ns2:role>
+            </ns2:resourceRef>
+            <ns2:processorName>Notification1</ns2:processorName>
+            <ns2:processorDescription></ns2:processorDescription>
+        </ns2:processor>
+        <ns2:messageContext name="messagecontext_2">
+            <ns2:rootElement elementName="string" namespace="http://www.w3.org/2001/XMLSchema"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_4">
+            <ns2:rootElement elementName="string" namespace="http://www.w3.org/2001/XMLSchema"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_6">
+            <ns2:rootElement elementName="string" namespace="http://www.w3.org/2001/XMLSchema"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_13">
+            <ns2:resourceRef refUri="processor_10/resourcegroup_11/resource_12"/>
+            <ns2:rootElement elementName="metadata" namespace="http://www.oracle.com/2014/03/ic/integration/metadata"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_18">
+            <ns2:resourceRef refUri="application_8/outbound_9/resourcegroup_15/resource_17"/>
+            <ns2:rootElement elementName="execute" namespace="http://xmlns.oracle.com/cloud/adapter/appevent/SERVICEREQUESTCREATED1_REQUEST/types"/>
+            <ns2:wsdlMessage messageName="executeRequestMessage" namespace="http://xmlns.oracle.com/cloud/adapter/appevent/SERVICEREQUESTCREATED1_REQUEST" partName="parameters"/>
+        </ns2:messageContext>
+        <ns2:commonNamespaceMaps/>
+        <ns2:orchestration>
+            <ns2:integrationMetadata id="im0" refUri="processor_10"/>
+            <ns2:subscribe trackingRefUri="processor_1" id="sub0" refUri="application_8/outbound_9/output_19" name="SERVICEREQUESTCREATED1" description="" displayName="ServiceRequestCreated1"/>
+            <ns2:activityStreamLogger id="lg0" refUri="processor_20"/>
+            <ns2:notification id="n0" refUri="processor_29"/>
+            <ns2:stop id="st0"/>
+        </ns2:orchestration>
+    </ns3:icsflow>
+</ns3:icsproject>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<api-library>
+    <name>InputPosition</name>
+    <code>INPUTPOSITION</code>
+    <version>01.00.0000</version>
+    <implementationType>JAVASCRIPT</implementationType>
+    <sources>
+        <source>
+            <fileName>InputPosition.js</fileName>
+            <apiDefinitions>
+                <api apiid="INPUTPOSITION:01.00.0000:InputPosition.js:inputposition:string">
+                    <classification>ORCHESTRATION</classification>
+                    <duplicateFnFlag>false</duplicateFnFlag>
+                    <name>inputposition</name>
+                    <inputParameters>
+                        <input>
+                            <icon>/oracle/ics/webconsole/view/images/string_24_ena.png</icon>
+                            <name>string</name>
+                            <type>string</type>
+                        </input>
+                    </inputParameters>
+                    <libraryCode>INPUTPOSITION</libraryCode>
+                    <classification>ORCHESTRATION</classification>
+                    <classification>XPATH</classification>
+                    <outputParameters>
+                        <output>
+                            <icon>/oracle/ics/webconsole/view/images/string_24_ena.png</icon>
+                            <name>result</name>
+                            <type>string</type>
+                        </output>
+                    </outputParameters>
+                    <unsupportedSyntax>false</unsupportedSyntax>
+                </api>
+            </apiDefinitions>
+            <libraryCode>INPUTPOSITION</libraryCode>
+        </source>
+    </sources>
+</api-library>

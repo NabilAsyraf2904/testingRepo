@@ -1,0 +1,726 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns3:icsproject name="project_1" version="10.0" cversion="5" modelType="freeform" xmlns="http://www.oracle.com/2014/03/ics/project/definition" xmlns:ns2="http://www.oracle.com/2014/03/ics/flow/definition" xmlns:ns3="http://www.oracle.com/2014/03/ics/project">
+    <projectCode>CY_EMPLOYEE</projectCode>
+    <projectVersion>01.00.0000</projectVersion>
+    <projectName>CY Employee</projectName>
+    <percentComplete>100</percentComplete>
+    <projectHasErrors>false</projectHasErrors>
+    <projectHasWarnings>true</projectHasWarnings>
+    <ns3:icsflow name="flow_1">
+        <ns2:application name="application_13">
+            <ns2:role>source</ns2:role>
+            <ns2:adapter>
+                <ns2:type>app-adapter</ns2:type>
+                <ns2:code>MY_REST_ENDPOINT_INTERFAC</ns2:code>
+                <ns2:name>employee</ns2:name>
+                <ns2:property name="hasAttachment" value="false"/>
+            </ns2:adapter>
+            <ns2:mep>fire-and-forget</ns2:mep>
+            <ns2:outbound name="outbound_14">
+                <ns2:binding>rest</ns2:binding>
+                <ns2:operation>execute</ns2:operation>
+                <ns2:resourceGroup name="resourcegroup_15">
+                    <ns2:resource name="resource_17" location="../resources/application_13/outbound_14/resourcegroup_15/employee_REQUEST.wsdl" type="wsdl"/>
+                    <ns2:resource name="resource_455" location="../resources/application_13/outbound_14/resourcegroup_15/employee_REQUEST.jca" type="jca"/>
+                </ns2:resourceGroup>
+                <ns2:output name="output_19">
+                    <ns2:role>request</ns2:role>
+                    <ns2:messageContextRef refUri="messagecontext_18"/>
+                </ns2:output>
+            </ns2:outbound>
+        </ns2:application>
+        <ns2:application name="application_162">
+            <ns2:role>target</ns2:role>
+            <ns2:adapter>
+                <ns2:type>app-adapter</ns2:type>
+                <ns2:code>KNX_ATP</ns2:code>
+                <ns2:name>atpSelectEmployee</ns2:name>
+                <ns2:property name="hasAttachment" value="false"/>
+            </ns2:adapter>
+            <ns2:mep>push-sync</ns2:mep>
+            <ns2:inbound name="inbound_163">
+                <ns2:operation>atpSelectEmployeeSelect</ns2:operation>
+                <ns2:resourceGroup name="resourcegroup_164">
+                    <ns2:resource name="resource_167" location="../resources/application_162/inbound_163/resourcegroup_164/atpSelectEmployee_REQUEST.wsdl" type="wsdl"/>
+                    <ns2:resource name="resource_214" location="../resources/application_162/inbound_163/resourcegroup_164/atpSelectEmployee_REQUEST.jca" type="jca"/>
+                    <ns2:resource name="resource_215" location="../resources/application_162/inbound_163/resourcegroup_164/ICSFault.xsd" type="xsd"/>
+                </ns2:resourceGroup>
+                <ns2:input name="input_169">
+                    <ns2:role>request</ns2:role>
+                    <ns2:messageContextRef refUri="messagecontext_168"/>
+                </ns2:input>
+                <ns2:output name="output_171">
+                    <ns2:role>response</ns2:role>
+                    <ns2:messageContextRef refUri="messagecontext_170"/>
+                </ns2:output>
+                <ns2:output name="output_173">
+                    <ns2:role>fault</ns2:role>
+                    <ns2:subRole>serviceInvocationError</ns2:subRole>
+                    <ns2:messageContextRef refUri="messagecontext_172"/>
+                </ns2:output>
+            </ns2:inbound>
+        </ns2:application>
+        <ns2:application name="application_183">
+            <ns2:role>target</ns2:role>
+            <ns2:adapter>
+                <ns2:type>app-adapter</ns2:type>
+                <ns2:code>KNX_ATP</ns2:code>
+                <ns2:name>atpUpdateEmployee</ns2:name>
+                <ns2:property name="hasAttachment" value="false"/>
+            </ns2:adapter>
+            <ns2:mep>fire-and-forget</ns2:mep>
+            <ns2:inbound name="inbound_184">
+                <ns2:operation>update</ns2:operation>
+                <ns2:resourceGroup name="resourcegroup_185">
+                    <ns2:resource name="resource_186" location="../resources/application_183/inbound_184/resourcegroup_185/atpUpdateEmployee_REQUEST.jca" type="jca"/>
+                    <ns2:resource name="resource_187" location="../resources/application_183/inbound_184/resourcegroup_185/ICSFault.xsd" type="xsd"/>
+                    <ns2:resource name="resource_188" location="../resources/application_183/inbound_184/resourcegroup_185/atpUpdateEmployee_REQUEST.wsdl" type="wsdl"/>
+                </ns2:resourceGroup>
+                <ns2:input name="input_190">
+                    <ns2:role>request</ns2:role>
+                    <ns2:messageContextRef refUri="messagecontext_189"/>
+                </ns2:input>
+            </ns2:inbound>
+        </ns2:application>
+        <ns2:application name="application_220">
+            <ns2:role>target</ns2:role>
+            <ns2:adapter>
+                <ns2:type>app-adapter</ns2:type>
+                <ns2:code>KNX_ATP</ns2:code>
+                <ns2:name>atpSelectLocation</ns2:name>
+                <ns2:property name="hasAttachment" value="false"/>
+            </ns2:adapter>
+            <ns2:mep>push-sync</ns2:mep>
+            <ns2:inbound name="inbound_221">
+                <ns2:operation>atpSelectLocationSelect</ns2:operation>
+                <ns2:resourceGroup name="resourcegroup_348">
+                    <ns2:resource name="resource_349" location="../resources/application_220/inbound_221/resourcegroup_348/atpSelectLocation_REQUEST.jca" type="jca"/>
+                    <ns2:resource name="resource_350" location="../resources/application_220/inbound_221/resourcegroup_348/ICSFault.xsd" type="xsd"/>
+                    <ns2:resource name="resource_351" location="../resources/application_220/inbound_221/resourcegroup_348/atpSelectLocation_REQUEST.wsdl" type="wsdl"/>
+                </ns2:resourceGroup>
+                <ns2:input name="input_227">
+                    <ns2:role>request</ns2:role>
+                    <ns2:messageContextRef refUri="messagecontext_352"/>
+                </ns2:input>
+                <ns2:output name="output_229">
+                    <ns2:role>response</ns2:role>
+                    <ns2:messageContextRef refUri="messagecontext_353"/>
+                </ns2:output>
+                <ns2:output name="output_355">
+                    <ns2:role>fault</ns2:role>
+                    <ns2:subRole>serviceInvocationError</ns2:subRole>
+                    <ns2:messageContextRef refUri="messagecontext_354"/>
+                </ns2:output>
+            </ns2:inbound>
+        </ns2:application>
+        <ns2:application name="application_295">
+            <ns2:role>target</ns2:role>
+            <ns2:adapter>
+                <ns2:type>app-adapter</ns2:type>
+                <ns2:code>KNX_ATP</ns2:code>
+                <ns2:name>atpSelectDepartment</ns2:name>
+                <ns2:property name="hasAttachment" value="false"/>
+            </ns2:adapter>
+            <ns2:mep>push-sync</ns2:mep>
+            <ns2:inbound name="inbound_296">
+                <ns2:operation>atpSelectDepartmentSelect</ns2:operation>
+                <ns2:resourceGroup name="resourcegroup_365">
+                    <ns2:resource name="resource_366" location="../resources/application_295/inbound_296/resourcegroup_365/atpSelectDepartment_REQUEST.jca" type="jca"/>
+                    <ns2:resource name="resource_367" location="../resources/application_295/inbound_296/resourcegroup_365/ICSFault.xsd" type="xsd"/>
+                    <ns2:resource name="resource_368" location="../resources/application_295/inbound_296/resourcegroup_365/atpSelectDepartment_REQUEST.wsdl" type="wsdl"/>
+                </ns2:resourceGroup>
+                <ns2:input name="input_302">
+                    <ns2:role>request</ns2:role>
+                    <ns2:messageContextRef refUri="messagecontext_369"/>
+                </ns2:input>
+                <ns2:output name="output_304">
+                    <ns2:role>response</ns2:role>
+                    <ns2:messageContextRef refUri="messagecontext_370"/>
+                </ns2:output>
+                <ns2:output name="output_372">
+                    <ns2:role>fault</ns2:role>
+                    <ns2:subRole>serviceInvocationError</ns2:subRole>
+                    <ns2:messageContextRef refUri="messagecontext_371"/>
+                </ns2:output>
+            </ns2:inbound>
+        </ns2:application>
+        <ns2:application name="application_472">
+            <ns2:role>target</ns2:role>
+            <ns2:adapter>
+                <ns2:type>app-adapter</ns2:type>
+                <ns2:code>KNX_ATP</ns2:code>
+                <ns2:name>atpSelectAllEmployee</ns2:name>
+                <ns2:property name="hasAttachment" value="false"/>
+            </ns2:adapter>
+            <ns2:mep>push-sync</ns2:mep>
+            <ns2:inbound name="inbound_473">
+                <ns2:operation>atpSelectAllEmployeeSelect</ns2:operation>
+                <ns2:resourceGroup name="resourcegroup_474">
+                    <ns2:resource name="resource_475" location="../resources/application_472/inbound_473/resourcegroup_474/atpSelectAllEmployee_REQUEST.jca" type="jca"/>
+                    <ns2:resource name="resource_476" location="../resources/application_472/inbound_473/resourcegroup_474/ICSFault.xsd" type="xsd"/>
+                    <ns2:resource name="resource_477" location="../resources/application_472/inbound_473/resourcegroup_474/atpSelectAllEmployee_REQUEST.wsdl" type="wsdl"/>
+                </ns2:resourceGroup>
+                <ns2:input name="input_479">
+                    <ns2:role>request</ns2:role>
+                    <ns2:messageContextRef refUri="messagecontext_478"/>
+                </ns2:input>
+                <ns2:output name="output_481">
+                    <ns2:role>response</ns2:role>
+                    <ns2:messageContextRef refUri="messagecontext_480"/>
+                </ns2:output>
+                <ns2:output name="output_483">
+                    <ns2:role>fault</ns2:role>
+                    <ns2:subRole>serviceInvocationError</ns2:subRole>
+                    <ns2:messageContextRef refUri="messagecontext_482"/>
+                </ns2:output>
+            </ns2:inbound>
+        </ns2:application>
+        <ns2:application name="application_495">
+            <ns2:role>target</ns2:role>
+            <ns2:adapter>
+                <ns2:type>app-adapter</ns2:type>
+                <ns2:code>KNX_ATP</ns2:code>
+                <ns2:name>atpInsertLocation</ns2:name>
+                <ns2:property name="hasAttachment" value="false"/>
+            </ns2:adapter>
+            <ns2:mep>fire-and-forget</ns2:mep>
+            <ns2:inbound name="inbound_496">
+                <ns2:operation>insert</ns2:operation>
+                <ns2:resourceGroup name="resourcegroup_497">
+                    <ns2:resource name="resource_498" location="../resources/application_495/inbound_496/resourcegroup_497/atpInsertLocation_REQUEST.jca" type="jca"/>
+                    <ns2:resource name="resource_499" location="../resources/application_495/inbound_496/resourcegroup_497/ICSFault.xsd" type="xsd"/>
+                    <ns2:resource name="resource_500" location="../resources/application_495/inbound_496/resourcegroup_497/atpInsertLocation_REQUEST.wsdl" type="wsdl"/>
+                </ns2:resourceGroup>
+                <ns2:input name="input_502">
+                    <ns2:role>request</ns2:role>
+                    <ns2:messageContextRef refUri="messagecontext_501"/>
+                </ns2:input>
+            </ns2:inbound>
+        </ns2:application>
+        <ns2:application name="application_508">
+            <ns2:role>target</ns2:role>
+            <ns2:adapter>
+                <ns2:type>app-adapter</ns2:type>
+                <ns2:code>KNX_ATP</ns2:code>
+                <ns2:name>atpInsertDepartment</ns2:name>
+                <ns2:property name="hasAttachment" value="false"/>
+            </ns2:adapter>
+            <ns2:mep>fire-and-forget</ns2:mep>
+            <ns2:inbound name="inbound_509">
+                <ns2:operation>insert</ns2:operation>
+                <ns2:resourceGroup name="resourcegroup_510">
+                    <ns2:resource name="resource_511" location="../resources/application_508/inbound_509/resourcegroup_510/atpInsertDepartment_REQUEST.jca" type="jca"/>
+                    <ns2:resource name="resource_512" location="../resources/application_508/inbound_509/resourcegroup_510/ICSFault.xsd" type="xsd"/>
+                    <ns2:resource name="resource_513" location="../resources/application_508/inbound_509/resourcegroup_510/atpInsertDepartment_REQUEST.wsdl" type="wsdl"/>
+                </ns2:resourceGroup>
+                <ns2:input name="input_515">
+                    <ns2:role>request</ns2:role>
+                    <ns2:messageContextRef refUri="messagecontext_514"/>
+                </ns2:input>
+            </ns2:inbound>
+        </ns2:application>
+        <ns2:application name="application_521">
+            <ns2:role>target</ns2:role>
+            <ns2:adapter>
+                <ns2:type>app-adapter</ns2:type>
+                <ns2:code>KNX_ATP</ns2:code>
+                <ns2:name>atpInsertEmployee</ns2:name>
+                <ns2:property name="hasAttachment" value="false"/>
+            </ns2:adapter>
+            <ns2:mep>fire-and-forget</ns2:mep>
+            <ns2:inbound name="inbound_522">
+                <ns2:operation>insert</ns2:operation>
+                <ns2:resourceGroup name="resourcegroup_523">
+                    <ns2:resource name="resource_524" location="../resources/application_521/inbound_522/resourcegroup_523/atpInsertEmployee_REQUEST.jca" type="jca"/>
+                    <ns2:resource name="resource_525" location="../resources/application_521/inbound_522/resourcegroup_523/ICSFault.xsd" type="xsd"/>
+                    <ns2:resource name="resource_526" location="../resources/application_521/inbound_522/resourcegroup_523/atpInsertEmployee_REQUEST.wsdl" type="wsdl"/>
+                </ns2:resourceGroup>
+                <ns2:input name="input_528">
+                    <ns2:role>request</ns2:role>
+                    <ns2:messageContextRef refUri="messagecontext_527"/>
+                </ns2:input>
+            </ns2:inbound>
+        </ns2:application>
+        <ns2:processor name="processor_1">
+            <ns2:type>integrationMetadata</ns2:type>
+            <ns2:role>undefined</ns2:role>
+            <ns2:resourceGroup name="resourcegroup_2">
+                <ns2:resource name="resource_3" location="../resources/processor_1/resourcegroup_2/ICSIntegrationMetadata.xsd" type="xsd"/>
+            </ns2:resourceGroup>
+            <ns2:output name="output_5">
+                <ns2:messageContextRef refUri="messagecontext_4"/>
+            </ns2:output>
+        </ns2:processor>
+        <ns2:processor name="processor_6">
+            <ns2:type>messageTracker</ns2:type>
+            <ns2:role>messageTracker:global</ns2:role>
+            <ns2:trackingVariableGroup>
+                <ns2:trackingVariable>
+                    <ns2:role>tracking_var_1</ns2:role>
+                    <ns2:primary>true</ns2:primary>
+                    <ns2:name>EmployeeNumber</ns2:name>
+                    <ns2:xpath>/execute/request-wrapper/createEmployeeRequest/EmployeeNumber</ns2:xpath>
+                    <ns2:messageContextRef refUri="messagecontext_18"/>
+                    <ns2:output name="output_8">
+                        <ns2:messageContextRef refUri="messagecontext_7"/>
+                    </ns2:output>
+                </ns2:trackingVariable>
+                <ns2:trackingVariable>
+                    <ns2:role>tracking_var_2</ns2:role>
+                    <ns2:primary>false</ns2:primary>
+                    <ns2:name>tracking_var_2</ns2:name>
+                    <ns2:messageContextRef refUri="messagecontext_18"/>
+                    <ns2:output name="output_10">
+                        <ns2:messageContextRef refUri="messagecontext_9"/>
+                    </ns2:output>
+                </ns2:trackingVariable>
+                <ns2:trackingVariable>
+                    <ns2:role>tracking_var_3</ns2:role>
+                    <ns2:primary>false</ns2:primary>
+                    <ns2:name>tracking_var_3</ns2:name>
+                    <ns2:messageContextRef refUri="messagecontext_18"/>
+                    <ns2:output name="output_12">
+                        <ns2:messageContextRef refUri="messagecontext_11"/>
+                    </ns2:output>
+                </ns2:trackingVariable>
+            </ns2:trackingVariableGroup>
+        </ns2:processor>
+        <ns2:processor name="processor_20">
+            <ns2:type>for</ns2:type>
+            <ns2:role>undefined</ns2:role>
+            <ns2:resourceGroup name="resourcegroup_27">
+                <ns2:role>generatedArtifacts</ns2:role>
+                <ns2:resource name="resource_28" location="../resources/processor_20/resourcegroup_27/generated.wsdl" type="wsdl">
+                    <ns2:property name="parentRefUri" value="application_13/outbound_14/resourcegroup_15/resource_17"/>
+                </ns2:resource>
+            </ns2:resourceGroup>
+            <ns2:resourceGroup name="resourcegroup_466">
+                <ns2:role>exprBuilderProperties</ns2:role>
+                <ns2:resource name="resource_467" location="../resources/processor_20/resourcegroup_466/expr.properties" type="properties"/>
+            </ns2:resourceGroup>
+            <ns2:resourceRef refUri="messagecontext_18">
+                <ns2:role>primary-source</ns2:role>
+            </ns2:resourceRef>
+            <ns2:output name="output_30">
+                <ns2:messageContextRef refUri="messagecontext_29"/>
+            </ns2:output>
+            <ns2:property name="parallel" value="false"/>
+            <ns2:processorName>forEachEmployee</ns2:processorName>
+        </ns2:processor>
+        <ns2:processor name="processor_79">
+            <ns2:type>contentBasedRouter</ns2:type>
+            <ns2:role>router:request-post-es</ns2:role>
+            <ns2:resourceRef refUri="messagecontext_170">
+                <ns2:role>secondary-source</ns2:role>
+                <ns2:subRole>atpSelectEmployee</ns2:subRole>
+            </ns2:resourceRef>
+            <ns2:input name="input_80">
+                <ns2:messageContextRef refUri="messagecontext_18"/>
+            </ns2:input>
+            <ns2:output name="output_81">
+                <ns2:messageContextRef refUri="messagecontext_18"/>
+                <ns2:resourceGroup name="resourcegroup_458">
+                    <ns2:resource name="resource_459" location="../resources/processor_79/output_81/resourcegroup_458/expr.properties" type="properties"/>
+                </ns2:resourceGroup>
+            </ns2:output>
+            <ns2:output name="output_90">
+                <ns2:messageContextRef refUri="messagecontext_18"/>
+                <ns2:resourceGroup name="resourcegroup_460">
+                    <ns2:resource name="resource_461" location="../resources/processor_79/output_90/resourcegroup_460/expr.properties" type="properties"/>
+                </ns2:resourceGroup>
+            </ns2:output>
+        </ns2:processor>
+        <ns2:processor name="processor_174">
+            <ns2:type>transformer</ns2:type>
+            <ns2:role>transformer:response-map</ns2:role>
+            <ns2:resourceGroup name="resourcegroup_177">
+                <ns2:resource name="resource_178" location="../resources/processor_174/resourcegroup_177/req_da49d71e62624f9b935496ccc3e3873a.xsl" type="xslt"/>
+            </ns2:resourceGroup>
+            <ns2:resourceRef refUri="messagecontext_29">
+                <ns2:role>secondary-source</ns2:role>
+                <ns2:subRole>currEmployee</ns2:subRole>
+            </ns2:resourceRef>
+            <ns2:input name="input_175">
+                <ns2:messageContextRef refUri="messagecontext_18"/>
+            </ns2:input>
+            <ns2:output name="output_176">
+                <ns2:messageContextRef refUri="messagecontext_168"/>
+            </ns2:output>
+            <ns2:property name="has-mappings" value="true"/>
+        </ns2:processor>
+        <ns2:processor name="processor_191">
+            <ns2:type>transformer</ns2:type>
+            <ns2:role>transformer:response-map</ns2:role>
+            <ns2:resourceGroup name="resourcegroup_194">
+                <ns2:resource name="resource_195" location="../resources/processor_191/resourcegroup_194/req_8fcd301c94a94046bb2153a43d4ce1e6.xsl" type="xslt"/>
+            </ns2:resourceGroup>
+            <ns2:resourceRef refUri="messagecontext_170">
+                <ns2:role>secondary-source</ns2:role>
+                <ns2:subRole>atpSelectEmployee</ns2:subRole>
+            </ns2:resourceRef>
+            <ns2:resourceRef refUri="messagecontext_29">
+                <ns2:role>secondary-source</ns2:role>
+                <ns2:subRole>currEmployee</ns2:subRole>
+            </ns2:resourceRef>
+            <ns2:resourceRef refUri="messagecontext_168">
+                <ns2:role>secondary-source</ns2:role>
+                <ns2:subRole>atpSelectEmployee_REQUEST</ns2:subRole>
+            </ns2:resourceRef>
+            <ns2:resourceRef refUri="messagecontext_4">
+                <ns2:role>secondary-source</ns2:role>
+                <ns2:subRole>self</ns2:subRole>
+            </ns2:resourceRef>
+            <ns2:resourceRef refUri="messagecontext_7">
+                <ns2:role>secondary-source</ns2:role>
+                <ns2:subRole>tracking_var_1</ns2:subRole>
+            </ns2:resourceRef>
+            <ns2:resourceRef refUri="messagecontext_9">
+                <ns2:role>secondary-source</ns2:role>
+                <ns2:subRole>tracking_var_2</ns2:subRole>
+            </ns2:resourceRef>
+            <ns2:resourceRef refUri="messagecontext_11">
+                <ns2:role>secondary-source</ns2:role>
+                <ns2:subRole>tracking_var_3</ns2:subRole>
+            </ns2:resourceRef>
+            <ns2:input name="input_192">
+                <ns2:messageContextRef refUri="messagecontext_18"/>
+            </ns2:input>
+            <ns2:output name="output_193">
+                <ns2:messageContextRef refUri="messagecontext_189"/>
+            </ns2:output>
+            <ns2:property name="has-mappings" value="true"/>
+        </ns2:processor>
+        <ns2:processor name="processor_266">
+            <ns2:type>contentBasedRouter</ns2:type>
+            <ns2:role>router:request-post-es</ns2:role>
+            <ns2:resourceRef refUri="messagecontext_353">
+                <ns2:role>secondary-source</ns2:role>
+                <ns2:subRole>atpSelectLocation</ns2:subRole>
+            </ns2:resourceRef>
+            <ns2:input name="input_267">
+                <ns2:messageContextRef refUri="messagecontext_18"/>
+            </ns2:input>
+            <ns2:output name="output_268">
+                <ns2:messageContextRef refUri="messagecontext_18"/>
+                <ns2:resourceGroup name="resourcegroup_468">
+                    <ns2:resource name="resource_469" location="../resources/processor_266/output_268/resourcegroup_468/expr.properties" type="properties"/>
+                </ns2:resourceGroup>
+            </ns2:output>
+            <ns2:output name="output_277">
+                <ns2:messageContextRef refUri="messagecontext_18"/>
+                <ns2:resourceGroup name="resourcegroup_470">
+                    <ns2:resource name="resource_471" location="../resources/processor_266/output_277/resourcegroup_470/expr.properties" type="properties"/>
+                </ns2:resourceGroup>
+            </ns2:output>
+        </ns2:processor>
+        <ns2:processor name="processor_312">
+            <ns2:type>contentBasedRouter</ns2:type>
+            <ns2:role>router:request-post-es</ns2:role>
+            <ns2:resourceRef refUri="messagecontext_370">
+                <ns2:role>secondary-source</ns2:role>
+                <ns2:subRole>atpSelectDepartment</ns2:subRole>
+            </ns2:resourceRef>
+            <ns2:input name="input_313">
+                <ns2:messageContextRef refUri="messagecontext_18"/>
+            </ns2:input>
+            <ns2:output name="output_314">
+                <ns2:messageContextRef refUri="messagecontext_18"/>
+                <ns2:resourceGroup name="resourcegroup_491">
+                    <ns2:resource name="resource_492" location="../resources/processor_312/output_314/resourcegroup_491/expr.properties" type="properties"/>
+                </ns2:resourceGroup>
+            </ns2:output>
+            <ns2:output name="output_427">
+                <ns2:messageContextRef refUri="messagecontext_18"/>
+                <ns2:resourceGroup name="resourcegroup_493">
+                    <ns2:resource name="resource_494" location="../resources/processor_312/output_427/resourcegroup_493/expr.properties" type="properties"/>
+                </ns2:resourceGroup>
+            </ns2:output>
+        </ns2:processor>
+        <ns2:processor name="processor_360">
+            <ns2:type>transformer</ns2:type>
+            <ns2:role>transformer:response-map</ns2:role>
+            <ns2:resourceGroup name="resourcegroup_363">
+                <ns2:resource name="resource_364" location="../resources/processor_360/resourcegroup_363/req_b7a643bb5c474337a335654eccdd9977.xsl" type="xslt"/>
+            </ns2:resourceGroup>
+            <ns2:resourceRef refUri="messagecontext_29">
+                <ns2:role>secondary-source</ns2:role>
+                <ns2:subRole>currEmployee</ns2:subRole>
+            </ns2:resourceRef>
+            <ns2:input name="input_361">
+                <ns2:messageContextRef refUri="messagecontext_18"/>
+            </ns2:input>
+            <ns2:output name="output_362">
+                <ns2:messageContextRef refUri="messagecontext_352"/>
+            </ns2:output>
+            <ns2:property name="has-mappings" value="true"/>
+        </ns2:processor>
+        <ns2:processor name="processor_377">
+            <ns2:type>transformer</ns2:type>
+            <ns2:role>transformer:response-map</ns2:role>
+            <ns2:resourceGroup name="resourcegroup_380">
+                <ns2:resource name="resource_381" location="../resources/processor_377/resourcegroup_380/req_4be5f04e406d490fa305d1453f5c703d.xsl" type="xslt"/>
+            </ns2:resourceGroup>
+            <ns2:resourceRef refUri="messagecontext_29">
+                <ns2:role>secondary-source</ns2:role>
+                <ns2:subRole>currEmployee</ns2:subRole>
+            </ns2:resourceRef>
+            <ns2:input name="input_378">
+                <ns2:messageContextRef refUri="messagecontext_18"/>
+            </ns2:input>
+            <ns2:output name="output_379">
+                <ns2:messageContextRef refUri="messagecontext_369"/>
+            </ns2:output>
+            <ns2:property name="has-mappings" value="true"/>
+        </ns2:processor>
+        <ns2:processor name="processor_484">
+            <ns2:type>transformer</ns2:type>
+            <ns2:role>transformer:response-map</ns2:role>
+            <ns2:resourceGroup name="resourcegroup_487">
+                <ns2:resource name="resource_488" location="../resources/processor_484/resourcegroup_487/req_34b1b90a81d04310a72284193ae2b90d.xsl" type="xslt"/>
+            </ns2:resourceGroup>
+            <ns2:resourceRef refUri="messagecontext_170">
+                <ns2:role>secondary-source</ns2:role>
+                <ns2:subRole>atpSelectEmployee</ns2:subRole>
+            </ns2:resourceRef>
+            <ns2:resourceRef refUri="messagecontext_168">
+                <ns2:role>secondary-source</ns2:role>
+                <ns2:subRole>atpSelectEmployee_REQUEST</ns2:subRole>
+            </ns2:resourceRef>
+            <ns2:resourceRef refUri="messagecontext_29">
+                <ns2:role>secondary-source</ns2:role>
+                <ns2:subRole>currEmployee</ns2:subRole>
+            </ns2:resourceRef>
+            <ns2:resourceRef refUri="messagecontext_4">
+                <ns2:role>secondary-source</ns2:role>
+                <ns2:subRole>self</ns2:subRole>
+            </ns2:resourceRef>
+            <ns2:resourceRef refUri="messagecontext_7">
+                <ns2:role>secondary-source</ns2:role>
+                <ns2:subRole>tracking_var_1</ns2:subRole>
+            </ns2:resourceRef>
+            <ns2:resourceRef refUri="messagecontext_9">
+                <ns2:role>secondary-source</ns2:role>
+                <ns2:subRole>tracking_var_2</ns2:subRole>
+            </ns2:resourceRef>
+            <ns2:resourceRef refUri="messagecontext_11">
+                <ns2:role>secondary-source</ns2:role>
+                <ns2:subRole>tracking_var_3</ns2:subRole>
+            </ns2:resourceRef>
+            <ns2:input name="input_485">
+                <ns2:messageContextRef refUri="messagecontext_18"/>
+            </ns2:input>
+            <ns2:output name="output_486">
+                <ns2:messageContextRef refUri="messagecontext_478"/>
+            </ns2:output>
+            <ns2:property name="has-mappings" value="false"/>
+        </ns2:processor>
+        <ns2:processor name="processor_503">
+            <ns2:type>transformer</ns2:type>
+            <ns2:role>transformer:response-map</ns2:role>
+            <ns2:resourceGroup name="resourcegroup_506">
+                <ns2:resource name="resource_507" location="../resources/processor_503/resourcegroup_506/req_329f9bba39774ad49438f74c22d236c9.xsl" type="xslt"/>
+            </ns2:resourceGroup>
+            <ns2:resourceRef refUri="messagecontext_29">
+                <ns2:role>secondary-source</ns2:role>
+                <ns2:subRole>currEmployee</ns2:subRole>
+            </ns2:resourceRef>
+            <ns2:input name="input_504">
+                <ns2:messageContextRef refUri="messagecontext_18"/>
+            </ns2:input>
+            <ns2:output name="output_505">
+                <ns2:messageContextRef refUri="messagecontext_501"/>
+            </ns2:output>
+            <ns2:property name="has-mappings" value="true"/>
+        </ns2:processor>
+        <ns2:processor name="processor_516">
+            <ns2:type>transformer</ns2:type>
+            <ns2:role>transformer:response-map</ns2:role>
+            <ns2:resourceGroup name="resourcegroup_519">
+                <ns2:resource name="resource_520" location="../resources/processor_516/resourcegroup_519/req_6151076bc74145d3968c407f976f4b7c.xsl" type="xslt"/>
+            </ns2:resourceGroup>
+            <ns2:resourceRef refUri="messagecontext_29">
+                <ns2:role>secondary-source</ns2:role>
+                <ns2:subRole>currEmployee</ns2:subRole>
+            </ns2:resourceRef>
+            <ns2:resourceRef refUri="messagecontext_353">
+                <ns2:role>secondary-source</ns2:role>
+                <ns2:subRole>atpSelectLocation</ns2:subRole>
+            </ns2:resourceRef>
+            <ns2:input name="input_517">
+                <ns2:messageContextRef refUri="messagecontext_18"/>
+            </ns2:input>
+            <ns2:output name="output_518">
+                <ns2:messageContextRef refUri="messagecontext_514"/>
+            </ns2:output>
+            <ns2:property name="has-mappings" value="true"/>
+        </ns2:processor>
+        <ns2:processor name="processor_529">
+            <ns2:type>transformer</ns2:type>
+            <ns2:role>transformer:response-map</ns2:role>
+            <ns2:resourceGroup name="resourcegroup_532">
+                <ns2:resource name="resource_533" location="../resources/processor_529/resourcegroup_532/req_86da0240f50d467cb216376fc278ed16.xsl" type="xslt"/>
+            </ns2:resourceGroup>
+            <ns2:resourceRef refUri="messagecontext_370">
+                <ns2:role>secondary-source</ns2:role>
+                <ns2:subRole>atpSelectDepartment</ns2:subRole>
+            </ns2:resourceRef>
+            <ns2:resourceRef refUri="messagecontext_29">
+                <ns2:role>secondary-source</ns2:role>
+                <ns2:subRole>currEmployee</ns2:subRole>
+            </ns2:resourceRef>
+            <ns2:input name="input_530">
+                <ns2:messageContextRef refUri="messagecontext_18"/>
+            </ns2:input>
+            <ns2:output name="output_531">
+                <ns2:messageContextRef refUri="messagecontext_527"/>
+            </ns2:output>
+            <ns2:property name="has-mappings" value="true"/>
+        </ns2:processor>
+        <ns2:messageContext name="messagecontext_4">
+            <ns2:resourceRef refUri="processor_1/resourcegroup_2/resource_3"/>
+            <ns2:rootElement elementName="metadata" namespace="http://www.oracle.com/2014/03/ic/integration/metadata"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_7">
+            <ns2:rootElement elementName="string" namespace="http://www.w3.org/2001/XMLSchema"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_9">
+            <ns2:rootElement elementName="string" namespace="http://www.w3.org/2001/XMLSchema"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_11">
+            <ns2:rootElement elementName="string" namespace="http://www.w3.org/2001/XMLSchema"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_18">
+            <ns2:resourceRef refUri="application_13/outbound_14/resourcegroup_15/resource_17"/>
+            <ns2:rootElement elementName="execute" namespace="http://xmlns.oracle.com/cloud/adapter/REST/employee_REQUEST/types"/>
+            <ns2:wsdlMessage messageName="executeRequestMessage" namespace="http://xmlns.oracle.com/cloud/adapter/REST/employee_REQUEST" partName="parameters"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_29">
+            <ns2:resourceRef refUri="processor_20/resourcegroup_27/resource_28"/>
+            <ns2:rootElement elementName="createEmployeeRequest" namespace="http://xmlns.oracle.com/cloud/adapter/REST/employee/types"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_168">
+            <ns2:resourceRef refUri="application_162/inbound_163/resourcegroup_164/resource_167"/>
+            <ns2:rootElement elementName="atpSelectEmployeeSelect_employeeNumberInputParameters" namespace="http://xmlns.oracle.com/cloud/adapter/atpdatabase/atpSelectEmployee_REQUEST/types"/>
+            <ns2:wsdlMessage messageName="args_in_msg" namespace="http://xmlns.oracle.com/cloud/adapter/atpdatabase/atpSelectEmployee_REQUEST" partName="parameters"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_170">
+            <ns2:resourceRef refUri="application_162/inbound_163/resourcegroup_164/resource_167"/>
+            <ns2:rootElement elementName="EmployeeCollection" namespace="http://xmlns.oracle.com/cloud/adapter/atpdatabase/atpSelectEmployee_REQUEST/types"/>
+            <ns2:wsdlMessage messageName="args_out_msg" namespace="http://xmlns.oracle.com/cloud/adapter/atpdatabase/atpSelectEmployee_REQUEST" partName="parameters"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_172">
+            <ns2:resourceRef refUri="application_162/inbound_163/resourcegroup_164/resource_167"/>
+            <ns2:rootElement elementName="serviceInvocationError" namespace="http://xmlns.oracle.com/cloud/generic/service/fault"/>
+            <ns2:wsdlMessage messageName="fault_msg" namespace="http://xmlns.oracle.com/cloud/adapter/atpdatabase/atpSelectEmployee_REQUEST" partName="parameters"/>
+            <ns2:wsdlFault faultName="serviceInvocationError" namespace="http://xmlns.oracle.com/cloud/adapter/atpdatabase/atpSelectEmployee_REQUEST"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_189">
+            <ns2:resourceRef refUri="application_183/inbound_184/resourcegroup_185/resource_188"/>
+            <ns2:rootElement elementName="EmployeeCollection" namespace="http://xmlns.oracle.com/cloud/adapter/atpdatabase/atpUpdateEmployee_REQUEST/types"/>
+            <ns2:wsdlMessage messageName="args_in_msg" namespace="http://xmlns.oracle.com/cloud/adapter/atpdatabase/atpUpdateEmployee_REQUEST" partName="parameters"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_352">
+            <ns2:resourceRef refUri="application_220/inbound_221/resourcegroup_348/resource_351"/>
+            <ns2:rootElement elementName="atpSelectLocationSelect_locationStatus_locationNumberInputParameters" namespace="http://xmlns.oracle.com/cloud/adapter/atpdatabase/atpSelectLocation_REQUEST/types"/>
+            <ns2:wsdlMessage messageName="args_in_msg" namespace="http://xmlns.oracle.com/cloud/adapter/atpdatabase/atpSelectLocation_REQUEST" partName="parameters"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_353">
+            <ns2:resourceRef refUri="application_220/inbound_221/resourcegroup_348/resource_351"/>
+            <ns2:rootElement elementName="LocationCollection" namespace="http://xmlns.oracle.com/cloud/adapter/atpdatabase/atpSelectLocation_REQUEST/types"/>
+            <ns2:wsdlMessage messageName="args_out_msg" namespace="http://xmlns.oracle.com/cloud/adapter/atpdatabase/atpSelectLocation_REQUEST" partName="parameters"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_354">
+            <ns2:resourceRef refUri="application_220/inbound_221/resourcegroup_348/resource_351"/>
+            <ns2:rootElement elementName="serviceInvocationError" namespace="http://xmlns.oracle.com/cloud/generic/service/fault"/>
+            <ns2:wsdlMessage messageName="fault_msg" namespace="http://xmlns.oracle.com/cloud/adapter/atpdatabase/atpSelectLocation_REQUEST" partName="parameters"/>
+            <ns2:wsdlFault faultName="serviceInvocationError" namespace="http://xmlns.oracle.com/cloud/adapter/atpdatabase/atpSelectLocation_REQUEST"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_369">
+            <ns2:resourceRef refUri="application_295/inbound_296/resourcegroup_365/resource_368"/>
+            <ns2:rootElement elementName="atpSelectDepartmentSelect_departmentName_departmentNumberInputParameters" namespace="http://xmlns.oracle.com/cloud/adapter/atpdatabase/atpSelectDepartment_REQUEST/types"/>
+            <ns2:wsdlMessage messageName="args_in_msg" namespace="http://xmlns.oracle.com/cloud/adapter/atpdatabase/atpSelectDepartment_REQUEST" partName="parameters"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_370">
+            <ns2:resourceRef refUri="application_295/inbound_296/resourcegroup_365/resource_368"/>
+            <ns2:rootElement elementName="DepartmentCollection" namespace="http://xmlns.oracle.com/cloud/adapter/atpdatabase/atpSelectDepartment_REQUEST/types"/>
+            <ns2:wsdlMessage messageName="args_out_msg" namespace="http://xmlns.oracle.com/cloud/adapter/atpdatabase/atpSelectDepartment_REQUEST" partName="parameters"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_371">
+            <ns2:resourceRef refUri="application_295/inbound_296/resourcegroup_365/resource_368"/>
+            <ns2:rootElement elementName="serviceInvocationError" namespace="http://xmlns.oracle.com/cloud/generic/service/fault"/>
+            <ns2:wsdlMessage messageName="fault_msg" namespace="http://xmlns.oracle.com/cloud/adapter/atpdatabase/atpSelectDepartment_REQUEST" partName="parameters"/>
+            <ns2:wsdlFault faultName="serviceInvocationError" namespace="http://xmlns.oracle.com/cloud/adapter/atpdatabase/atpSelectDepartment_REQUEST"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_478">
+            <ns2:resourceRef refUri="application_472/inbound_473/resourcegroup_474/resource_477"/>
+            <ns2:rootElement elementName="atpSelectAllEmployeeSelectInputParameters" namespace="http://xmlns.oracle.com/cloud/adapter/atpdatabase/atpSelectAllEmployee_REQUEST/types"/>
+            <ns2:wsdlMessage messageName="args_in_msg" namespace="http://xmlns.oracle.com/cloud/adapter/atpdatabase/atpSelectAllEmployee_REQUEST" partName="parameters"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_480">
+            <ns2:resourceRef refUri="application_472/inbound_473/resourcegroup_474/resource_477"/>
+            <ns2:rootElement elementName="EmployeeCollection" namespace="http://xmlns.oracle.com/cloud/adapter/atpdatabase/atpSelectAllEmployee_REQUEST/types"/>
+            <ns2:wsdlMessage messageName="args_out_msg" namespace="http://xmlns.oracle.com/cloud/adapter/atpdatabase/atpSelectAllEmployee_REQUEST" partName="parameters"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_482">
+            <ns2:resourceRef refUri="application_472/inbound_473/resourcegroup_474/resource_477"/>
+            <ns2:rootElement elementName="serviceInvocationError" namespace="http://xmlns.oracle.com/cloud/generic/service/fault"/>
+            <ns2:wsdlMessage messageName="fault_msg" namespace="http://xmlns.oracle.com/cloud/adapter/atpdatabase/atpSelectAllEmployee_REQUEST" partName="parameters"/>
+            <ns2:wsdlFault faultName="serviceInvocationError" namespace="http://xmlns.oracle.com/cloud/adapter/atpdatabase/atpSelectAllEmployee_REQUEST"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_501">
+            <ns2:resourceRef refUri="application_495/inbound_496/resourcegroup_497/resource_500"/>
+            <ns2:rootElement elementName="LocationCollection" namespace="http://xmlns.oracle.com/cloud/adapter/atpdatabase/atpInsertLocation_REQUEST/types"/>
+            <ns2:wsdlMessage messageName="args_in_msg" namespace="http://xmlns.oracle.com/cloud/adapter/atpdatabase/atpInsertLocation_REQUEST" partName="parameters"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_514">
+            <ns2:resourceRef refUri="application_508/inbound_509/resourcegroup_510/resource_513"/>
+            <ns2:rootElement elementName="DepartmentCollection" namespace="http://xmlns.oracle.com/cloud/adapter/atpdatabase/atpInsertDepartment_REQUEST/types"/>
+            <ns2:wsdlMessage messageName="args_in_msg" namespace="http://xmlns.oracle.com/cloud/adapter/atpdatabase/atpInsertDepartment_REQUEST" partName="parameters"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_527">
+            <ns2:resourceRef refUri="application_521/inbound_522/resourcegroup_523/resource_526"/>
+            <ns2:rootElement elementName="EmployeeCollection" namespace="http://xmlns.oracle.com/cloud/adapter/atpdatabase/atpInsertEmployee_REQUEST/types"/>
+            <ns2:wsdlMessage messageName="args_in_msg" namespace="http://xmlns.oracle.com/cloud/adapter/atpdatabase/atpInsertEmployee_REQUEST" partName="parameters"/>
+        </ns2:messageContext>
+        <ns2:commonNamespaceMaps/>
+        <ns2:orchestration>
+            <ns2:integrationMetadata id="im0" refUri="processor_1"/>
+            <ns2:receive trackingRefUri="processor_6" id="r0" refUri="application_13/outbound_14/output_19"/>
+            <ns2:for id="f0" refUri="processor_20">
+                <ns2:transformer id="m2" refUri="processor_174"/>
+                <ns2:invoke id="i2" refUri="application_162" name="Oracle ATP4"/>
+                <ns2:router id="s0" refUri="processor_79">
+                    <ns2:route id="sc0" refUri="processor_79/output_81">
+                        <ns2:transformer id="m0" refUri="processor_191"/>
+                        <ns2:invoke id="i0" refUri="application_183" name="Oracle ATP3"/>
+                    </ns2:route>
+                    <ns2:route id="sc1" refUri="processor_79/output_90">
+                        <ns2:transformer id="m1" refUri="processor_360"/>
+                        <ns2:invoke id="i1" refUri="application_220" name="Oracle ATP3"/>
+                        <ns2:router id="s1" refUri="processor_266">
+                            <ns2:route id="sc2" refUri="processor_266/output_268">
+                                <ns2:transformer id="m8" refUri="processor_503"/>
+                                <ns2:invoke id="i8" refUri="application_495" name="Oracle ATP9"/>
+                            </ns2:route>
+                            <ns2:route id="sc3" refUri="processor_266/output_277"/>
+                        </ns2:router>
+                        <ns2:transformer id="m4" refUri="processor_377"/>
+                        <ns2:invoke id="i4" refUri="application_295" name="Oracle ATP5"/>
+                        <ns2:router id="s2" refUri="processor_312">
+                            <ns2:route id="sc4" refUri="processor_312/output_314">
+                                <ns2:transformer id="m3" refUri="processor_516"/>
+                                <ns2:invoke id="i3" refUri="application_508" name="Oracle ATP9"/>
+                            </ns2:route>
+                            <ns2:route id="sc5" refUri="processor_312/output_427"/>
+                        </ns2:router>
+                        <ns2:transformer id="m5" refUri="processor_529"/>
+                        <ns2:invoke id="i5" refUri="application_521" name="Oracle ATP9"/>
+                    </ns2:route>
+                </ns2:router>
+                <ns2:transformer id="m7" refUri="processor_484"/>
+                <ns2:invoke id="i7" refUri="application_472" name="Oracle ATP8"/>
+            </ns2:for>
+            <ns2:stop id="st0"/>
+        </ns2:orchestration>
+    </ns3:icsflow>
+</ns3:icsproject>

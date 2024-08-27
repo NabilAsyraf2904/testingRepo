@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<oracle-xsl-webmapper:StateInfo xmlns:oracle-xsl-webmapper="http://www.oracle.com/xsl/webmapper/state" version="1.1">
+   <oracle-xsl-webmapper:ErrorsCount>0</oracle-xsl-webmapper:ErrorsCount>
+   <oracle-xsl-webmapper:WarningsCount>0</oracle-xsl-webmapper:WarningsCount>
+   <oracle-xsl-webmapper:IsImported>false</oracle-xsl-webmapper:IsImported>
+   <oracle-xsl-webmapper:HasMappings>true</oracle-xsl-webmapper:HasMappings>
+   <oracle-xsl-webmapper:StateInfoIsStale>false</oracle-xsl-webmapper:StateInfoIsStale>
+   <oracle-xsl-webmapper:SourcesReferenced>
+      <element xmlns:ns0="http://www.oracle.com/2014/03/ics/schedule">ns0:schedule</element>
+      <pathForMap>../../processor_8/resourcegroup_9/ICSSchedule_1.xsd</pathForMap>
+      <rpcStyle>false</rpcStyle>
+      <type>0</type>
+      <uriAbsoluteLocation>file:/u01/data/domains/oic/servers/oic_server1/storage/ics/tmp/WC/itg_5090147480049282734/resources/processor_8/resourcegroup_9/ICSSchedule_1.xsd</uriAbsoluteLocation>
+      <primary>true</primary>
+   </oracle-xsl-webmapper:SourcesReferenced>
+   <oracle-xsl-webmapper:SourcesReferenced>
+      <element xmlns:ns1="http://xmlns.oracle.com/cloud/adapter/ftp/readAPInvoiceFile_REQUEST/types">ns1:SyncReadFileResponse</element>
+      <pathForMap>../../application_18/inbound_19/resourcegroup_20/readAPInvoiceFile_REQUEST.wsdl</pathForMap>
+      <rpcStyle>false</rpcStyle>
+      <type>0</type>
+      <uriAbsoluteLocation>file:/u01/data/domains/oic/servers/oic_server1/storage/ics/tmp/WC/itg_5090147480049282734/resources/application_18/inbound_19/resourcegroup_20/readAPInvoiceFile_REQUEST.wsdl</uriAbsoluteLocation>
+      <param>readAPInvoiceFile</param>
+      <primary>false</primary>
+   </oracle-xsl-webmapper:SourcesReferenced>
+   <oracle-xsl-webmapper:AllSources>
+      <element xmlns:ns2="http://www.oracle.com/2014/03/ics/schedule">ns2:schedule</element>
+      <rpcStyle>false</rpcStyle>
+      <type>1</type>
+      <uriAbsoluteLocation>file:/u01/data/domains/oic/servers/oic_server1/storage/ics/tmp/WC/itg_5090147480049282734/resources/processor_8/resourcegroup_9/ICSSchedule_1.xsd</uriAbsoluteLocation>
+      <primary>true</primary>
+   </oracle-xsl-webmapper:AllSources>
+   <oracle-xsl-webmapper:AllSources>
+      <element xmlns:ns3="http://xmlns.oracle.com/cloud/adapter/ftp/readAPInvoiceFile_REQUEST/types">ns3:SyncReadFileResponse</element>
+      <rpcStyle>false</rpcStyle>
+      <type>2</type>
+      <uriAbsoluteLocation>file:/u01/data/domains/oic/servers/oic_server1/storage/ics/tmp/WC/itg_5090147480049282734/resources/application_18/inbound_19/resourcegroup_20/readAPInvoiceFile_REQUEST.wsdl</uriAbsoluteLocation>
+      <param>readAPInvoiceFile</param>
+      <primary>false</primary>
+   </oracle-xsl-webmapper:AllSources>
+</oracle-xsl-webmapper:StateInfo>

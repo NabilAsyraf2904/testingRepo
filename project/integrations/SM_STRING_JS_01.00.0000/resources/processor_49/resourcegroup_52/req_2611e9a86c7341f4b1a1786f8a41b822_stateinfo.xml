@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<oracle-xsl-webmapper:StateInfo xmlns:oracle-xsl-webmapper="http://www.oracle.com/xsl/webmapper/state" version="1.1">
+    <oracle-xsl-webmapper:ErrorsCount>0</oracle-xsl-webmapper:ErrorsCount>
+    <oracle-xsl-webmapper:WarningsCount>0</oracle-xsl-webmapper:WarningsCount>
+    <oracle-xsl-webmapper:IsImported>false</oracle-xsl-webmapper:IsImported>
+    <oracle-xsl-webmapper:HasMappings>true</oracle-xsl-webmapper:HasMappings>
+    <oracle-xsl-webmapper:StateInfoIsStale>false</oracle-xsl-webmapper:StateInfoIsStale>
+    <oracle-xsl-webmapper:SourcesReferenced>
+        <element xmlns:ns3="http://www.oracle.com/2014/03/ics/callout">ns3:output_JavaScriptConvertToLower_res</element>
+        <uriAbsoluteLocation>file:/tmp/WC/itg_e82d3de7-20e1-4c78-b74b-bc444f1222e7/resources/processor_63/resourcegroup_64/ICSCallout_Output.xsd</uriAbsoluteLocation>
+        <param>JavaScriptConvertToLower</param>
+        <primary>false</primary>
+    </oracle-xsl-webmapper:SourcesReferenced>
+    <oracle-xsl-webmapper:SourcesReferenced>
+        <element xmlns:ns3="http://www.oracle.com/2014/03/ics/callout">ns3:output_JavaScriptConvertToUpper_res</element>
+        <uriAbsoluteLocation>file:/tmp/WC/itg_e82d3de7-20e1-4c78-b74b-bc444f1222e7/resources/processor_54/resourcegroup_55/ICSCallout_Output.xsd</uriAbsoluteLocation>
+        <param>JavaScriptConvertToUpper</param>
+        <primary>false</primary>
+    </oracle-xsl-webmapper:SourcesReferenced>
+    <oracle-xsl-webmapper:SourcesReferenced>
+        <element xmlns:ns3="http://www.oracle.com/2014/03/ics/callout">ns3:output_JavaScriptTrimWhitespace_res</element>
+        <uriAbsoluteLocation>file:/tmp/WC/itg_e82d3de7-20e1-4c78-b74b-bc444f1222e7/resources/processor_78/resourcegroup_79/ICSCallout_Output.xsd</uriAbsoluteLocation>
+        <param>JavaScriptTrimWhitespace</param>
+        <primary>false</primary>
+    </oracle-xsl-webmapper:SourcesReferenced>
+    <oracle-xsl-webmapper:AllSources>
+        <element xmlns:ns3="http://xmlns.oracle.com/cloud/adapter/REST/string_REQUEST/jsConvert/types">ns3:execute</element>
+        <uriAbsoluteLocation>file:/tmp/WC/itg_e82d3de7-20e1-4c78-b74b-bc444f1222e7/resources/application_32/outbound_33/resourcegroup_34/string_jsConvert_REQUEST.wsdl</uriAbsoluteLocation>
+        <primary>true</primary>
+    </oracle-xsl-webmapper:AllSources>
+    <oracle-xsl-webmapper:AllSources>
+        <element xmlns:ns3="http://www.oracle.com/2014/03/ics/callout">ns3:output_JavaScriptConvertToLower_res</element>
+        <uriAbsoluteLocation>file:/tmp/WC/itg_e82d3de7-20e1-4c78-b74b-bc444f1222e7/resources/processor_63/resourcegroup_64/ICSCallout_Output.xsd</uriAbsoluteLocation>
+        <param>JavaScriptConvertToLower</param>
+        <primary>false</primary>
+    </oracle-xsl-webmapper:AllSources>
+    <oracle-xsl-webmapper:AllSources>
+        <element xmlns:ns3="http://www.oracle.com/2014/03/ics/callout">ns3:output_JavaScriptConvertToUpper_res</element>
+        <uriAbsoluteLocation>file:/tmp/WC/itg_e82d3de7-20e1-4c78-b74b-bc444f1222e7/resources/processor_54/resourcegroup_55/ICSCallout_Output.xsd</uriAbsoluteLocation>
+        <param>JavaScriptConvertToUpper</param>
+        <primary>false</primary>
+    </oracle-xsl-webmapper:AllSources>
+    <oracle-xsl-webmapper:AllSources>
+        <element xmlns:ns3="http://www.oracle.com/2014/03/ics/callout">ns3:output_JavaScriptTrimWhitespace_res</element>
+        <uriAbsoluteLocation>file:/tmp/WC/itg_e82d3de7-20e1-4c78-b74b-bc444f1222e7/resources/processor_78/resourcegroup_79/ICSCallout_Output.xsd</uriAbsoluteLocation>
+        <param>JavaScriptTrimWhitespace</param>
+        <primary>false</primary>
+    </oracle-xsl-webmapper:AllSources>
+</oracle-xsl-webmapper:StateInfo>

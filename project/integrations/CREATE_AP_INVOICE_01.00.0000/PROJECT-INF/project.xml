@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns3:icsproject name="project_1" version="9.9" cversion="102" modelType="freeform" xmlns="http://www.oracle.com/2014/03/ics/project/definition" xmlns:ns2="http://www.oracle.com/2014/03/ics/flow/definition" xmlns:ns3="http://www.oracle.com/2014/03/ics/project">
+    <projectCode>CREATE_AP_INVOICE</projectCode>
+    <projectVersion>01.00.0000</projectVersion>
+    <projectName>Create AP Invoice</projectName>
+    <percentComplete>100</percentComplete>
+    <projectHasErrors>false</projectHasErrors>
+    <projectHasWarnings>false</projectHasWarnings>
+    <ns3:icsflow name="flow_1">
+        <ns2:application name="application_13">
+            <ns2:role>source</ns2:role>
+            <ns2:adapter>
+                <ns2:type>app-adapter</ns2:type>
+                <ns2:code>MY_REST_ENDPOINT_INTERFAC</ns2:code>
+                <ns2:name>ReceiveEventPayload</ns2:name>
+                <ns2:property name="hasAttachment" value="false"/>
+            </ns2:adapter>
+            <ns2:mep>fire-and-forget</ns2:mep>
+            <ns2:outbound name="outbound_14">
+                <ns2:binding>rest</ns2:binding>
+                <ns2:operation>execute</ns2:operation>
+                <ns2:resourceGroup name="resourcegroup_15">
+                    <ns2:resource name="resource_17" location="../resources/application_13/outbound_14/resourcegroup_15/ReceiveEventPayload_REQUEST.wsdl" type="wsdl"/>
+                    <ns2:resource name="resource_33" location="../resources/application_13/outbound_14/resourcegroup_15/ReceiveEventPayload_REQUEST.jca" type="jca"/>
+                </ns2:resourceGroup>
+                <ns2:output name="output_19">
+                    <ns2:role>request</ns2:role>
+                    <ns2:messageContextRef refUri="messagecontext_18"/>
+                </ns2:output>
+            </ns2:outbound>
+        </ns2:application>
+        <ns2:application name="application_20">
+            <ns2:role>target</ns2:role>
+            <ns2:adapter>
+                <ns2:type>app-adapter</ns2:type>
+                <ns2:code>APPLICATION_EVENT_CONNECTION</ns2:code>
+                <ns2:name>SERVICEREQUESTCREATED1</ns2:name>
+                <ns2:property name="hasAttachment" value="false"/>
+            </ns2:adapter>
+            <ns2:mep>fire-and-forget</ns2:mep>
+            <ns2:eventTypes>
+                <ns2:eventType name="SERVICEREQUESTCREATED" revision="5"/>
+            </ns2:eventTypes>
+            <ns2:inbound name="inbound_21">
+                <ns2:operation>execute</ns2:operation>
+                <ns2:resourceGroup name="resourcegroup_22">
+                    <ns2:resource name="resource_25" location="../resources/application_20/inbound_21/resourcegroup_22/SERVICEREQUESTCREATED1_REQUEST.wsdl" type="wsdl"/>
+                    <ns2:resource name="resource_60" location="../resources/application_20/inbound_21/resourcegroup_22/SERVICEREQUESTCREATED1_REQUEST.jca" type="jca"/>
+                    <ns2:resource name="resource_61" location="../resources/application_20/inbound_21/resourcegroup_22/ICSFault.xsd" type="xsd"/>
+                </ns2:resourceGroup>
+                <ns2:input name="input_27">
+                    <ns2:role>request</ns2:role>
+                    <ns2:messageContextRef refUri="messagecontext_26"/>
+                </ns2:input>
+            </ns2:inbound>
+        </ns2:application>
+        <ns2:application name="application_36">
+            <ns2:role>target</ns2:role>
+            <ns2:adapter>
+                <ns2:type>app-adapter</ns2:type>
+                <ns2:code>KNX_ERP_REST</ns2:code>
+                <ns2:name>createInvoice</ns2:name>
+                <ns2:property name="hasAttachment" value="false"/>
+            </ns2:adapter>
+            <ns2:mep>push-sync</ns2:mep>
+            <ns2:inbound name="inbound_37">
+                <ns2:operation>execute</ns2:operation>
+                <ns2:resourceGroup name="resourcegroup_38">
+                    <ns2:resource name="resource_39" location="../resources/application_36/inbound_37/resourcegroup_38/createInvoice_REQUEST.jca" type="jca"/>
+                    <ns2:resource name="resource_40" location="../resources/application_36/inbound_37/resourcegroup_38/ICSFault.xsd" type="xsd"/>
+                    <ns2:resource name="resource_41" location="../resources/application_36/inbound_37/resourcegroup_38/createInvoice_REQUEST.wsdl" type="wsdl"/>
+                </ns2:resourceGroup>
+                <ns2:input name="input_43">
+                    <ns2:role>request</ns2:role>
+                    <ns2:messageContextRef refUri="messagecontext_42"/>
+                </ns2:input>
+                <ns2:output name="output_45">
+                    <ns2:role>response</ns2:role>
+                    <ns2:messageContextRef refUri="messagecontext_44"/>
+                </ns2:output>
+                <ns2:output name="output_47">
+                    <ns2:role>fault</ns2:role>
+                    <ns2:subRole>APIInvocationError</ns2:subRole>
+                    <ns2:messageContextRef refUri="messagecontext_46"/>
+                </ns2:output>
+            </ns2:inbound>
+        </ns2:application>
+        <ns2:processor name="processor_1">
+            <ns2:type>integrationMetadata</ns2:type>
+            <ns2:role>undefined</ns2:role>
+            <ns2:resourceGroup name="resourcegroup_2">
+                <ns2:resource name="resource_3" location="../resources/processor_1/resourcegroup_2/ICSIntegrationMetadata.xsd" type="xsd"/>
+            </ns2:resourceGroup>
+            <ns2:output name="output_5">
+                <ns2:messageContextRef refUri="messagecontext_4"/>
+            </ns2:output>
+        </ns2:processor>
+        <ns2:processor name="processor_6">
+            <ns2:type>messageTracker</ns2:type>
+            <ns2:role>messageTracker:global</ns2:role>
+            <ns2:trackingVariableGroup>
+                <ns2:trackingVariable>
+                    <ns2:role>tracking_var_1</ns2:role>
+                    <ns2:primary>true</ns2:primary>
+                    <ns2:name>InvoiceNumber</ns2:name>
+                    <ns2:xpath>/execute/request-wrapper/InvoiceNumber</ns2:xpath>
+                    <ns2:messageContextRef refUri="messagecontext_18"/>
+                    <ns2:output name="output_8">
+                        <ns2:messageContextRef refUri="messagecontext_7"/>
+                    </ns2:output>
+                </ns2:trackingVariable>
+                <ns2:trackingVariable>
+                    <ns2:role>tracking_var_2</ns2:role>
+                    <ns2:primary>false</ns2:primary>
+                    <ns2:name>InvoiceCurrency</ns2:name>
+                    <ns2:xpath>/execute/request-wrapper/InvoiceCurrency</ns2:xpath>
+                    <ns2:messageContextRef refUri="messagecontext_18"/>
+                    <ns2:output name="output_10">
+                        <ns2:messageContextRef refUri="messagecontext_9"/>
+                    </ns2:output>
+                </ns2:trackingVariable>
+                <ns2:trackingVariable>
+                    <ns2:role>tracking_var_3</ns2:role>
+                    <ns2:primary>false</ns2:primary>
+                    <ns2:name>InvoiceAmount</ns2:name>
+                    <ns2:xpath>/execute/request-wrapper/InvoiceAmount</ns2:xpath>
+                    <ns2:messageContextRef refUri="messagecontext_18"/>
+                    <ns2:output name="output_12">
+                        <ns2:messageContextRef refUri="messagecontext_11"/>
+                    </ns2:output>
+                </ns2:trackingVariable>
+            </ns2:trackingVariableGroup>
+        </ns2:processor>
+        <ns2:processor name="processor_28">
+            <ns2:type>transformer</ns2:type>
+            <ns2:role>transformer:response-map</ns2:role>
+            <ns2:resourceGroup name="resourcegroup_31">
+                <ns2:resource name="resource_32" location="../resources/processor_28/resourcegroup_31/req_9b068f75381b42a78049857b3f81bf58.xsl" type="xslt"/>
+            </ns2:resourceGroup>
+            <ns2:resourceRef refUri="messagecontext_129">
+                <ns2:role>secondary-source</ns2:role>
+                <ns2:subRole>writeResultAPInvoice_REQUEST</ns2:subRole>
+            </ns2:resourceRef>
+            <ns2:input name="input_29">
+                <ns2:messageContextRef refUri="messagecontext_18"/>
+            </ns2:input>
+            <ns2:output name="output_30">
+                <ns2:messageContextRef refUri="messagecontext_26"/>
+            </ns2:output>
+            <ns2:property name="has-mappings" value="true"/>
+        </ns2:processor>
+        <ns2:processor name="processor_48">
+            <ns2:type>transformer</ns2:type>
+            <ns2:role>transformer:response-map</ns2:role>
+            <ns2:resourceGroup name="resourcegroup_51">
+                <ns2:resource name="resource_52" location="../resources/processor_48/resourcegroup_51/req_88d50b7c2c264d82a1bb5af09dcfdb9d.xsl" type="xslt"/>
+            </ns2:resourceGroup>
+            <ns2:input name="input_49">
+                <ns2:messageContextRef refUri="messagecontext_18"/>
+            </ns2:input>
+            <ns2:output name="output_50">
+                <ns2:messageContextRef refUri="messagecontext_42"/>
+            </ns2:output>
+            <ns2:property name="has-mappings" value="true"/>
+        </ns2:processor>
+        <ns2:processor name="processor_55">
+            <ns2:type>catchAll</ns2:type>
+            <ns2:role>undefined</ns2:role>
+            <ns2:resourceGroup name="resourcegroup_56">
+                <ns2:resource name="resource_57" location="../resources/processor_55/resourcegroup_56/ICSFault.xsd" type="xsd"/>
+            </ns2:resourceGroup>
+            <ns2:output name="output_59">
+                <ns2:messageContextRef refUri="messagecontext_58"/>
+            </ns2:output>
+        </ns2:processor>
+        <ns2:processor name="processor_62">
+            <ns2:type>catchAll</ns2:type>
+            <ns2:role>undefined</ns2:role>
+            <ns2:resourceGroup name="resourcegroup_63">
+                <ns2:resource name="resource_64" location="../resources/processor_62/resourcegroup_63/ICSFault.xsd" type="xsd"/>
+            </ns2:resourceGroup>
+            <ns2:output name="output_66">
+                <ns2:messageContextRef refUri="messagecontext_65"/>
+            </ns2:output>
+        </ns2:processor>
+        <ns2:processor name="processor_125">
+            <ns2:type>stageFile</ns2:type>
+            <ns2:role>undefined</ns2:role>
+            <ns2:resourceGroup name="resourcegroup_126">
+                <ns2:resource name="resource_127" location="../resources/processor_125/resourcegroup_126/writeResultAPInvoice_REQUEST.wsdl" type="wsdl"/>
+                <ns2:resource name="resource_128" location="../resources/processor_125/resourcegroup_126/writeResultAPInvoice_REQUEST.jca" type="jca"/>
+            </ns2:resourceGroup>
+            <ns2:resourceGroup name="resourcegroup_136">
+                <ns2:role>exprBuilderProperties</ns2:role>
+                <ns2:resource name="resource_137" location="../resources/processor_125/resourcegroup_136/WRITE_FILENAMEexpr.properties" type="properties">
+                    <ns2:role>WRITE_FILENAME</ns2:role>
+                </ns2:resource>
+                <ns2:resource name="resource_138" location="../resources/processor_125/resourcegroup_136/WRITE_DIRNAMEexpr.properties" type="properties">
+                    <ns2:role>WRITE_DIRNAME</ns2:role>
+                </ns2:resource>
+            </ns2:resourceGroup>
+            <ns2:resourceRef refUri="messagecontext_18">
+                <ns2:role>primary-source</ns2:role>
+            </ns2:resourceRef>
+            <ns2:input name="input_130">
+                <ns2:messageContextRef refUri="messagecontext_129"/>
+            </ns2:input>
+            <ns2:output name="output_132">
+                <ns2:messageContextRef refUri="messagecontext_131"/>
+            </ns2:output>
+            <ns2:property name="operation" value="Write"/>
+            <ns2:processorName>writeResultAPInvoice</ns2:processorName>
+            <ns2:processorDescription></ns2:processorDescription>
+        </ns2:processor>
+        <ns2:processor name="processor_144">
+            <ns2:type>transformer</ns2:type>
+            <ns2:role>transformer:response-map</ns2:role>
+            <ns2:resourceGroup name="resourcegroup_147">
+                <ns2:resource name="resource_148" location="../resources/processor_144/resourcegroup_147/req_b9fca0ac47e74fa9afca80ed54f03829.xsl" type="xslt"/>
+            </ns2:resourceGroup>
+            <ns2:resourceRef refUri="messagecontext_44">
+                <ns2:role>secondary-source</ns2:role>
+                <ns2:subRole>createInvoice</ns2:subRole>
+            </ns2:resourceRef>
+            <ns2:input name="input_145">
+                <ns2:messageContextRef refUri="messagecontext_18"/>
+            </ns2:input>
+            <ns2:output name="output_146">
+                <ns2:messageContextRef refUri="messagecontext_129"/>
+            </ns2:output>
+            <ns2:property name="has-mappings" value="true"/>
+        </ns2:processor>
+        <ns2:processor name="processor_149">
+            <ns2:type>transformer</ns2:type>
+            <ns2:role>transformer:response-map</ns2:role>
+            <ns2:resourceGroup name="resourcegroup_152">
+                <ns2:resource name="resource_153" location="../resources/processor_149/resourcegroup_152/req_40afaa9a994941628e36fa5e38eb9e55.xsl" type="xslt"/>
+            </ns2:resourceGroup>
+            <ns2:resourceRef refUri="messagecontext_7">
+                <ns2:role>secondary-source</ns2:role>
+                <ns2:subRole>tracking_var_1</ns2:subRole>
+            </ns2:resourceRef>
+            <ns2:input name="input_150">
+                <ns2:messageContextRef refUri="messagecontext_18"/>
+            </ns2:input>
+            <ns2:output name="output_151">
+                <ns2:messageContextRef refUri="messagecontext_129"/>
+            </ns2:output>
+            <ns2:property name="has-mappings" value="true"/>
+        </ns2:processor>
+        <ns2:messageContext name="messagecontext_4">
+            <ns2:resourceRef refUri="processor_1/resourcegroup_2/resource_3"/>
+            <ns2:rootElement elementName="metadata" namespace="http://www.oracle.com/2014/03/ic/integration/metadata"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_7">
+            <ns2:rootElement elementName="string" namespace="http://www.w3.org/2001/XMLSchema"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_9">
+            <ns2:rootElement elementName="string" namespace="http://www.w3.org/2001/XMLSchema"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_11">
+            <ns2:rootElement elementName="string" namespace="http://www.w3.org/2001/XMLSchema"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_18">
+            <ns2:resourceRef refUri="application_13/outbound_14/resourcegroup_15/resource_17"/>
+            <ns2:rootElement elementName="execute" namespace="http://xmlns.oracle.com/cloud/adapter/REST/ReceiveEventPayload_REQUEST/types"/>
+            <ns2:wsdlMessage messageName="executeRequestMessage" namespace="http://xmlns.oracle.com/cloud/adapter/REST/ReceiveEventPayload_REQUEST" partName="parameters"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_26">
+            <ns2:resourceRef refUri="application_20/inbound_21/resourcegroup_22/resource_25"/>
+            <ns2:rootElement elementName="execute" namespace="http://xmlns.oracle.com/cloud/adapter/appevent/SERVICEREQUESTCREATED1_REQUEST/types"/>
+            <ns2:wsdlMessage messageName="executeRequestMessage" namespace="http://xmlns.oracle.com/cloud/adapter/appevent/SERVICEREQUESTCREATED1_REQUEST" partName="parameters"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_42">
+            <ns2:resourceRef refUri="application_36/inbound_37/resourcegroup_38/resource_41"/>
+            <ns2:rootElement elementName="execute" namespace="http://xmlns.oracle.com/cloud/adapter/REST/createInvoice_REQUEST/types"/>
+            <ns2:wsdlMessage messageName="executeRequestMessage" namespace="http://xmlns.oracle.com/cloud/adapter/REST/createInvoice_REQUEST" partName="parameters"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_44">
+            <ns2:resourceRef refUri="application_36/inbound_37/resourcegroup_38/resource_41"/>
+            <ns2:rootElement elementName="executeResponse" namespace="http://xmlns.oracle.com/cloud/adapter/REST/createInvoice_REQUEST/types"/>
+            <ns2:wsdlMessage messageName="executeResponseMessage" namespace="http://xmlns.oracle.com/cloud/adapter/REST/createInvoice_REQUEST" partName="parameters"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_46">
+            <ns2:resourceRef refUri="application_36/inbound_37/resourcegroup_38/resource_41"/>
+            <ns2:rootElement elementName="APIInvocationError" namespace="http://xmlns.oracle.com/cloud/generic/rest/fault/REST/createInvoice"/>
+            <ns2:wsdlMessage messageName="APIInvocationError" namespace="http://xmlns.oracle.com/cloud/adapter/REST/createInvoice_REQUEST" partName="parameters"/>
+            <ns2:wsdlFault faultName="APIInvocationError" namespace="http://xmlns.oracle.com/cloud/adapter/REST/createInvoice_REQUEST"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_58">
+            <ns2:resourceRef refUri="processor_55/resourcegroup_56/resource_57"/>
+            <ns2:rootElement elementName="fault" namespace="http://www.oracle.com/2014/03/ics/fault"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_65">
+            <ns2:resourceRef refUri="processor_62/resourcegroup_63/resource_64"/>
+            <ns2:rootElement elementName="fault" namespace="http://www.oracle.com/2014/03/ics/fault"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_129">
+            <ns2:resourceRef refUri="processor_125/resourcegroup_126/resource_127"/>
+            <ns2:rootElement elementName="Write" namespace="http://xmlns.oracle.com/cloud/adapter/stagefile/writeResultAPInvoice_REQUEST/types"/>
+            <ns2:wsdlMessage messageName="WriteRequestMessage" namespace="http://xmlns.oracle.com/cloud/adapter/stagefile/writeResultAPInvoice_REQUEST" partName="parameters"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_131">
+            <ns2:resourceRef refUri="processor_125/resourcegroup_126/resource_127"/>
+            <ns2:rootElement elementName="WriteResponse" namespace="http://xmlns.oracle.com/cloud/adapter/stagefile/writeResultAPInvoice_REQUEST/types"/>
+            <ns2:wsdlMessage messageName="WriteResponseMessage" namespace="http://xmlns.oracle.com/cloud/adapter/stagefile/writeResultAPInvoice_REQUEST" partName="parameters"/>
+        </ns2:messageContext>
+        <ns2:commonNamespaceMaps/>
+        <ns2:orchestration>
+            <ns2:integrationMetadata id="im0" refUri="processor_1"/>
+            <ns2:globalTry id="gt0">
+                <ns2:receive trackingRefUri="processor_6" id="r0" refUri="application_13/outbound_14/output_19"/>
+                <ns2:try id="t0" name="Scope1">
+                    <ns2:transformer id="m1" refUri="processor_48"/>
+                    <ns2:invoke id="i0" refUri="application_36" name="REST2"/>
+                    <ns2:transformer id="m3" refUri="processor_144"/>
+                    <ns2:catchAll id="ta1" refUri="processor_62">
+                        <ns2:transformer id="m4" refUri="processor_149"/>
+                    </ns2:catchAll>
+                </ns2:try>
+                <ns2:stageFile id="sf0" refUri="processor_125"/>
+                <ns2:transformer id="m0" refUri="processor_28"/>
+                <ns2:publish id="pub0" refUri="application_20" name="SERVICEREQUESTCREATED1" description="" displayName="ServiceRequestCreated1"/>
+                <ns2:stop id="st0"/>
+                <ns2:catchAll id="ta0" refUri="processor_55">
+                    <ns2:ehStop id="eh0"/>
+                </ns2:catchAll>
+            </ns2:globalTry>
+        </ns2:orchestration>
+    </ns3:icsflow>
+</ns3:icsproject>

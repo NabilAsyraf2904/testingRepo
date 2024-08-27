@@ -1,0 +1,39 @@
+<adapter-config xsdTargetNamespace="http://xmlns.oracle.com/cloud/adapter/ftp/readCatsFTP_REQUEST/types" name="readCatsFTP_REQUESTPortType" adapter="ftp" wsdlLocation="readCatsFTP_REQUEST.wsdl" xmlns="http://platform.integration.oracle/blocks/adapter/fw/metadata">
+  <connection-factory location="ics/FtpAdapter">
+    <non-managed-connection managedConnectionFactoryClassName="oracle.tip.adapter.ftp.FTPManagedConnectionFactory">
+      <property name="AuthenticationType" value="password"/>
+      <property name="ChangeDirectory" value="true"/>
+      <property name="DefaultDateFormat" value="MMM d yyyy"/>
+      <property name="EnableFIPSMode" value="true"/>
+      <property name="Host" value="%%null_Host"/>
+      <property name="KeepConnections" value="false"/>
+      <property name="KeystoreAlgorithm" value="SunX509"/>
+      <property name="KeystoreType" value="PKCS12"/>
+      <property name="ListParserKey" value="UNIX"/>
+      <property name="Port" value="%%null_Port"/>
+      <property name="PreferredCipherSuite" value="aes128-cbc"/>
+      <property name="ProxyType" value="http"/>
+      <property name="RecentDateFormat" value="MMM d HH:mm"/>
+      <property name="SecurePort" value="990"/>
+      <property name="SftpBlockSize" value="32768"/>
+      <property name="TransportProvider" value="socket"/>
+      <property name="UseProxy" value="false"/>
+      <property name="UseSftp" value="%%null_UseSftp"/>
+      <property name="csfMap" value="oracle.cloud.adapter"/>
+      <property name="csfkey" value="6370107a611c1ce03aac026eb941b1be39890a753da0a6351b62905f5a335110"/>
+      <property name="privateEndpoint" value="false"/>
+    </non-managed-connection>
+  </connection-factory>
+  <endpoint-interaction portType="readCatsFTP_REQUESTPortType" operation="SyncReadFile">
+    <interaction-spec className="oracle.tip.adapter.ftp.outbound.FTPReadInteractionSpec">
+      <property name="DynamicSyncReadNamespace" value="true"/>
+      <property name="FileType" value="binary"/>
+      <property name="ICSFilePull" value="true"/>
+      <property name="ICSUploadSchemaElement" value="cats"/>
+      <property name="ICSUploadSchemaElementNameSpace" value="http://TargetNamespace.com/fileReference/readCatsFTP"/>
+      <property name="Operation" value="SyncReadFile"/>
+      <property name="SyncReadInputDirectory" value="/home/users/integration@knextech.com/Internal/Project/SM/Cat"/>
+      <property name="SyncReadInputFile" value="B_*.csv"/>
+    </interaction-spec>
+  </endpoint-interaction>
+</adapter-config>

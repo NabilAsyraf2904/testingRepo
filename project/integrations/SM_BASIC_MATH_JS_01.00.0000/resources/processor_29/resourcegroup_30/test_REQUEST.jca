@@ -1,0 +1,148 @@
+<adapter-config xsdTargetNamespace="http://xmlns.oracle.com/cloud/adapter/internal/commons/proxy" name="testPortType" adapter="REST" wsdlLocation="test_REQUEST.wsdl" instanceId="test" multiResource="true" xmlns="http://platform.integration.oracle/blocks/adapter/fw/metadata">
+  <connection-factory location="cloud/CloudAdapter">
+    <non-managed-connection managedConnectionFactoryClassName="oracle.cloud.connector.rest.RestAdapterConnectionFactory">
+      <property name="cloud.adapter.plugin.version" value="23.3.5"/>
+      <property name="cloud.adapter.sdk.version" value="23.3.5"/>
+      <property name="rest.inbound.security.configurable" value="true"/>
+      <property name="security" value="oracle/multi_token_rest_service_policy"/>
+      <property name="securityPolicy" value="MULTI_TOKEN_INBOUND"/>
+    </non-managed-connection>
+  </connection-factory>
+  <endpoint-activation portType="testPortType" operation="execute">
+    <activation-spec className="oracle.tip.adapter.cloud.CloudActivationSpec">
+      <property name="jsSubtract.targetOperation" value="execute"/>
+      <property name="jsSubtract.HTTPHeadersAdded" value="true"/>
+      <property name="jsSubtract.HttpVerb" value="POST"/>
+      <property name="jsSubtract.RequestElementNS" value="http://xmlns.oracle.com/cloud/adapter/REST/test/jsSubtract/types"/>
+      <property name="jsSubtract.RequestElementName" value="request-wrapper"/>
+      <property name="jsSubtract.RequestMediaType" value="application/json"/>
+      <property name="jsSubtract.RequestSample" value="{ &quot;input1&quot;: &quot;&quot;, &quot;input2&quot;: &quot;&quot; } "/>
+      <property name="jsSubtract.ResourceURI" value="/subtract"/>
+      <property name="jsSubtract.ResponseElementNS" value="http://xmlns.oracle.com/cloud/adapter/REST/test/jsSubtract/types"/>
+      <property name="jsSubtract.ResponseElementName" value="response-wrapper"/>
+      <property name="jsSubtract.ResponseMediaType" value="application/json"/>
+      <property name="jsSubtract.ResponseSample" value="{ &quot;Result&quot;: &quot;&quot; }"/>
+      <property name="jsSubtract.activationSpecClass" value="oracle.tip.adapter.cloud.CloudActivationSpec"/>
+      <property name="jsSubtract.allowChangeDefaultNamespace" value="false"/>
+      <property name="jsSubtract.cacName" value="test_REQUEST"/>
+      <property name="jsSubtract.copyFaultFromModel" value="true"/>
+      <property name="jsSubtract.forceWsdlTypesBuild" value="true"/>
+      <property name="jsSubtract.generateConnectivityPropertiesInboundRequest" value="RESTINREQ"/>
+      <property name="jsSubtract.generateConnectivityPropertiesInboundResponse" value="RESTINRES"/>
+      <property name="jsSubtract.generateInboundCredentials" value="true"/>
+      <property name="jsSubtract.generatePartnerLink" value="false"/>
+      <property name="jsSubtract.integrationWSDLName" value="test_REQUEST"/>
+      <property name="jsSubtract.invocationStyle" value="REQUEST_RESPONSE"/>
+      <property name="jsSubtract.isRequestJsonSchema" value="false"/>
+      <property name="jsSubtract.isRequestRawBytes" value="false"/>
+      <property name="jsSubtract.isResponseJsonSchema" value="false"/>
+      <property name="jsSubtract.isResponseRawBytes" value="false"/>
+      <property name="jsSubtract.operations" value="jsSubtract"/>
+      <property name="jsSubtract.postQueryParamsAsContent" value="false"/>
+      <property name="jsSubtract.requestJsonTopLevelArray" value="false"/>
+      <property name="jsSubtract.responseJsonTopLevelArray" value="false"/>
+      <property name="jsSum.targetOperation" value="execute"/>
+      <property name="jsSum.HTTPHeadersAdded" value="true"/>
+      <property name="jsSum.HttpVerb" value="POST"/>
+      <property name="jsSum.RequestElementNS" value="http://xmlns.oracle.com/cloud/adapter/REST/test/jsSum/types"/>
+      <property name="jsSum.RequestElementName" value="request-wrapper"/>
+      <property name="jsSum.RequestMediaType" value="application/json"/>
+      <property name="jsSum.RequestSample" value="{ &quot;input1&quot;: &quot;&quot;, &quot;input2&quot;: &quot;&quot; }"/>
+      <property name="jsSum.ResourceURI" value="/sum"/>
+      <property name="jsSum.ResponseElementNS" value="http://xmlns.oracle.com/cloud/adapter/REST/test/jsSum/types"/>
+      <property name="jsSum.ResponseElementName" value="response-wrapper"/>
+      <property name="jsSum.ResponseMediaType" value="application/json"/>
+      <property name="jsSum.ResponseSample" value="{&quot;Result&quot;:&quot;&quot;}"/>
+      <property name="jsSum.activationSpecClass" value="oracle.tip.adapter.cloud.CloudActivationSpec"/>
+      <property name="jsSum.allowChangeDefaultNamespace" value="false"/>
+      <property name="jsSum.cacName" value="test_REQUEST"/>
+      <property name="jsSum.copyFaultFromModel" value="true"/>
+      <property name="jsSum.forceWsdlTypesBuild" value="true"/>
+      <property name="jsSum.generateConnectivityPropertiesInboundRequest" value="RESTINREQ"/>
+      <property name="jsSum.generateConnectivityPropertiesInboundResponse" value="RESTINRES"/>
+      <property name="jsSum.generateInboundCredentials" value="true"/>
+      <property name="jsSum.generatePartnerLink" value="false"/>
+      <property name="jsSum.integrationWSDLName" value="test_REQUEST"/>
+      <property name="jsSum.invocationStyle" value="REQUEST_RESPONSE"/>
+      <property name="jsSum.isRequestJsonSchema" value="false"/>
+      <property name="jsSum.isRequestRawBytes" value="false"/>
+      <property name="jsSum.isResponseJsonSchema" value="false"/>
+      <property name="jsSum.isResponseRawBytes" value="false"/>
+      <property name="jsSum.operations" value="jsSum"/>
+      <property name="jsSum.postQueryParamsAsContent" value="false"/>
+      <property name="jsSum.requestJsonTopLevelArray" value="false"/>
+      <property name="jsSum.responseJsonTopLevelArray" value="false"/>
+      <property name="jsDivide.targetOperation" value="execute"/>
+      <property name="jsDivide.HTTPHeadersAdded" value="true"/>
+      <property name="jsDivide.HttpVerb" value="POST"/>
+      <property name="jsDivide.RequestElementNS" value="http://xmlns.oracle.com/cloud/adapter/REST/test/jsDivide/types"/>
+      <property name="jsDivide.RequestElementName" value="request-wrapper"/>
+      <property name="jsDivide.RequestMediaType" value="application/json"/>
+      <property name="jsDivide.RequestSample" value="{ &quot;input1&quot;: &quot;&quot;, &quot;input2&quot;: &quot;&quot; } "/>
+      <property name="jsDivide.ResourceURI" value="/divide"/>
+      <property name="jsDivide.ResponseElementNS" value="http://xmlns.oracle.com/cloud/adapter/REST/test/jsDivide/types"/>
+      <property name="jsDivide.ResponseElementName" value="response-wrapper"/>
+      <property name="jsDivide.ResponseMediaType" value="application/json"/>
+      <property name="jsDivide.ResponseSample" value="{&quot;Result&quot;:&quot;&quot;}"/>
+      <property name="jsDivide.activationSpecClass" value="oracle.tip.adapter.cloud.CloudActivationSpec"/>
+      <property name="jsDivide.allowChangeDefaultNamespace" value="false"/>
+      <property name="jsDivide.cacName" value="test_REQUEST"/>
+      <property name="jsDivide.copyFaultFromModel" value="true"/>
+      <property name="jsDivide.forceWsdlTypesBuild" value="true"/>
+      <property name="jsDivide.generateConnectivityPropertiesInboundRequest" value="RESTINREQ"/>
+      <property name="jsDivide.generateConnectivityPropertiesInboundResponse" value="RESTINRES"/>
+      <property name="jsDivide.generateInboundCredentials" value="true"/>
+      <property name="jsDivide.generatePartnerLink" value="false"/>
+      <property name="jsDivide.integrationWSDLName" value="test_REQUEST"/>
+      <property name="jsDivide.invocationStyle" value="REQUEST_RESPONSE"/>
+      <property name="jsDivide.isRequestJsonSchema" value="false"/>
+      <property name="jsDivide.isRequestRawBytes" value="false"/>
+      <property name="jsDivide.isResponseJsonSchema" value="false"/>
+      <property name="jsDivide.isResponseRawBytes" value="false"/>
+      <property name="jsDivide.operations" value="jsDivide"/>
+      <property name="jsDivide.postQueryParamsAsContent" value="false"/>
+      <property name="jsDivide.requestJsonTopLevelArray" value="false"/>
+      <property name="jsDivide.responseJsonTopLevelArray" value="false"/>
+      <property name="jsMultiply.targetOperation" value="execute"/>
+      <property name="jsMultiply.HTTPHeadersAdded" value="true"/>
+      <property name="jsMultiply.HttpVerb" value="POST"/>
+      <property name="jsMultiply.RequestElementNS" value="http://xmlns.oracle.com/cloud/adapter/REST/test/jsMultiply/types"/>
+      <property name="jsMultiply.RequestElementName" value="request-wrapper"/>
+      <property name="jsMultiply.RequestMediaType" value="application/json"/>
+      <property name="jsMultiply.RequestSample" value="{ &quot;input1&quot;: &quot;&quot;, &quot;input2&quot;: &quot;&quot; } "/>
+      <property name="jsMultiply.ResourceURI" value="/multiply"/>
+      <property name="jsMultiply.ResponseElementNS" value="http://xmlns.oracle.com/cloud/adapter/REST/test/jsMultiply/types"/>
+      <property name="jsMultiply.ResponseElementName" value="response-wrapper"/>
+      <property name="jsMultiply.ResponseMediaType" value="application/json"/>
+      <property name="jsMultiply.ResponseSample" value="{ &quot;Result&quot;: &quot;&quot; }"/>
+      <property name="jsMultiply.activationSpecClass" value="oracle.tip.adapter.cloud.CloudActivationSpec"/>
+      <property name="jsMultiply.allowChangeDefaultNamespace" value="false"/>
+      <property name="jsMultiply.cacName" value="test_REQUEST"/>
+      <property name="jsMultiply.copyFaultFromModel" value="true"/>
+      <property name="jsMultiply.forceWsdlTypesBuild" value="true"/>
+      <property name="jsMultiply.generateConnectivityPropertiesInboundRequest" value="RESTINREQ"/>
+      <property name="jsMultiply.generateConnectivityPropertiesInboundResponse" value="RESTINRES"/>
+      <property name="jsMultiply.generateInboundCredentials" value="true"/>
+      <property name="jsMultiply.generatePartnerLink" value="false"/>
+      <property name="jsMultiply.integrationWSDLName" value="test_REQUEST"/>
+      <property name="jsMultiply.invocationStyle" value="REQUEST_RESPONSE"/>
+      <property name="jsMultiply.isRequestJsonSchema" value="false"/>
+      <property name="jsMultiply.isRequestRawBytes" value="false"/>
+      <property name="jsMultiply.isResponseJsonSchema" value="false"/>
+      <property name="jsMultiply.isResponseRawBytes" value="false"/>
+      <property name="jsMultiply.operations" value="jsMultiply"/>
+      <property name="jsMultiply.postQueryParamsAsContent" value="false"/>
+      <property name="jsMultiply.requestJsonTopLevelArray" value="false"/>
+      <property name="jsMultiply.responseJsonTopLevelArray" value="false"/>
+      <property name="operations" value="jsSubtract,jsSum,jsDivide,jsMultiply"/>
+      <property name="instanceId" value="test"/>
+      <property name="targetOperation" value="execute"/>
+      <property name="RequestElementName" value="execute"/>
+      <property name="ResponseElementNS" value="http://xmlns.oracle.com/cloud/adapter/internal/commons/proxy"/>
+      <property name="executeResponse" value="executeResponse"/>
+      <property name="RequestElementNS" value="http://xmlns.oracle.com/cloud/adapter/internal/commons/proxy"/>
+      <property name="RequestMediaType" value="application/xml"/>
+      <property name="ResponseMediaType" value="application/xml"/>
+    </activation-spec>
+  </endpoint-activation>
+</adapter-config>

@@ -1,0 +1,10 @@
+<adapter-config xsdTargetNamespace="http://xmlns.oracle.com/cloud/adapter/stagefile/zipfile_REQUEST/types" name="zipfile_REQUESTPortType" adapter="stagefile" wsdlLocation="zipfile_REQUEST.wsdl" xmlns="http://platform.integration.oracle/blocks/adapter/fw/metadata">
+  <connection-factory location="ics/FileAdapter">
+    <non-managed-connection managedConnectionFactoryClassName="oracle.tip.adapter.file.FileManagedConnectionFactory"/>
+  </connection-factory>
+  <endpoint-interaction portType="zipfile_REQUESTPortType" operation="Zip">
+    <interaction-spec className="oracle.tip.adapter.file.outbound.FileReadInteractionSpec">
+      <property name="Operation" value="Zip"/>
+    </interaction-spec>
+  </endpoint-interaction>
+</adapter-config>

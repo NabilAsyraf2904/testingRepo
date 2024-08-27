@@ -1,0 +1,1 @@
+{"id":"SM_EMPLOYEE_02.00.0000","icsProject":{"version":"02.00.0000","percentageComplete":100,"modelType":"FREEFORM","projectCode":"SM_EMPLOYEE","processorCount":{"INTEGRATION_METADATA":1,"MESSAGE_TRACKER":1,"TRANSFORMER":1,"SOURCE":1,"TARGET":1},"smartTags":"app:REST, app:atpdatabase,style:App Driven Orchestration"}}

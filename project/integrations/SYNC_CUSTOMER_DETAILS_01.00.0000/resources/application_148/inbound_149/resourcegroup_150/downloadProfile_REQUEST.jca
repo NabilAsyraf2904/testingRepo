@@ -1,0 +1,44 @@
+<adapter-config xsdTargetNamespace="http://xmlns.oracle.com/cloud/adapter/ftp/downloadProfile_REQUEST/types" name="downloadProfile_REQUESTPortType" adapter="ftp" wsdlLocation="downloadProfile_REQUEST.wsdl" xmlns="http://platform.integration.oracle/blocks/adapter/fw/metadata">
+  <connection-factory location="ics/FtpAdapter">
+    <non-managed-connection managedConnectionFactoryClassName="oracle.tip.adapter.ftp.FTPManagedConnectionFactory">
+      <property name="AuthenticationType" value="password"/>
+      <property name="ChangeDirectory" value="true"/>
+      <property name="DefaultDateFormat" value="MMM d yyyy"/>
+      <property name="EnableFIPSMode" value="false"/>
+      <property name="FtpConnectionType" value="SFTP"/>
+      <property name="Host" value="%%null_Host"/>
+      <property name="KeepConnections" value="false"/>
+      <property name="KeystoreAlgorithm" value="SunX509"/>
+      <property name="KeystoreType" value="PKCS12"/>
+      <property name="ListParserKey" value="UNIX"/>
+      <property name="Port" value="%%null_Port"/>
+      <property name="PreferredCipherSuite" value="aes128-cbc"/>
+      <property name="ProxyHost" value=""/>
+      <property name="ProxyPort" value=""/>
+      <property name="ProxyType" value="http"/>
+      <property name="RecentDateFormat" value="MMM d HH:mm"/>
+      <property name="SecurePort" value="990"/>
+      <property name="SftpBlockSize" value="32768"/>
+      <property name="TransportProvider" value="socket"/>
+      <property name="UseFtps" value="false"/>
+      <property name="UseProxy" value="false"/>
+      <property name="UseSftp" value="%%null_UseSftp"/>
+      <property name="csfMap" value="oracle.cloud.adapter"/>
+      <property name="csfkey" value="6370107a611c1ce03aac026eb941b1be39890a753da0a6351b62905f5a335110"/>
+    </non-managed-connection>
+  </connection-factory>
+  <endpoint-interaction portType="downloadProfile_REQUESTPortType" operation="DownloadFileToICS">
+    <interaction-spec className="oracle.tip.adapter.ftp.outbound.FTPReadInteractionSpec">
+      <property name="DecryptFile" value="false"/>
+      <property name="DownloadFileName" value="CustomerProfileClass.csv"/>
+      <property name="DownloadLogicalDirectory" value="/files"/>
+      <property name="DownloadReadPhysicalDirectory" value="/home/users/integration@knextech.com/Internal/Integration/TEST"/>
+      <property name="FileType" value="binary"/>
+      <property name="ICSFilePull" value="true"/>
+      <property name="Operation" value="DownloadFileToICS"/>
+      <property name="Unzip" value="false"/>
+      <property name="UnzipRetainDirectory" value="false"/>
+      <property name="tradingPartnerMode" value="disabled"/>
+    </interaction-spec>
+  </endpoint-interaction>
+</adapter-config>

@@ -1,0 +1,42 @@
+<adapter-config xsdTargetNamespace="http://xmlns.oracle.com/cloud/adapter/erp/findCustomerAccount_REQUEST/types" name="findCustomerAccount_REQUESTPortType" adapter="erp" wsdlLocation="findCustomerAccount_REQUEST.wsdl" rtWsdlLocation="findCustomerAccount_REQUEST_RT.wsdl" xmlns="http://platform.integration.oracle/blocks/adapter/fw/metadata">
+  <connection-factory location="cloud/CloudAdapter">
+    <non-managed-connection managedConnectionFactoryClassName="oracle.cloud.connector.fa.FAConnectionFactory">
+      <property name="Host" value="%%null_Host"/>
+      <property name="applicationVersion" value="1.0"/>
+      <property name="cloud.adapter.plugin.version" value="23.04.1"/>
+      <property name="cloud.adapter.sdk.version" value="23.04.1"/>
+      <property name="csfMap" value="oracle.cloud.adapter"/>
+      <property name="csfkey" value="e4f97551ebb6a671cf685348cd09f941ebb75de5867dae3df216221a63869139"/>
+      <property name="endpointType" value="SOAP"/>
+      <property name="eventCatalogURL" value="%%null_eventCatalogURL"/>
+      <property name="interfaceCatalogURL" value="%%null_interfaceCatalogURL"/>
+      <property name="lastSaved" value="2024.06.15.04.11.15"/>
+      <property name="privateEndpoint" value="false"/>
+      <property name="restResourceURIs" value=""/>
+      <property name="securityPolicy" value="USERNAME_PASSWORD"/>
+      <property name="serviceEndpoints" value="%%null_serviceEndpoints"/>
+      <property name="serviceWSDLURL" value="%%null_serviceWSDLURL"/>
+      <property name="targetWSDLURL" value="%%null_targetWSDLURL"/>
+    </non-managed-connection>
+  </connection-factory>
+  <endpoint-interaction portType="findCustomerAccount_REQUESTPortType" operation="findCustomerAccount">
+    <interaction-spec className="oracle.tip.adapter.cloud.CloudInteractionSpec">
+      <property name="targetOperation" value="findCustomerAccount"/>
+      <property name="operationPath" value="http://xmlns.oracle.com/apps/cdm/foundation/parties/customerAccountService/applicationModule/findCustomerAccount"/>
+      <property name="enforceResponseSizeRestriction" value="true"/>
+      <property name="oic.gen3.invoke" value="true"/>
+      <property name="Attachment" value="false"/>
+      <property name="browseBySelection" value="browseByService"/>
+      <property name="cherryPickChildResources" value="true"/>
+      <property name="copyDescendantTypes" value="true"/>
+      <property name="copyDescendantTypesFullTraverse" value="true"/>
+      <property name="enableHCMAPIBlacklisting" value="true"/>
+      <property name="faServiceQualifiedName" value="{http://xmlns.oracle.com/apps/cdm/foundation/parties/customerAccountService/applicationModule/}CustomerAccountService"/>
+      <property name="generateConnectivityPropertiesOutboundRequest" value="RESTOUTREQ"/>
+      <property name="outboundRequestObject" value="{http://xmlns.oracle.com/apps/cdm/foundation/parties/customerAccountService/applicationModule/OSCAdapter}CustomerAccountService"/>
+      <property name="outboundRequestOperation" value="{http://xmlns.oracle.com/apps/cdm/foundation/parties/customerAccountService/applicationModule/}findCustomerAccount"/>
+      <property name="referenceSourceSchemas" value="true"/>
+      <property name="selectedAction" value="CRUD"/>
+    </interaction-spec>
+  </endpoint-interaction>
+</adapter-config>

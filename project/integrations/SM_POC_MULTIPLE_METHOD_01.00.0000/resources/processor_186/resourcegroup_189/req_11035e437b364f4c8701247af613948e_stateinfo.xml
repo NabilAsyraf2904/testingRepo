@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<oracle-xsl-webmapper:StateInfo xmlns:oracle-xsl-webmapper="http://www.oracle.com/xsl/webmapper/state" version="1.1">
+    <oracle-xsl-webmapper:ErrorsCount>0</oracle-xsl-webmapper:ErrorsCount>
+    <oracle-xsl-webmapper:WarningsCount>0</oracle-xsl-webmapper:WarningsCount>
+    <oracle-xsl-webmapper:IsImported>false</oracle-xsl-webmapper:IsImported>
+    <oracle-xsl-webmapper:HasMappings>true</oracle-xsl-webmapper:HasMappings>
+    <oracle-xsl-webmapper:StateInfoIsStale>false</oracle-xsl-webmapper:StateInfoIsStale>
+    <oracle-xsl-webmapper:SourcesReferenced>
+        <element xmlns:ns3="http://xmlns.oracle.com/cloud/adapter/REST/getOneBPA_REQUEST/types">ns3:executeResponse</element>
+        <uriAbsoluteLocation>file:/tmp/WC/itg_519e7acb-5272-4808-8746-92e26b672580/resources/application_191/inbound_192/resourcegroup_193/getOneBPA_REQUEST.wsdl</uriAbsoluteLocation>
+        <param>getOneBPA</param>
+        <primary>false</primary>
+    </oracle-xsl-webmapper:SourcesReferenced>
+    <oracle-xsl-webmapper:AllSources>
+        <element xmlns:ns3="http://xmlns.oracle.com/cloud/adapter/REST/item_REQUEST/getBPA/types">ns3:execute</element>
+        <uriAbsoluteLocation>file:/tmp/WC/itg_519e7acb-5272-4808-8746-92e26b672580/resources/application_169/outbound_170/resourcegroup_171/item_getBPA_REQUEST.wsdl</uriAbsoluteLocation>
+        <primary>true</primary>
+    </oracle-xsl-webmapper:AllSources>
+    <oracle-xsl-webmapper:AllSources>
+        <element xmlns:ns3="http://xmlns.oracle.com/cloud/adapter/REST/getOneBPA_REQUEST/types">ns3:executeResponse</element>
+        <uriAbsoluteLocation>file:/tmp/WC/itg_519e7acb-5272-4808-8746-92e26b672580/resources/application_191/inbound_192/resourcegroup_193/getOneBPA_REQUEST.wsdl</uriAbsoluteLocation>
+        <param>getOneBPA</param>
+        <primary>false</primary>
+    </oracle-xsl-webmapper:AllSources>
+</oracle-xsl-webmapper:StateInfo>

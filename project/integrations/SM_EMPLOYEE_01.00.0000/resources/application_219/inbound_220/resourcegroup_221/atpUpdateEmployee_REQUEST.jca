@@ -1,0 +1,27 @@
+<adapter-config name="atpUpdateEmployee_REQUEST" adapter="atpdatabase" wsdlLocation="atpUpdateEmployee_REQUEST.wsdl" xmlns="http://platform.integration.oracle/blocks/adapter/fw/metadata">
+  <connection-factory location="eis/DB/KNX_ATP">
+    <non-managed-connection managedConnectionFactoryClassName="oracle.tip.adapter.db.DBManagedConnectionFactory">
+      <property name="ConnectionString" value="2B731F769540C4FE1208361ADF9496D40EA793A78FF9C66917C6FD194B701F2C7B3466EAF9A2F9D4D5360A3CC554B9A69D051A6B0F46DB19BE9F004C7D132420A22673AC7CC6746DC9B30791A2DFD38B7CCEE4FFE7CFE72854E493BA7F95A128056C0FD9AD6776EA78334AC6948CD6F263996D82BF83C465B9383AA6E1224FE112A60A028D5C043F25A77CB7E91E45FB431338A4C394D0283D6A96059297ACB59F530E036B6C9D798E5231BCCB760B0A81D0238BD361A01A22AC137F588A2FBD8CDEF649DB8231E2E94E6812E94382D9566BBFEC457583AE3330A19F628C53DCCC70348914D4DC6B055A475FE80D70C0D8181BE0BC6CDB4D24640A46CCA410773FA0B068F190DA6E2F8527B08B23DA4D"/>
+      <property name="DriverClassName" value="oracle.jdbc.OracleDriver"/>
+      <property name="csfkey" value="4f878fa1ebfc20c90e8622e51680adca503be0cacdb6b34c7171a7a11078fcbf"/>
+      <property name="csfMap" value="oracle.cloud.adapter"/>
+      <property name="PlatformClassName" value="org.eclipse.persistence.platform.database.Oracle10Platform"/>
+      <property name="MinConnections" value="2"/>
+      <property name="MaxConnections" value="35"/>
+      <property name="MinReadConnections" value="1"/>
+      <property name="MaxReadConnections" value="15"/>
+      <property name="IsSSLEnabled" value="true"/>
+      <property name="RuntimeJKSUnzipLoc" value="KNX_ATP"/>
+    </non-managed-connection>
+  </connection-factory>
+  <endpoint-interaction portType="atpUpdateEmployee_REQUEST_ptt" operation="update">
+    <interaction-spec className="oracle.tip.adapter.db.DBWriteInteractionSpec">
+      <property name="DescriptorName" value="atpUpdateEmployee.Employee"/>
+      <property name="MappingsMetaDataURL" value="atpUpdateEmployee_REQUEST-or-mappings.xml"/>
+      <property name="MessageExchangePattern" value="ONEWAY"/>
+      <property name="DmlType" value="update"/>
+      <property name="DetectOmissions" value="true"/>
+      <property name="GetActiveUnitOfWork" value="false"/>
+    </interaction-spec>
+  </endpoint-interaction>
+</adapter-config>

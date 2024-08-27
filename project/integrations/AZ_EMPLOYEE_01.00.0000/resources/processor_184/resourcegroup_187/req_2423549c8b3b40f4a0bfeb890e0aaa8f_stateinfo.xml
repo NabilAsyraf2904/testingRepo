@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<oracle-xsl-webmapper:StateInfo xmlns:oracle-xsl-webmapper="http://www.oracle.com/xsl/webmapper/state" version="1.1">
+    <oracle-xsl-webmapper:ErrorsCount>0</oracle-xsl-webmapper:ErrorsCount>
+    <oracle-xsl-webmapper:WarningsCount>0</oracle-xsl-webmapper:WarningsCount>
+    <oracle-xsl-webmapper:IsImported>false</oracle-xsl-webmapper:IsImported>
+    <oracle-xsl-webmapper:HasMappings>true</oracle-xsl-webmapper:HasMappings>
+    <oracle-xsl-webmapper:StateInfoIsStale>false</oracle-xsl-webmapper:StateInfoIsStale>
+    <oracle-xsl-webmapper:SourcesReferenced>
+        <element xmlns:ns3="http://xmlns.oracle.com/cloud/adapter/atpdatabase/atpSelectEmployeeNumber_REQUEST/types">ns3:EmployeeCollection</element>
+        <uriAbsoluteLocation>file:/tmp/WC/itg_5d08f656-ba35-4a34-928a-9daa7ee8b77f/resources/application_37/inbound_38/resourcegroup_39/atpSelectEmployeeNumber_REQUEST.wsdl</uriAbsoluteLocation>
+        <param>atpSelectEmployeeNumber</param>
+        <primary>false</primary>
+    </oracle-xsl-webmapper:SourcesReferenced>
+    <oracle-xsl-webmapper:SourcesReferenced>
+        <element xmlns:ns3="http://xmlns.oracle.com/cloud/adapter/REST/employee/types">ns3:Employes</element>
+        <uriAbsoluteLocation>file:/tmp/WC/itg_5d08f656-ba35-4a34-928a-9daa7ee8b77f/resources/processor_111/resourcegroup_118/generated.wsdl</uriAbsoluteLocation>
+        <param>currEmployee</param>
+        <primary>false</primary>
+    </oracle-xsl-webmapper:SourcesReferenced>
+    <oracle-xsl-webmapper:AllSources>
+        <element xmlns:ns3="http://xmlns.oracle.com/cloud/adapter/REST/employee_REQUEST/types">ns3:execute</element>
+        <uriAbsoluteLocation>file:/tmp/WC/itg_5d08f656-ba35-4a34-928a-9daa7ee8b77f/resources/application_13/outbound_14/resourcegroup_15/employee_REQUEST.wsdl</uriAbsoluteLocation>
+        <primary>true</primary>
+    </oracle-xsl-webmapper:AllSources>
+    <oracle-xsl-webmapper:AllSources>
+        <element xmlns:ns3="http://xmlns.oracle.com/cloud/adapter/REST/employee/types">ns3:Employes</element>
+        <uriAbsoluteLocation>file:/tmp/WC/itg_5d08f656-ba35-4a34-928a-9daa7ee8b77f/resources/processor_111/resourcegroup_118/generated.wsdl</uriAbsoluteLocation>
+        <param>currEmployee</param>
+        <primary>false</primary>
+    </oracle-xsl-webmapper:AllSources>
+    <oracle-xsl-webmapper:AllSources>
+        <element xmlns:ns3="http://xmlns.oracle.com/cloud/adapter/atpdatabase/atpSelectEmployeeNumber_REQUEST/types">ns3:EmployeeCollection</element>
+        <uriAbsoluteLocation>file:/tmp/WC/itg_5d08f656-ba35-4a34-928a-9daa7ee8b77f/resources/application_37/inbound_38/resourcegroup_39/atpSelectEmployeeNumber_REQUEST.wsdl</uriAbsoluteLocation>
+        <param>atpSelectEmployeeNumber</param>
+        <primary>false</primary>
+    </oracle-xsl-webmapper:AllSources>
+</oracle-xsl-webmapper:StateInfo>

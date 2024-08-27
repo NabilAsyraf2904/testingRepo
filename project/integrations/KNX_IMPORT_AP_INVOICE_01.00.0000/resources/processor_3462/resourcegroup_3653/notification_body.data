@@ -1,0 +1,27 @@
+<html>
+  <p> Import AP Invoice Failed: </p>
+  <table>
+    <tr>
+      <td>Flow ID</td>
+      <td> : </td>
+      <td>{instanceId}</td>
+    </tr>
+ <tr>
+      <td>File Name</td>
+      <td> : </td>
+      <td>{filename}</td>
+    </tr>
+<tr>
+      <td>Invoice Number</td>
+      <td> : </td>
+      <td>{invoiceNumber}</td>
+    </tr>
+    <tr>
+      <td>Error Detail</td>
+      <td> : </td>
+      <td>{errorMessage}</td>
+    </tr>
+  </table>
+  <p> Regards, </p>
+  <p> Oracle Integration Cloud Services </p>
+</html>

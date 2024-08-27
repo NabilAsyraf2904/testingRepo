@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<api-library>
+    <name>Date Conversion Method</name>
+    <code>DATE_CONVERSION_METHOD</code>
+    <version>01.00.0000</version>
+    <implementationType>JAVASCRIPT</implementationType>
+    <sources>
+        <source>
+            <fileName>Date Conversion Method.js</fileName>
+            <apiDefinitions>
+                <api apiid="DATE_CONVERSION_METHOD:01.00.0000:Date Conversion Method.js:formatdate123:inputstring:inputformat:outputformat">
+                    <classification>ORCHESTRATION</classification>
+                    <duplicateFnFlag>false</duplicateFnFlag>
+                    <name>formatdate123</name>
+                    <inputParameters>
+                        <input>
+                            <icon>/oracle/ics/webconsole/view/images/string_24_ena.png</icon>
+                            <name>inputstring</name>
+                            <type>string</type>
+                        </input>
+                        <input>
+                            <icon>/oracle/ics/webconsole/view/images/string_24_ena.png</icon>
+                            <name>inputformat</name>
+                            <type>string</type>
+                        </input>
+                        <input>
+                            <icon>/oracle/ics/webconsole/view/images/string_24_ena.png</icon>
+                            <name>outputformat</name>
+                            <type>string</type>
+                        </input>
+                    </inputParameters>
+                    <libraryCode>DATE_CONVERSION_METHOD</libraryCode>
+                    <classification>ORCHESTRATION</classification>
+                    <classification>XPATH</classification>
+                    <outputParameters>
+                        <output>
+                            <icon>/oracle/ics/webconsole/view/images/string_24_ena.png</icon>
+                            <name>formatted_date</name>
+                            <type>string</type>
+                        </output>
+                    </outputParameters>
+                    <unsupportedSyntax>false</unsupportedSyntax>
+                </api>
+            </apiDefinitions>
+            <libraryCode>DATE_CONVERSION_METHOD</libraryCode>
+        </source>
+    </sources>
+</api-library>

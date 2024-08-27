@@ -1,0 +1,686 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns3:icsproject name="project_1" version="9.9" cversion="5" modelType="freeform" xmlns="http://www.oracle.com/2014/03/ics/project/definition" xmlns:ns2="http://www.oracle.com/2014/03/ics/flow/definition" xmlns:ns3="http://www.oracle.com/2014/03/ics/project">
+    <projectCode>SYNC_CUSTOMER_DETAILS</projectCode>
+    <projectVersion>01.00.0000</projectVersion>
+    <projectName>Sync Customer Details</projectName>
+    <percentComplete>100</percentComplete>
+    <projectHasErrors>false</projectHasErrors>
+    <projectHasWarnings>false</projectHasWarnings>
+    <ns3:icsflow name="flow_1">
+        <ns2:application name="application_23">
+            <ns2:role>target</ns2:role>
+            <ns2:adapter>
+                <ns2:type>app-adapter</ns2:type>
+                <ns2:code>KNX_BI_REPORT_SERVICE</ns2:code>
+                <ns2:name>getCustomerData</ns2:name>
+                <ns2:property name="hasAttachment" value="false"/>
+            </ns2:adapter>
+            <ns2:mep>push-sync</ns2:mep>
+            <ns2:inbound name="inbound_24">
+                <ns2:binding>soap</ns2:binding>
+                <ns2:operation>runReport</ns2:operation>
+                <ns2:resourceGroup name="resourcegroup_25">
+                    <ns2:resource name="resource_28" location="../resources/application_23/inbound_24/resourcegroup_25/getCustomerData_REQUEST.wsdl" type="wsdl"/>
+                    <ns2:resource name="resource_219" location="../resources/application_23/inbound_24/resourcegroup_25/getCustomerData_REQUEST.jca" type="jca"/>
+                    <ns2:resource name="resource_220" location="../resources/application_23/inbound_24/resourcegroup_25/ICSFault.xsd" type="xsd"/>
+                </ns2:resourceGroup>
+                <ns2:input name="input_30">
+                    <ns2:role>request</ns2:role>
+                    <ns2:messageContextRef refUri="messagecontext_29"/>
+                </ns2:input>
+                <ns2:output name="output_32">
+                    <ns2:role>response</ns2:role>
+                    <ns2:messageContextRef refUri="messagecontext_31"/>
+                </ns2:output>
+                <ns2:output name="output_34">
+                    <ns2:role>fault</ns2:role>
+                    <ns2:subRole>AccessDeniedException</ns2:subRole>
+                    <ns2:messageContextRef refUri="messagecontext_33"/>
+                </ns2:output>
+                <ns2:output name="output_36">
+                    <ns2:role>fault</ns2:role>
+                    <ns2:subRole>OperationFailedException</ns2:subRole>
+                    <ns2:messageContextRef refUri="messagecontext_35"/>
+                </ns2:output>
+                <ns2:output name="output_38">
+                    <ns2:role>fault</ns2:role>
+                    <ns2:subRole>InvalidParametersException</ns2:subRole>
+                    <ns2:messageContextRef refUri="messagecontext_37"/>
+                </ns2:output>
+            </ns2:inbound>
+        </ns2:application>
+        <ns2:application name="application_88">
+            <ns2:role>target</ns2:role>
+            <ns2:adapter>
+                <ns2:type>app-adapter</ns2:type>
+                <ns2:code>KNX_FTP</ns2:code>
+                <ns2:name>writeCustomerFile</ns2:name>
+                <ns2:property name="hasAttachment" value="false"/>
+            </ns2:adapter>
+            <ns2:mep>push-sync</ns2:mep>
+            <ns2:inbound name="inbound_89">
+                <ns2:binding>soap</ns2:binding>
+                <ns2:operation>WriteFile</ns2:operation>
+                <ns2:resourceGroup name="resourcegroup_90">
+                    <ns2:resource name="resource_91" location="../resources/application_88/inbound_89/resourcegroup_90/writeCustomerFile_REQUEST.jca" type="jca"/>
+                    <ns2:resource name="resource_92" location="../resources/application_88/inbound_89/resourcegroup_90/ICSFault.xsd" type="xsd"/>
+                    <ns2:resource name="resource_93" location="../resources/application_88/inbound_89/resourcegroup_90/writeCustomerFile_REQUEST.wsdl" type="wsdl"/>
+                </ns2:resourceGroup>
+                <ns2:input name="input_95">
+                    <ns2:role>request</ns2:role>
+                    <ns2:messageContextRef refUri="messagecontext_94"/>
+                </ns2:input>
+                <ns2:output name="output_97">
+                    <ns2:role>response</ns2:role>
+                    <ns2:messageContextRef refUri="messagecontext_96"/>
+                </ns2:output>
+            </ns2:inbound>
+        </ns2:application>
+        <ns2:application name="application_103">
+            <ns2:role>target</ns2:role>
+            <ns2:adapter>
+                <ns2:type>app-adapter</ns2:type>
+                <ns2:code>KNX_FTP</ns2:code>
+                <ns2:name>writeCustProfile</ns2:name>
+                <ns2:property name="hasAttachment" value="false"/>
+            </ns2:adapter>
+            <ns2:mep>push-sync</ns2:mep>
+            <ns2:inbound name="inbound_104">
+                <ns2:binding>soap</ns2:binding>
+                <ns2:operation>WriteFile</ns2:operation>
+                <ns2:resourceGroup name="resourcegroup_105">
+                    <ns2:resource name="resource_108" location="../resources/application_103/inbound_104/resourcegroup_105/writeCustProfile_REQUEST.wsdl" type="wsdl"/>
+                    <ns2:resource name="resource_272" location="../resources/application_103/inbound_104/resourcegroup_105/writeCustProfile_REQUEST.jca" type="jca"/>
+                    <ns2:resource name="resource_273" location="../resources/application_103/inbound_104/resourcegroup_105/ICSFault.xsd" type="xsd"/>
+                </ns2:resourceGroup>
+                <ns2:input name="input_110">
+                    <ns2:role>request</ns2:role>
+                    <ns2:messageContextRef refUri="messagecontext_109"/>
+                </ns2:input>
+                <ns2:output name="output_112">
+                    <ns2:role>response</ns2:role>
+                    <ns2:messageContextRef refUri="messagecontext_111"/>
+                </ns2:output>
+            </ns2:inbound>
+        </ns2:application>
+        <ns2:application name="application_118">
+            <ns2:role>target</ns2:role>
+            <ns2:adapter>
+                <ns2:type>app-adapter</ns2:type>
+                <ns2:code>KNX_FTP</ns2:code>
+                <ns2:name>writeSites</ns2:name>
+                <ns2:property name="hasAttachment" value="false"/>
+            </ns2:adapter>
+            <ns2:mep>push-sync</ns2:mep>
+            <ns2:inbound name="inbound_119">
+                <ns2:binding>soap</ns2:binding>
+                <ns2:operation>WriteFile</ns2:operation>
+                <ns2:resourceGroup name="resourcegroup_120">
+                    <ns2:resource name="resource_123" location="../resources/application_118/inbound_119/resourcegroup_120/writeSites_REQUEST.wsdl" type="wsdl"/>
+                    <ns2:resource name="resource_274" location="../resources/application_118/inbound_119/resourcegroup_120/writeSites_REQUEST.jca" type="jca"/>
+                    <ns2:resource name="resource_275" location="../resources/application_118/inbound_119/resourcegroup_120/ICSFault.xsd" type="xsd"/>
+                </ns2:resourceGroup>
+                <ns2:input name="input_125">
+                    <ns2:role>request</ns2:role>
+                    <ns2:messageContextRef refUri="messagecontext_124"/>
+                </ns2:input>
+                <ns2:output name="output_127">
+                    <ns2:role>response</ns2:role>
+                    <ns2:messageContextRef refUri="messagecontext_126"/>
+                </ns2:output>
+            </ns2:inbound>
+        </ns2:application>
+        <ns2:application name="application_133">
+            <ns2:role>target</ns2:role>
+            <ns2:adapter>
+                <ns2:type>app-adapter</ns2:type>
+                <ns2:code>KNX_FTP</ns2:code>
+                <ns2:name>downloadCustomer</ns2:name>
+                <ns2:property name="hasAttachment" value="false"/>
+            </ns2:adapter>
+            <ns2:mep>pull</ns2:mep>
+            <ns2:inbound name="inbound_134">
+                <ns2:binding>soap</ns2:binding>
+                <ns2:operation>DownloadFileToICS</ns2:operation>
+                <ns2:resourceGroup name="resourcegroup_135">
+                    <ns2:resource name="resource_136" location="../resources/application_133/inbound_134/resourcegroup_135/downloadCustomer_REQUEST.jca" type="jca"/>
+                    <ns2:resource name="resource_137" location="../resources/application_133/inbound_134/resourcegroup_135/ICSFault.xsd" type="xsd"/>
+                    <ns2:resource name="resource_138" location="../resources/application_133/inbound_134/resourcegroup_135/downloadCustomer_REQUEST.wsdl" type="wsdl"/>
+                </ns2:resourceGroup>
+                <ns2:input name="input_140">
+                    <ns2:role>request</ns2:role>
+                    <ns2:messageContextRef refUri="messagecontext_139"/>
+                </ns2:input>
+                <ns2:output name="output_142">
+                    <ns2:role>response</ns2:role>
+                    <ns2:messageContextRef refUri="messagecontext_141"/>
+                </ns2:output>
+            </ns2:inbound>
+        </ns2:application>
+        <ns2:application name="application_148">
+            <ns2:role>target</ns2:role>
+            <ns2:adapter>
+                <ns2:type>app-adapter</ns2:type>
+                <ns2:code>KNX_FTP</ns2:code>
+                <ns2:name>downloadProfile</ns2:name>
+                <ns2:property name="hasAttachment" value="false"/>
+            </ns2:adapter>
+            <ns2:mep>pull</ns2:mep>
+            <ns2:inbound name="inbound_149">
+                <ns2:binding>soap</ns2:binding>
+                <ns2:operation>DownloadFileToICS</ns2:operation>
+                <ns2:resourceGroup name="resourcegroup_150">
+                    <ns2:resource name="resource_153" location="../resources/application_148/inbound_149/resourcegroup_150/downloadProfile_REQUEST.wsdl" type="wsdl"/>
+                    <ns2:resource name="resource_281" location="../resources/application_148/inbound_149/resourcegroup_150/downloadProfile_REQUEST.jca" type="jca"/>
+                    <ns2:resource name="resource_282" location="../resources/application_148/inbound_149/resourcegroup_150/ICSFault.xsd" type="xsd"/>
+                </ns2:resourceGroup>
+                <ns2:input name="input_155">
+                    <ns2:role>request</ns2:role>
+                    <ns2:messageContextRef refUri="messagecontext_154"/>
+                </ns2:input>
+                <ns2:output name="output_157">
+                    <ns2:role>response</ns2:role>
+                    <ns2:messageContextRef refUri="messagecontext_156"/>
+                </ns2:output>
+            </ns2:inbound>
+        </ns2:application>
+        <ns2:application name="application_165">
+            <ns2:role>target</ns2:role>
+            <ns2:adapter>
+                <ns2:type>app-adapter</ns2:type>
+                <ns2:code>KNX_FTP</ns2:code>
+                <ns2:name>downloadSites</ns2:name>
+                <ns2:property name="hasAttachment" value="false"/>
+            </ns2:adapter>
+            <ns2:mep>pull</ns2:mep>
+            <ns2:inbound name="inbound_166">
+                <ns2:binding>soap</ns2:binding>
+                <ns2:operation>DownloadFileToICS</ns2:operation>
+                <ns2:resourceGroup name="resourcegroup_167">
+                    <ns2:resource name="resource_168" location="../resources/application_165/inbound_166/resourcegroup_167/downloadSites_REQUEST.jca" type="jca"/>
+                    <ns2:resource name="resource_169" location="../resources/application_165/inbound_166/resourcegroup_167/ICSFault.xsd" type="xsd"/>
+                    <ns2:resource name="resource_170" location="../resources/application_165/inbound_166/resourcegroup_167/downloadSites_REQUEST.wsdl" type="wsdl"/>
+                </ns2:resourceGroup>
+                <ns2:input name="input_172">
+                    <ns2:role>request</ns2:role>
+                    <ns2:messageContextRef refUri="messagecontext_171"/>
+                </ns2:input>
+                <ns2:output name="output_174">
+                    <ns2:role>response</ns2:role>
+                    <ns2:messageContextRef refUri="messagecontext_173"/>
+                </ns2:output>
+            </ns2:inbound>
+        </ns2:application>
+        <ns2:application name="application_199">
+            <ns2:role>target</ns2:role>
+            <ns2:adapter>
+                <ns2:type>app-adapter</ns2:type>
+                <ns2:code>KNX_FTP</ns2:code>
+                <ns2:name>writeZipfile</ns2:name>
+                <ns2:property name="hasAttachment" value="false"/>
+            </ns2:adapter>
+            <ns2:mep>push-sync</ns2:mep>
+            <ns2:inbound name="inbound_200">
+                <ns2:binding>soap</ns2:binding>
+                <ns2:operation>WriteFile</ns2:operation>
+                <ns2:resourceGroup name="resourcegroup_201">
+                    <ns2:resource name="resource_202" location="../resources/application_199/inbound_200/resourcegroup_201/writeZipfile_REQUEST.jca" type="jca"/>
+                    <ns2:resource name="resource_203" location="../resources/application_199/inbound_200/resourcegroup_201/ICSFault.xsd" type="xsd"/>
+                    <ns2:resource name="resource_204" location="../resources/application_199/inbound_200/resourcegroup_201/writeZipfile_REQUEST.wsdl" type="wsdl"/>
+                </ns2:resourceGroup>
+                <ns2:input name="input_206">
+                    <ns2:role>request</ns2:role>
+                    <ns2:messageContextRef refUri="messagecontext_205"/>
+                </ns2:input>
+                <ns2:output name="output_208">
+                    <ns2:role>response</ns2:role>
+                    <ns2:messageContextRef refUri="messagecontext_207"/>
+                </ns2:output>
+            </ns2:inbound>
+        </ns2:application>
+        <ns2:processor name="processor_1">
+            <ns2:type>messageTracker</ns2:type>
+            <ns2:role>messageTracker:global</ns2:role>
+            <ns2:trackingVariableGroup>
+                <ns2:trackingVariable>
+                    <ns2:role>tracking_var_1</ns2:role>
+                    <ns2:primary>true</ns2:primary>
+                    <ns2:name>start Time</ns2:name>
+                    <ns2:xpath>/schedule/startTime</ns2:xpath>
+                    <ns2:messageContextRef refUri="messagecontext_11"/>
+                    <ns2:output name="output_3">
+                        <ns2:messageContextRef refUri="messagecontext_2"/>
+                    </ns2:output>
+                </ns2:trackingVariable>
+                <ns2:trackingVariable>
+                    <ns2:role>tracking_var_2</ns2:role>
+                    <ns2:primary>false</ns2:primary>
+                    <ns2:name>tracking_var_2</ns2:name>
+                    <ns2:messageContextRef refUri="messagecontext_11"/>
+                    <ns2:output name="output_5">
+                        <ns2:messageContextRef refUri="messagecontext_4"/>
+                    </ns2:output>
+                </ns2:trackingVariable>
+                <ns2:trackingVariable>
+                    <ns2:role>tracking_var_3</ns2:role>
+                    <ns2:primary>false</ns2:primary>
+                    <ns2:name>tracking_var_3</ns2:name>
+                    <ns2:messageContextRef refUri="messagecontext_11"/>
+                    <ns2:output name="output_7">
+                        <ns2:messageContextRef refUri="messagecontext_6"/>
+                    </ns2:output>
+                </ns2:trackingVariable>
+            </ns2:trackingVariableGroup>
+        </ns2:processor>
+        <ns2:processor name="processor_8">
+            <ns2:type>scheduleReceive</ns2:type>
+            <ns2:role>undefined</ns2:role>
+            <ns2:resourceGroup name="resourcegroup_9">
+                <ns2:resource name="resource_10" location="../resources/processor_8/resourcegroup_9/ICSSchedule_1.xsd" type="xsd"/>
+            </ns2:resourceGroup>
+            <ns2:output name="output_12">
+                <ns2:messageContextRef refUri="messagecontext_11"/>
+            </ns2:output>
+        </ns2:processor>
+        <ns2:processor name="processor_39">
+            <ns2:type>transformer</ns2:type>
+            <ns2:role>transformer:response-map</ns2:role>
+            <ns2:resourceGroup name="resourcegroup_42">
+                <ns2:resource name="resource_43" location="../resources/processor_39/resourcegroup_42/req_f271e3c84e3b4ad1be6275fa424798b8.xsl" type="xslt"/>
+            </ns2:resourceGroup>
+            <ns2:input name="input_40">
+                <ns2:messageContextRef refUri="messagecontext_11"/>
+            </ns2:input>
+            <ns2:output name="output_41">
+                <ns2:messageContextRef refUri="messagecontext_29"/>
+            </ns2:output>
+            <ns2:property name="has-mappings" value="true"/>
+        </ns2:processor>
+        <ns2:processor name="processor_56">
+            <ns2:type>stageFile</ns2:type>
+            <ns2:role>undefined</ns2:role>
+            <ns2:resourceGroup name="resourcegroup_57">
+                <ns2:resource name="resource_58" location="../resources/processor_56/resourcegroup_57/writeFile_REQUEST.wsdl" type="wsdl"/>
+                <ns2:resource name="resource_241" location="../resources/processor_56/resourcegroup_57/writeFile_REQUEST.jca" type="jca"/>
+            </ns2:resourceGroup>
+            <ns2:resourceGroup name="resourcegroup_260">
+                <ns2:role>exprBuilderProperties</ns2:role>
+                <ns2:resource name="resource_261" location="../resources/processor_56/resourcegroup_260/WRITE_FILENAMEexpr.properties" type="properties">
+                    <ns2:role>WRITE_FILENAME</ns2:role>
+                </ns2:resource>
+                <ns2:resource name="resource_262" location="../resources/processor_56/resourcegroup_260/WRITE_DIRNAMEexpr.properties" type="properties">
+                    <ns2:role>WRITE_DIRNAME</ns2:role>
+                </ns2:resource>
+            </ns2:resourceGroup>
+            <ns2:resourceRef refUri="messagecontext_11">
+                <ns2:role>primary-source</ns2:role>
+            </ns2:resourceRef>
+            <ns2:input name="input_61">
+                <ns2:messageContextRef refUri="messagecontext_60"/>
+            </ns2:input>
+            <ns2:output name="output_63">
+                <ns2:messageContextRef refUri="messagecontext_62"/>
+            </ns2:output>
+            <ns2:property name="operation" value="Write"/>
+            <ns2:processorName>writeFile</ns2:processorName>
+        </ns2:processor>
+        <ns2:processor name="processor_70">
+            <ns2:type>transformer</ns2:type>
+            <ns2:role>transformer:response-map</ns2:role>
+            <ns2:resourceGroup name="resourcegroup_73">
+                <ns2:resource name="resource_74" location="../resources/processor_70/resourcegroup_73/req_791445f17c994be2bdc9a10ca66334c4.xsl" type="xslt"/>
+            </ns2:resourceGroup>
+            <ns2:resourceRef refUri="messagecontext_31">
+                <ns2:role>secondary-source</ns2:role>
+                <ns2:subRole>getCustomerData</ns2:subRole>
+            </ns2:resourceRef>
+            <ns2:input name="input_71">
+                <ns2:messageContextRef refUri="messagecontext_11"/>
+            </ns2:input>
+            <ns2:output name="output_72">
+                <ns2:messageContextRef refUri="messagecontext_60"/>
+            </ns2:output>
+            <ns2:property name="has-mappings" value="true"/>
+        </ns2:processor>
+        <ns2:processor name="processor_75">
+            <ns2:type>stageFile</ns2:type>
+            <ns2:role>undefined</ns2:role>
+            <ns2:resourceGroup name="resourcegroup_76">
+                <ns2:resource name="resource_77" location="../resources/processor_75/resourcegroup_76/readFile_REQUEST.wsdl" type="wsdl"/>
+                <ns2:resource name="resource_255" location="../resources/processor_75/resourcegroup_76/readFile_REQUEST.jca" type="jca"/>
+            </ns2:resourceGroup>
+            <ns2:resourceGroup name="resourcegroup_258">
+                <ns2:role>exprBuilderProperties</ns2:role>
+                <ns2:resource name="resource_259" location="../resources/processor_75/resourcegroup_258/READ_FILE_REFERENCEexpr.properties" type="properties">
+                    <ns2:role>READ_FILE_REFERENCE</ns2:role>
+                </ns2:resource>
+            </ns2:resourceGroup>
+            <ns2:resourceRef refUri="messagecontext_11">
+                <ns2:role>primary-source</ns2:role>
+            </ns2:resourceRef>
+            <ns2:resourceRef refUri="messagecontext_62">
+                <ns2:role>secondary-source</ns2:role>
+                <ns2:subRole>writeFile</ns2:subRole>
+            </ns2:resourceRef>
+            <ns2:output name="output_80">
+                <ns2:messageContextRef refUri="messagecontext_79"/>
+            </ns2:output>
+            <ns2:property name="operation" value="Read"/>
+            <ns2:property name="chunk" value="false"/>
+            <ns2:processorName>readFile</ns2:processorName>
+        </ns2:processor>
+        <ns2:processor name="processor_98">
+            <ns2:type>transformer</ns2:type>
+            <ns2:role>transformer:response-map</ns2:role>
+            <ns2:resourceGroup name="resourcegroup_101">
+                <ns2:resource name="resource_102" location="../resources/processor_98/resourcegroup_101/req_5eaf92b3c08f4370a12761cea6418d74.xsl" type="xslt"/>
+            </ns2:resourceGroup>
+            <ns2:resourceRef refUri="messagecontext_79">
+                <ns2:role>secondary-source</ns2:role>
+                <ns2:subRole>readFile</ns2:subRole>
+            </ns2:resourceRef>
+            <ns2:input name="input_99">
+                <ns2:messageContextRef refUri="messagecontext_11"/>
+            </ns2:input>
+            <ns2:output name="output_100">
+                <ns2:messageContextRef refUri="messagecontext_94"/>
+            </ns2:output>
+            <ns2:property name="has-mappings" value="true"/>
+        </ns2:processor>
+        <ns2:processor name="processor_113">
+            <ns2:type>transformer</ns2:type>
+            <ns2:role>transformer:response-map</ns2:role>
+            <ns2:resourceGroup name="resourcegroup_116">
+                <ns2:resource name="resource_117" location="../resources/processor_113/resourcegroup_116/req_a7a8c77c9e2f447187b013da9a35c8af.xsl" type="xslt"/>
+            </ns2:resourceGroup>
+            <ns2:resourceRef refUri="messagecontext_79">
+                <ns2:role>secondary-source</ns2:role>
+                <ns2:subRole>readFile</ns2:subRole>
+            </ns2:resourceRef>
+            <ns2:input name="input_114">
+                <ns2:messageContextRef refUri="messagecontext_11"/>
+            </ns2:input>
+            <ns2:output name="output_115">
+                <ns2:messageContextRef refUri="messagecontext_109"/>
+            </ns2:output>
+            <ns2:property name="has-mappings" value="true"/>
+        </ns2:processor>
+        <ns2:processor name="processor_128">
+            <ns2:type>transformer</ns2:type>
+            <ns2:role>transformer:response-map</ns2:role>
+            <ns2:resourceGroup name="resourcegroup_131">
+                <ns2:resource name="resource_132" location="../resources/processor_128/resourcegroup_131/req_f6c9458150a84f5781284e2eb6d290c5.xsl" type="xslt"/>
+            </ns2:resourceGroup>
+            <ns2:resourceRef refUri="messagecontext_79">
+                <ns2:role>secondary-source</ns2:role>
+                <ns2:subRole>readFile</ns2:subRole>
+            </ns2:resourceRef>
+            <ns2:input name="input_129">
+                <ns2:messageContextRef refUri="messagecontext_11"/>
+            </ns2:input>
+            <ns2:output name="output_130">
+                <ns2:messageContextRef refUri="messagecontext_124"/>
+            </ns2:output>
+            <ns2:property name="has-mappings" value="true"/>
+        </ns2:processor>
+        <ns2:processor name="processor_143">
+            <ns2:type>transformer</ns2:type>
+            <ns2:role>transformer:response-map</ns2:role>
+            <ns2:resourceGroup name="resourcegroup_146">
+                <ns2:resource name="resource_147" location="../resources/processor_143/resourcegroup_146/req_0a7e85fd844d40259836bceeb98a7eb5.xsl" type="xslt"/>
+            </ns2:resourceGroup>
+            <ns2:input name="input_144">
+                <ns2:messageContextRef refUri="messagecontext_11"/>
+            </ns2:input>
+            <ns2:output name="output_145">
+                <ns2:messageContextRef refUri="messagecontext_139"/>
+            </ns2:output>
+            <ns2:property name="has-mappings" value="false"/>
+        </ns2:processor>
+        <ns2:processor name="processor_158">
+            <ns2:type>transformer</ns2:type>
+            <ns2:role>transformer:response-map</ns2:role>
+            <ns2:resourceGroup name="resourcegroup_161">
+                <ns2:resource name="resource_162" location="../resources/processor_158/resourcegroup_161/req_af86f70375de4a55af70c0a0e0f62927.xsl" type="xslt"/>
+            </ns2:resourceGroup>
+            <ns2:input name="input_159">
+                <ns2:messageContextRef refUri="messagecontext_11"/>
+            </ns2:input>
+            <ns2:output name="output_160">
+                <ns2:messageContextRef refUri="messagecontext_154"/>
+            </ns2:output>
+            <ns2:property name="has-mappings" value="false"/>
+        </ns2:processor>
+        <ns2:processor name="processor_175">
+            <ns2:type>transformer</ns2:type>
+            <ns2:role>transformer:response-map</ns2:role>
+            <ns2:resourceGroup name="resourcegroup_178">
+                <ns2:resource name="resource_179" location="../resources/processor_175/resourcegroup_178/req_7f8515f11c704636985005ca62a74d01.xsl" type="xslt"/>
+            </ns2:resourceGroup>
+            <ns2:input name="input_176">
+                <ns2:messageContextRef refUri="messagecontext_11"/>
+            </ns2:input>
+            <ns2:output name="output_177">
+                <ns2:messageContextRef refUri="messagecontext_171"/>
+            </ns2:output>
+            <ns2:property name="has-mappings" value="false"/>
+        </ns2:processor>
+        <ns2:processor name="processor_180">
+            <ns2:type>stageFile</ns2:type>
+            <ns2:role>undefined</ns2:role>
+            <ns2:resourceGroup name="resourcegroup_181">
+                <ns2:resource name="resource_182" location="../resources/processor_180/resourcegroup_181/zipfile_REQUEST.wsdl" type="wsdl"/>
+                <ns2:resource name="resource_183" location="../resources/processor_180/resourcegroup_181/zipfile_REQUEST.jca" type="jca"/>
+            </ns2:resourceGroup>
+            <ns2:resourceGroup name="resourcegroup_263">
+                <ns2:role>exprBuilderProperties</ns2:role>
+                <ns2:resource name="resource_264" location="../resources/processor_180/resourcegroup_263/ZIP_OUTPUT_DIRNAMEexpr.properties" type="properties">
+                    <ns2:role>ZIP_OUTPUT_DIRNAME</ns2:role>
+                </ns2:resource>
+                <ns2:resource name="resource_265" location="../resources/processor_180/resourcegroup_263/ZIP_DIRNAMEexpr.properties" type="properties">
+                    <ns2:role>ZIP_DIRNAME</ns2:role>
+                </ns2:resource>
+                <ns2:resource name="resource_266" location="../resources/processor_180/resourcegroup_263/ZIP_FILENAMEexpr.properties" type="properties">
+                    <ns2:role>ZIP_FILENAME</ns2:role>
+                </ns2:resource>
+            </ns2:resourceGroup>
+            <ns2:resourceRef refUri="messagecontext_11">
+                <ns2:role>primary-source</ns2:role>
+            </ns2:resourceRef>
+            <ns2:output name="output_185">
+                <ns2:messageContextRef refUri="messagecontext_184"/>
+            </ns2:output>
+            <ns2:property name="operation" value="Zip"/>
+            <ns2:processorName>zipfile</ns2:processorName>
+        </ns2:processor>
+        <ns2:processor name="processor_209">
+            <ns2:type>transformer</ns2:type>
+            <ns2:role>transformer:response-map</ns2:role>
+            <ns2:resourceGroup name="resourcegroup_212">
+                <ns2:resource name="resource_213" location="../resources/processor_209/resourcegroup_212/req_50005ba61f02410992acca9fbecf1d65.xsl" type="xslt"/>
+            </ns2:resourceGroup>
+            <ns2:resourceRef refUri="messagecontext_184">
+                <ns2:role>secondary-source</ns2:role>
+                <ns2:subRole>zipfile</ns2:subRole>
+            </ns2:resourceRef>
+            <ns2:input name="input_210">
+                <ns2:messageContextRef refUri="messagecontext_11"/>
+            </ns2:input>
+            <ns2:output name="output_211">
+                <ns2:messageContextRef refUri="messagecontext_205"/>
+            </ns2:output>
+            <ns2:property name="has-mappings" value="true"/>
+        </ns2:processor>
+        <ns2:processor name="processor_283">
+            <ns2:type>integrationMetadata</ns2:type>
+            <ns2:role>undefined</ns2:role>
+            <ns2:resourceGroup name="resourcegroup_284">
+                <ns2:resource name="resource_285" location="../resources/processor_283/resourcegroup_284/ICSIntegrationMetadata.xsd" type="xsd"/>
+            </ns2:resourceGroup>
+            <ns2:output name="output_287">
+                <ns2:messageContextRef refUri="messagecontext_286"/>
+            </ns2:output>
+        </ns2:processor>
+        <ns2:messageContext name="messagecontext_2">
+            <ns2:rootElement elementName="string" namespace="http://www.w3.org/2001/XMLSchema"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_4">
+            <ns2:rootElement elementName="string" namespace="http://www.w3.org/2001/XMLSchema"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_6">
+            <ns2:rootElement elementName="string" namespace="http://www.w3.org/2001/XMLSchema"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_11">
+            <ns2:resourceRef refUri="processor_8/resourcegroup_9/resource_10"/>
+            <ns2:rootElement elementName="schedule" namespace="http://www.oracle.com/2014/03/ics/schedule"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_29">
+            <ns2:resourceRef refUri="application_23/inbound_24/resourcegroup_25/resource_28"/>
+            <ns2:rootElement elementName="OutboundSOAPRequestDocument" namespace="http://xmlns.oracle.com/types/getCustomerData/1696470332062/OutboundSOAPRequestDocument"/>
+            <ns2:wsdlMessage messageName="runReportInput" namespace="http://xmlns.oracle.com/oxp/service/PublicReportService" partName="parameters"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_31">
+            <ns2:resourceRef refUri="application_23/inbound_24/resourcegroup_25/resource_28"/>
+            <ns2:rootElement elementName="runReportResponse" namespace="http://xmlns.oracle.com/oxp/service/PublicReportService"/>
+            <ns2:wsdlMessage messageName="runReportOutput" namespace="http://xmlns.oracle.com/oxp/service/PublicReportService" partName="parameters"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_33">
+            <ns2:resourceRef refUri="application_23/inbound_24/resourcegroup_25/resource_28"/>
+            <ns2:rootElement elementName="AccessDeniedException" namespace="http://xmlns.oracle.com/oxp/service/PublicReportService"/>
+            <ns2:wsdlMessage messageName="AccessDeniedException" namespace="http://xmlns.oracle.com/oxp/service/PublicReportService" partName="AccessDeniedException"/>
+            <ns2:wsdlFault faultName="AccessDeniedException" namespace="http://xmlns.oracle.com/oxp/service/PublicReportService"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_35">
+            <ns2:resourceRef refUri="application_23/inbound_24/resourcegroup_25/resource_28"/>
+            <ns2:rootElement elementName="OperationFailedException" namespace="http://xmlns.oracle.com/oxp/service/PublicReportService"/>
+            <ns2:wsdlMessage messageName="OperationFailedException" namespace="http://xmlns.oracle.com/oxp/service/PublicReportService" partName="OperationFailedException"/>
+            <ns2:wsdlFault faultName="OperationFailedException" namespace="http://xmlns.oracle.com/oxp/service/PublicReportService"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_37">
+            <ns2:resourceRef refUri="application_23/inbound_24/resourcegroup_25/resource_28"/>
+            <ns2:rootElement elementName="InvalidParametersException" namespace="http://xmlns.oracle.com/oxp/service/PublicReportService"/>
+            <ns2:wsdlMessage messageName="InvalidParametersException" namespace="http://xmlns.oracle.com/oxp/service/PublicReportService" partName="InvalidParametersException"/>
+            <ns2:wsdlFault faultName="InvalidParametersException" namespace="http://xmlns.oracle.com/oxp/service/PublicReportService"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_60">
+            <ns2:resourceRef refUri="processor_56/resourcegroup_57/resource_58"/>
+            <ns2:rootElement elementName="Write" namespace="http://xmlns.oracle.com/cloud/adapter/stagefile/writeFile_REQUEST/types"/>
+            <ns2:wsdlMessage messageName="WriteRequestMessage" namespace="http://xmlns.oracle.com/cloud/adapter/stagefile/writeFile_REQUEST" partName="parameters"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_62">
+            <ns2:resourceRef refUri="processor_56/resourcegroup_57/resource_58"/>
+            <ns2:rootElement elementName="WriteResponse" namespace="http://xmlns.oracle.com/cloud/adapter/stagefile/writeFile_REQUEST/types"/>
+            <ns2:wsdlMessage messageName="WriteResponseMessage" namespace="http://xmlns.oracle.com/cloud/adapter/stagefile/writeFile_REQUEST" partName="parameters"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_79">
+            <ns2:resourceRef refUri="processor_75/resourcegroup_76/resource_77"/>
+            <ns2:rootElement elementName="ReadResponse" namespace="http://xmlns.oracle.com/cloud/adapter/stagefile/readFile_REQUEST/types"/>
+            <ns2:wsdlMessage messageName="ReadResponseMessage" namespace="http://xmlns.oracle.com/cloud/adapter/stagefile/readFile_REQUEST" partName="parameters"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_94">
+            <ns2:resourceRef refUri="application_88/inbound_89/resourcegroup_90/resource_93"/>
+            <ns2:rootElement elementName="WriteFile" namespace="http://xmlns.oracle.com/cloud/adapter/ftp/writeCustomerFile_REQUEST/types"/>
+            <ns2:wsdlMessage messageName="WriteFileRequestMessage" namespace="http://xmlns.oracle.com/cloud/adapter/ftp/writeCustomerFile_REQUEST" partName="parameters"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_96">
+            <ns2:resourceRef refUri="application_88/inbound_89/resourcegroup_90/resource_93"/>
+            <ns2:rootElement elementName="WriteFileResponse" namespace="http://xmlns.oracle.com/cloud/adapter/ftp/writeCustomerFile_REQUEST/types"/>
+            <ns2:wsdlMessage messageName="WriteFileResponseMessage" namespace="http://xmlns.oracle.com/cloud/adapter/ftp/writeCustomerFile_REQUEST" partName="parameters"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_109">
+            <ns2:resourceRef refUri="application_103/inbound_104/resourcegroup_105/resource_108"/>
+            <ns2:rootElement elementName="WriteFile" namespace="http://xmlns.oracle.com/cloud/adapter/ftp/writeCustProfile_REQUEST/types"/>
+            <ns2:wsdlMessage messageName="WriteFileRequestMessage" namespace="http://xmlns.oracle.com/cloud/adapter/ftp/writeCustProfile_REQUEST" partName="parameters"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_111">
+            <ns2:resourceRef refUri="application_103/inbound_104/resourcegroup_105/resource_108"/>
+            <ns2:rootElement elementName="WriteFileResponse" namespace="http://xmlns.oracle.com/cloud/adapter/ftp/writeCustProfile_REQUEST/types"/>
+            <ns2:wsdlMessage messageName="WriteFileResponseMessage" namespace="http://xmlns.oracle.com/cloud/adapter/ftp/writeCustProfile_REQUEST" partName="parameters"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_124">
+            <ns2:resourceRef refUri="application_118/inbound_119/resourcegroup_120/resource_123"/>
+            <ns2:rootElement elementName="WriteFile" namespace="http://xmlns.oracle.com/cloud/adapter/ftp/writeSites_REQUEST/types"/>
+            <ns2:wsdlMessage messageName="WriteFileRequestMessage" namespace="http://xmlns.oracle.com/cloud/adapter/ftp/writeSites_REQUEST" partName="parameters"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_126">
+            <ns2:resourceRef refUri="application_118/inbound_119/resourcegroup_120/resource_123"/>
+            <ns2:rootElement elementName="WriteFileResponse" namespace="http://xmlns.oracle.com/cloud/adapter/ftp/writeSites_REQUEST/types"/>
+            <ns2:wsdlMessage messageName="WriteFileResponseMessage" namespace="http://xmlns.oracle.com/cloud/adapter/ftp/writeSites_REQUEST" partName="parameters"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_139">
+            <ns2:resourceRef refUri="application_133/inbound_134/resourcegroup_135/resource_138"/>
+            <ns2:rootElement elementName="DownloadFileToICS" namespace="http://xmlns.oracle.com/cloud/adapter/ftp/downloadCustomer_REQUEST/types"/>
+            <ns2:wsdlMessage messageName="DownloadFileToICSRequestMessage" namespace="http://xmlns.oracle.com/cloud/adapter/ftp/downloadCustomer_REQUEST" partName="parameters"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_141">
+            <ns2:resourceRef refUri="application_133/inbound_134/resourcegroup_135/resource_138"/>
+            <ns2:rootElement elementName="DownloadFileToICSResponse" namespace="http://xmlns.oracle.com/cloud/adapter/ftp/downloadCustomer_REQUEST/types"/>
+            <ns2:wsdlMessage messageName="DownloadFileToICSResponseMessage" namespace="http://xmlns.oracle.com/cloud/adapter/ftp/downloadCustomer_REQUEST" partName="parameters"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_154">
+            <ns2:resourceRef refUri="application_148/inbound_149/resourcegroup_150/resource_153"/>
+            <ns2:rootElement elementName="DownloadFileToICS" namespace="http://xmlns.oracle.com/cloud/adapter/ftp/downloadProfile_REQUEST/types"/>
+            <ns2:wsdlMessage messageName="DownloadFileToICSRequestMessage" namespace="http://xmlns.oracle.com/cloud/adapter/ftp/downloadProfile_REQUEST" partName="parameters"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_156">
+            <ns2:resourceRef refUri="application_148/inbound_149/resourcegroup_150/resource_153"/>
+            <ns2:rootElement elementName="DownloadFileToICSResponse" namespace="http://xmlns.oracle.com/cloud/adapter/ftp/downloadProfile_REQUEST/types"/>
+            <ns2:wsdlMessage messageName="DownloadFileToICSResponseMessage" namespace="http://xmlns.oracle.com/cloud/adapter/ftp/downloadProfile_REQUEST" partName="parameters"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_171">
+            <ns2:resourceRef refUri="application_165/inbound_166/resourcegroup_167/resource_170"/>
+            <ns2:rootElement elementName="DownloadFileToICS" namespace="http://xmlns.oracle.com/cloud/adapter/ftp/downloadSites_REQUEST/types"/>
+            <ns2:wsdlMessage messageName="DownloadFileToICSRequestMessage" namespace="http://xmlns.oracle.com/cloud/adapter/ftp/downloadSites_REQUEST" partName="parameters"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_173">
+            <ns2:resourceRef refUri="application_165/inbound_166/resourcegroup_167/resource_170"/>
+            <ns2:rootElement elementName="DownloadFileToICSResponse" namespace="http://xmlns.oracle.com/cloud/adapter/ftp/downloadSites_REQUEST/types"/>
+            <ns2:wsdlMessage messageName="DownloadFileToICSResponseMessage" namespace="http://xmlns.oracle.com/cloud/adapter/ftp/downloadSites_REQUEST" partName="parameters"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_184">
+            <ns2:resourceRef refUri="processor_180/resourcegroup_181/resource_182"/>
+            <ns2:rootElement elementName="ZipResponse" namespace="http://xmlns.oracle.com/cloud/adapter/stagefile/zipfile_REQUEST/types"/>
+            <ns2:wsdlMessage messageName="ZipResponseMessage" namespace="http://xmlns.oracle.com/cloud/adapter/stagefile/zipfile_REQUEST" partName="parameters"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_205">
+            <ns2:resourceRef refUri="application_199/inbound_200/resourcegroup_201/resource_204"/>
+            <ns2:rootElement elementName="WriteFile" namespace="http://xmlns.oracle.com/cloud/adapter/ftp/writeZipfile_REQUEST/types"/>
+            <ns2:wsdlMessage messageName="WriteFileRequestMessage" namespace="http://xmlns.oracle.com/cloud/adapter/ftp/writeZipfile_REQUEST" partName="parameters"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_207">
+            <ns2:resourceRef refUri="application_199/inbound_200/resourcegroup_201/resource_204"/>
+            <ns2:rootElement elementName="WriteFileResponse" namespace="http://xmlns.oracle.com/cloud/adapter/ftp/writeZipfile_REQUEST/types"/>
+            <ns2:wsdlMessage messageName="WriteFileResponseMessage" namespace="http://xmlns.oracle.com/cloud/adapter/ftp/writeZipfile_REQUEST" partName="parameters"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_286">
+            <ns2:resourceRef refUri="processor_283/resourcegroup_284/resource_285"/>
+            <ns2:rootElement elementName="metadata" namespace="http://www.oracle.com/2014/03/ic/integration/metadata"/>
+        </ns2:messageContext>
+        <ns2:commonNamespaceMaps/>
+        <ns2:orchestration>
+            <ns2:integrationMetadata id="im0" refUri="processor_283"/>
+            <ns2:scheduleReceive trackingRefUri="processor_1" id="sr0" refUri="processor_8"/>
+            <ns2:transformer id="m0" refUri="processor_39"/>
+            <ns2:invoke id="i0" refUri="application_23"/>
+            <ns2:transformer id="m1" refUri="processor_70"/>
+            <ns2:stageFile id="sf0" refUri="processor_56"/>
+            <ns2:stageFile id="sf1" refUri="processor_75"/>
+            <ns2:transformer id="m2" refUri="processor_98"/>
+            <ns2:invoke id="i1" refUri="application_88"/>
+            <ns2:transformer id="m3" refUri="processor_113"/>
+            <ns2:invoke id="i2" refUri="application_103"/>
+            <ns2:transformer id="m4" refUri="processor_128"/>
+            <ns2:invoke id="i3" refUri="application_118"/>
+            <ns2:transformer id="m5" refUri="processor_143"/>
+            <ns2:invoke id="i4" refUri="application_133"/>
+            <ns2:transformer id="m6" refUri="processor_158"/>
+            <ns2:invoke id="i5" refUri="application_148"/>
+            <ns2:transformer id="m7" refUri="processor_175"/>
+            <ns2:invoke id="i6" refUri="application_165"/>
+            <ns2:stageFile id="sf2" refUri="processor_180"/>
+            <ns2:transformer id="m8" refUri="processor_209"/>
+            <ns2:invoke id="i7" refUri="application_199"/>
+            <ns2:stop id="st0"/>
+        </ns2:orchestration>
+    </ns3:icsflow>
+</ns3:icsproject>

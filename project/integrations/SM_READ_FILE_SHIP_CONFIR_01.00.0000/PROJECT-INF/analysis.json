@@ -1,0 +1,1 @@
+{"id":"SM_READ_FILE_SHIP_CONFIR_01.00.0000","icsProject":{"version":"01.00.0000","percentageComplete":100,"modelType":"FREEFORM","projectCode":"SM_READ_FILE_SHIP_CONFIR","processorCount":{"MESSAGE_TRACKER":1,"SCHEDULE_RECEIVE":1,"INTEGRATION_METADATA":1,"TYPE_DEFINITIONS":1,"TRANSFORMER":1,"CATCH_ALL":1,"TARGET":1},"smartTags":"app:ftp,style:App Driven Orchestration"}}

@@ -1,0 +1,43 @@
+<adapter-config xsdTargetNamespace="http://xmlns.oracle.com/cloud/adapter/ftp/readAPInvoiceFile_REQUEST/types" name="readAPInvoiceFile_REQUESTPortType" adapter="ftp" wsdlLocation="readAPInvoiceFile_REQUEST.wsdl" xmlns="http://platform.integration.oracle/blocks/adapter/fw/metadata">
+  <connection-factory location="ics/FtpAdapter">
+    <non-managed-connection managedConnectionFactoryClassName="oracle.tip.adapter.ftp.FTPManagedConnectionFactory">
+      <property name="AuthenticationType" value="password"/>
+      <property name="ChangeDirectory" value="true"/>
+      <property name="DefaultDateFormat" value="MMM d yyyy"/>
+      <property name="EnableFIPSMode" value="false"/>
+      <property name="FtpConnectionType" value="SFTP"/>
+      <property name="Host" value="%%KNX_FTP_Host"/>
+      <property name="KeepConnections" value="false"/>
+      <property name="KeystoreAlgorithm" value="SunX509"/>
+      <property name="KeystoreType" value="PKCS12"/>
+      <property name="ListParserKey" value="UNIX"/>
+      <property name="Port" value="%%KNX_FTP_Port"/>
+      <property name="PreferredCipherSuite" value="aes128-cbc"/>
+      <property name="ProxyHost" value=""/>
+      <property name="ProxyPort" value=""/>
+      <property name="ProxyType" value="http"/>
+      <property name="RecentDateFormat" value="MMM d HH:mm"/>
+      <property name="SecurePort" value="990"/>
+      <property name="SftpBlockSize" value="32768"/>
+      <property name="TransportProvider" value="socket"/>
+      <property name="UseFtps" value="false"/>
+      <property name="UseProxy" value="false"/>
+      <property name="UseSftp" value="%%KNX_FTP_UseSftp"/>
+      <property name="csfMap" value="oracle.cloud.adapter"/>
+      <property name="csfkey" value="6370107a611c1ce03aac026eb941b1be39890a753da0a6351b62905f5a335110"/>
+    </non-managed-connection>
+  </connection-factory>
+  <endpoint-interaction portType="readAPInvoiceFile_REQUESTPortType" operation="SyncReadFile">
+    <interaction-spec className="oracle.tip.adapter.ftp.outbound.FTPReadInteractionSpec">
+      <property name="DynamicSyncReadNamespace" value="true"/>
+      <property name="FileType" value="ascii"/>
+      <property name="ICSFilePull" value="true"/>
+      <property name="ICSUploadSchemaElement" value="APInvoices"/>
+      <property name="ICSUploadSchemaElementNameSpace" value="http://TargetNamespace.com/fileReference/readAPInvoiceFile"/>
+      <property name="Operation" value="SyncReadFile"/>
+      <property name="SyncReadInputDirectory" value="/home/users/integration@knextech.com/Internal/Integration/KPM/apInvoices"/>
+      <property name="SyncReadInputFile" value="APInvoice.csv"/>
+      <property name="tradingPartnerMode" value="disabled"/>
+    </interaction-spec>
+  </endpoint-interaction>
+</adapter-config>

@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns3:icsproject name="project_1" version="10.0" cversion="5" modelType="freeform" xmlns="http://www.oracle.com/2014/03/ics/project/definition" xmlns:ns2="http://www.oracle.com/2014/03/ics/flow/definition" xmlns:ns3="http://www.oracle.com/2014/03/ics/project">
+    <projectCode>NA_CONNECT_GITHUB</projectCode>
+    <projectVersion>01.00.0000</projectVersion>
+    <projectName>NA Connect Github</projectName>
+    <percentComplete>100</percentComplete>
+    <projectHasErrors>false</projectHasErrors>
+    <projectHasWarnings>false</projectHasWarnings>
+    <ns3:icsflow name="flow_1">
+        <ns2:application name="application_18">
+            <ns2:role>target</ns2:role>
+            <ns2:adapter>
+                <ns2:type>app-adapter</ns2:type>
+                <ns2:code>KNX_GITHUB</ns2:code>
+                <ns2:name>callGithub</ns2:name>
+                <ns2:property name="hasAttachment" value="false"/>
+            </ns2:adapter>
+            <ns2:mep>push-sync</ns2:mep>
+            <ns2:inbound name="inbound_19">
+                <ns2:operation>GetARepositoryAction</ns2:operation>
+                <ns2:resourceGroup name="resourcegroup_74">
+                    <ns2:resource name="resource_75" location="../resources/application_18/inbound_19/resourcegroup_74/callGithub_REQUEST.jca" type="jca"/>
+                    <ns2:resource name="resource_76" location="../resources/application_18/inbound_19/resourcegroup_74/ICSFault.xsd" type="xsd"/>
+                    <ns2:resource name="resource_77" location="../resources/application_18/inbound_19/resourcegroup_74/callGithub_REQUEST.wsdl" type="wsdl"/>
+                </ns2:resourceGroup>
+                <ns2:input name="input_25">
+                    <ns2:role>request</ns2:role>
+                    <ns2:messageContextRef refUri="messagecontext_78"/>
+                </ns2:input>
+                <ns2:output name="output_27">
+                    <ns2:role>response</ns2:role>
+                    <ns2:messageContextRef refUri="messagecontext_79"/>
+                </ns2:output>
+                <ns2:output name="output_81">
+                    <ns2:role>fault</ns2:role>
+                    <ns2:subRole>APIInvocationError</ns2:subRole>
+                    <ns2:messageContextRef refUri="messagecontext_80"/>
+                </ns2:output>
+            </ns2:inbound>
+        </ns2:application>
+        <ns2:application name="application_87">
+            <ns2:role>target</ns2:role>
+            <ns2:adapter>
+                <ns2:type>app-adapter</ns2:type>
+                <ns2:code>KNX_GITHUB</ns2:code>
+                <ns2:name>commitChange</ns2:name>
+                <ns2:property name="hasAttachment" value="false"/>
+            </ns2:adapter>
+            <ns2:mep>push-sync</ns2:mep>
+            <ns2:inbound name="inbound_88">
+                <ns2:operation>GetACommitCommentAction</ns2:operation>
+                <ns2:resourceGroup name="resourcegroup_115">
+                    <ns2:resource name="resource_116" location="../resources/application_87/inbound_88/resourcegroup_115/commitChange_REQUEST.jca" type="jca"/>
+                    <ns2:resource name="resource_117" location="../resources/application_87/inbound_88/resourcegroup_115/ICSFault.xsd" type="xsd"/>
+                    <ns2:resource name="resource_118" location="../resources/application_87/inbound_88/resourcegroup_115/commitChange_REQUEST.wsdl" type="wsdl"/>
+                </ns2:resourceGroup>
+                <ns2:input name="input_94">
+                    <ns2:role>request</ns2:role>
+                    <ns2:messageContextRef refUri="messagecontext_119"/>
+                </ns2:input>
+                <ns2:output name="output_96">
+                    <ns2:role>response</ns2:role>
+                    <ns2:messageContextRef refUri="messagecontext_120"/>
+                </ns2:output>
+                <ns2:output name="output_122">
+                    <ns2:role>fault</ns2:role>
+                    <ns2:subRole>APIInvocationError</ns2:subRole>
+                    <ns2:messageContextRef refUri="messagecontext_121"/>
+                </ns2:output>
+            </ns2:inbound>
+        </ns2:application>
+        <ns2:processor name="processor_1">
+            <ns2:type>messageTracker</ns2:type>
+            <ns2:role>messageTracker:global</ns2:role>
+            <ns2:trackingVariableGroup>
+                <ns2:trackingVariable>
+                    <ns2:role>tracking_var_1</ns2:role>
+                    <ns2:primary>true</ns2:primary>
+                    <ns2:name>startTime</ns2:name>
+                    <ns2:xpath>/schedule/startTime</ns2:xpath>
+                    <ns2:messageContextRef refUri="messagecontext_11"/>
+                    <ns2:output name="output_3">
+                        <ns2:messageContextRef refUri="messagecontext_2"/>
+                    </ns2:output>
+                </ns2:trackingVariable>
+                <ns2:trackingVariable>
+                    <ns2:role>tracking_var_2</ns2:role>
+                    <ns2:primary>false</ns2:primary>
+                    <ns2:name>tracking_var_2</ns2:name>
+                    <ns2:messageContextRef refUri="messagecontext_11"/>
+                    <ns2:output name="output_5">
+                        <ns2:messageContextRef refUri="messagecontext_4"/>
+                    </ns2:output>
+                </ns2:trackingVariable>
+                <ns2:trackingVariable>
+                    <ns2:role>tracking_var_3</ns2:role>
+                    <ns2:primary>false</ns2:primary>
+                    <ns2:name>tracking_var_3</ns2:name>
+                    <ns2:messageContextRef refUri="messagecontext_11"/>
+                    <ns2:output name="output_7">
+                        <ns2:messageContextRef refUri="messagecontext_6"/>
+                    </ns2:output>
+                </ns2:trackingVariable>
+            </ns2:trackingVariableGroup>
+        </ns2:processor>
+        <ns2:processor name="processor_8">
+            <ns2:type>scheduleReceive</ns2:type>
+            <ns2:role>undefined</ns2:role>
+            <ns2:resourceGroup name="resourcegroup_9">
+                <ns2:resource name="resource_10" location="../resources/processor_8/resourcegroup_9/ICSSchedule_1.xsd" type="xsd"/>
+            </ns2:resourceGroup>
+            <ns2:output name="output_12">
+                <ns2:messageContextRef refUri="messagecontext_11"/>
+            </ns2:output>
+        </ns2:processor>
+        <ns2:processor name="processor_13">
+            <ns2:type>integrationMetadata</ns2:type>
+            <ns2:role>undefined</ns2:role>
+            <ns2:resourceGroup name="resourcegroup_14">
+                <ns2:resource name="resource_15" location="../resources/processor_13/resourcegroup_14/ICSIntegrationMetadata.xsd" type="xsd"/>
+            </ns2:resourceGroup>
+            <ns2:output name="output_17">
+                <ns2:messageContextRef refUri="messagecontext_16"/>
+            </ns2:output>
+        </ns2:processor>
+        <ns2:processor name="processor_82">
+            <ns2:type>transformer</ns2:type>
+            <ns2:role>transformer:response-map</ns2:role>
+            <ns2:resourceGroup name="resourcegroup_85">
+                <ns2:resource name="resource_86" location="../resources/processor_82/resourcegroup_85/req_28e3ccaf3d4e4442bac43d0e2153a97d.xsl" type="xslt"/>
+            </ns2:resourceGroup>
+            <ns2:input name="input_83">
+                <ns2:messageContextRef refUri="messagecontext_11"/>
+            </ns2:input>
+            <ns2:output name="output_84">
+                <ns2:messageContextRef refUri="messagecontext_78"/>
+            </ns2:output>
+            <ns2:property name="has-mappings" value="true"/>
+        </ns2:processor>
+        <ns2:processor name="processor_123">
+            <ns2:type>transformer</ns2:type>
+            <ns2:role>transformer:response-map</ns2:role>
+            <ns2:resourceGroup name="resourcegroup_126">
+                <ns2:resource name="resource_127" location="../resources/processor_123/resourcegroup_126/req_d897906f612643bdb86c2c24861de5e8.xsl" type="xslt"/>
+            </ns2:resourceGroup>
+            <ns2:input name="input_124">
+                <ns2:messageContextRef refUri="messagecontext_11"/>
+            </ns2:input>
+            <ns2:output name="output_125">
+                <ns2:messageContextRef refUri="messagecontext_119"/>
+            </ns2:output>
+            <ns2:property name="has-mappings" value="true"/>
+        </ns2:processor>
+        <ns2:messageContext name="messagecontext_2">
+            <ns2:rootElement elementName="string" namespace="http://www.w3.org/2001/XMLSchema"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_4">
+            <ns2:rootElement elementName="string" namespace="http://www.w3.org/2001/XMLSchema"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_6">
+            <ns2:rootElement elementName="string" namespace="http://www.w3.org/2001/XMLSchema"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_11">
+            <ns2:resourceRef refUri="processor_8/resourcegroup_9/resource_10"/>
+            <ns2:rootElement elementName="schedule" namespace="http://www.oracle.com/2014/03/ics/schedule"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_16">
+            <ns2:resourceRef refUri="processor_13/resourcegroup_14/resource_15"/>
+            <ns2:rootElement elementName="metadata" namespace="http://www.oracle.com/2014/03/ic/integration/metadata"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_78">
+            <ns2:resourceRef refUri="application_18/inbound_19/resourcegroup_74/resource_77"/>
+            <ns2:rootElement elementName="GetARepositoryAction" namespace="http://xmlns.oracle.com/cloud/adapter/oracle:github/callGithub/types"/>
+            <ns2:wsdlMessage messageName="GetARepositoryActionRequestMessage" namespace="http://xmlns.oracle.com/cloud/adapter/oracle:github/callGithub" partName="parameters"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_79">
+            <ns2:resourceRef refUri="application_18/inbound_19/resourcegroup_74/resource_77"/>
+            <ns2:rootElement elementName="GetARepositoryActionResponse" namespace="http://xmlns.oracle.com/cloud/adapter/oracle:github/callGithub/types"/>
+            <ns2:wsdlMessage messageName="GetARepositoryActionResponseMessage" namespace="http://xmlns.oracle.com/cloud/adapter/oracle:github/callGithub" partName="parameters"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_80">
+            <ns2:resourceRef refUri="application_18/inbound_19/resourcegroup_74/resource_77"/>
+            <ns2:rootElement elementName="APIInvocationError" namespace="http://xmlns.oracle.com/cloud/generic/rest/fault/oracle:github/callGithub"/>
+            <ns2:wsdlMessage messageName="APIInvocationError" namespace="http://xmlns.oracle.com/cloud/adapter/oracle:github/callGithub" partName="parameters"/>
+            <ns2:wsdlFault faultName="APIInvocationError" namespace="http://xmlns.oracle.com/cloud/adapter/oracle:github/callGithub"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_119">
+            <ns2:resourceRef refUri="application_87/inbound_88/resourcegroup_115/resource_118"/>
+            <ns2:rootElement elementName="GetACommitCommentAction" namespace="http://xmlns.oracle.com/cloud/adapter/oracle:github/commitChange/types"/>
+            <ns2:wsdlMessage messageName="GetACommitCommentActionRequestMessage" namespace="http://xmlns.oracle.com/cloud/adapter/oracle:github/commitChange" partName="parameters"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_120">
+            <ns2:resourceRef refUri="application_87/inbound_88/resourcegroup_115/resource_118"/>
+            <ns2:rootElement elementName="GetACommitCommentActionResponse" namespace="http://xmlns.oracle.com/cloud/adapter/oracle:github/commitChange/types"/>
+            <ns2:wsdlMessage messageName="GetACommitCommentActionResponseMessage" namespace="http://xmlns.oracle.com/cloud/adapter/oracle:github/commitChange" partName="parameters"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_121">
+            <ns2:resourceRef refUri="application_87/inbound_88/resourcegroup_115/resource_118"/>
+            <ns2:rootElement elementName="APIInvocationError" namespace="http://xmlns.oracle.com/cloud/generic/rest/fault/oracle:github/commitChange"/>
+            <ns2:wsdlMessage messageName="APIInvocationError" namespace="http://xmlns.oracle.com/cloud/adapter/oracle:github/commitChange" partName="parameters"/>
+            <ns2:wsdlFault faultName="APIInvocationError" namespace="http://xmlns.oracle.com/cloud/adapter/oracle:github/commitChange"/>
+        </ns2:messageContext>
+        <ns2:commonNamespaceMaps/>
+        <ns2:orchestration>
+            <ns2:integrationMetadata id="im0" refUri="processor_13"/>
+            <ns2:scheduleReceive trackingRefUri="processor_1" id="sr0" refUri="processor_8"/>
+            <ns2:transformer id="m0" refUri="processor_82"/>
+            <ns2:invoke id="i0" refUri="application_18" name="GitHub1"/>
+            <ns2:transformer id="m1" refUri="processor_123"/>
+            <ns2:invoke id="i1" refUri="application_87" name="GitHub2"/>
+            <ns2:stop id="st0"/>
+        </ns2:orchestration>
+    </ns3:icsflow>
+</ns3:icsproject>

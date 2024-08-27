@@ -1,0 +1,1 @@
+{"id":"SERVICEREQUESTCREATED|6","name":"Create AP Invoice Event","description":"","code":"SERVICEREQUESTCREATED","schemaType":"json sample payload","revision":"6","schema":"{\n    \"InvoiceId\": 300000283482157,\n    \"InvoiceNumber\": \"SM Testing 001\",\n    \"Result\": \"SUCCESS\"\n}","hasPublisher":false,"hasSubscriber":false,"customHeaders":[]}

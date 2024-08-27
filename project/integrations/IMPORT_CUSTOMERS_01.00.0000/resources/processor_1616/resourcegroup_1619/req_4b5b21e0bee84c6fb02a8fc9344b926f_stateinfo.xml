@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<oracle-xsl-webmapper:StateInfo xmlns:oracle-xsl-webmapper="http://www.oracle.com/xsl/webmapper/state" version="1.1">
+    <oracle-xsl-webmapper:ErrorsCount>0</oracle-xsl-webmapper:ErrorsCount>
+    <oracle-xsl-webmapper:WarningsCount>0</oracle-xsl-webmapper:WarningsCount>
+    <oracle-xsl-webmapper:IsImported>false</oracle-xsl-webmapper:IsImported>
+    <oracle-xsl-webmapper:HasMappings>true</oracle-xsl-webmapper:HasMappings>
+    <oracle-xsl-webmapper:StateInfoIsStale>false</oracle-xsl-webmapper:StateInfoIsStale>
+    <oracle-xsl-webmapper:SourcesReferenced>
+        <element xmlns:ns3="http://TargetNamespace.com/fileReference/writeAccStatusStage">ns3:StatusSet</element>
+        <uriAbsoluteLocation>file:/tmp/WC/itg_26d9593b-9542-4f76-b7f1-30e6d99c5f7d/resources/processor_1513/resourcegroup_1514/writeAccStatusStage_REQUEST.wsdl</uriAbsoluteLocation>
+        <param>accStatusGV</param>
+        <primary>false</primary>
+    </oracle-xsl-webmapper:SourcesReferenced>
+    <oracle-xsl-webmapper:SourcesReferenced>
+        <element xmlns:ns3="http://www.oracle.com/2014/03/ic/integration/metadata">ns3:metadata</element>
+        <uriAbsoluteLocation>file:/tmp/WC/itg_26d9593b-9542-4f76-b7f1-30e6d99c5f7d/resources/processor_13/resourcegroup_14/ICSIntegrationMetadata.xsd</uriAbsoluteLocation>
+        <param>self</param>
+        <primary>false</primary>
+    </oracle-xsl-webmapper:SourcesReferenced>
+    <oracle-xsl-webmapper:SourcesReferenced>
+        <element xmlns:ns3="http://xmlns.oracle.com/cloud/adapter/erp/createCustomer_REQUEST/types">ns3:createOrganizationResponse</element>
+        <uriAbsoluteLocation>file:/tmp/WC/itg_26d9593b-9542-4f76-b7f1-30e6d99c5f7d/resources/application_242/inbound_243/resourcegroup_244/createCustomer_REQUEST.wsdl</uriAbsoluteLocation>
+        <param>createCustomer</param>
+        <primary>false</primary>
+    </oracle-xsl-webmapper:SourcesReferenced>
+    <oracle-xsl-webmapper:AllSources>
+        <element xmlns:ns3="http://www.oracle.com/2014/03/ics/schedule">ns3:schedule</element>
+        <uriAbsoluteLocation>file:/tmp/WC/itg_26d9593b-9542-4f76-b7f1-30e6d99c5f7d/resources/processor_8/resourcegroup_9/ICSSchedule_1.xsd</uriAbsoluteLocation>
+        <primary>true</primary>
+    </oracle-xsl-webmapper:AllSources>
+    <oracle-xsl-webmapper:AllSources>
+        <element xmlns:ns3="http://TargetNamespace.com/fileReference/writeAccStatusStage">ns3:StatusSet</element>
+        <uriAbsoluteLocation>file:/tmp/WC/itg_26d9593b-9542-4f76-b7f1-30e6d99c5f7d/resources/processor_1513/resourcegroup_1514/writeAccStatusStage_REQUEST.wsdl</uriAbsoluteLocation>
+        <param>accStatusGV</param>
+        <primary>false</primary>
+    </oracle-xsl-webmapper:AllSources>
+    <oracle-xsl-webmapper:AllSources>
+        <element xmlns:ns3="http://xmlns.oracle.com/cloud/adapter/erp/createCustomer_REQUEST/types">ns3:createOrganizationResponse</element>
+        <uriAbsoluteLocation>file:/tmp/WC/itg_26d9593b-9542-4f76-b7f1-30e6d99c5f7d/resources/application_242/inbound_243/resourcegroup_244/createCustomer_REQUEST.wsdl</uriAbsoluteLocation>
+        <param>createCustomer</param>
+        <primary>false</primary>
+    </oracle-xsl-webmapper:AllSources>
+    <oracle-xsl-webmapper:AllSources>
+        <element xmlns:ns3="http://www.oracle.com/2014/03/ic/integration/metadata">ns3:metadata</element>
+        <uriAbsoluteLocation>file:/tmp/WC/itg_26d9593b-9542-4f76-b7f1-30e6d99c5f7d/resources/processor_13/resourcegroup_14/ICSIntegrationMetadata.xsd</uriAbsoluteLocation>
+        <param>self</param>
+        <primary>false</primary>
+    </oracle-xsl-webmapper:AllSources>
+</oracle-xsl-webmapper:StateInfo>

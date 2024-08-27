@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<dvm name="lookupEmail" xmlns="http://xmlns.oracle.com/dvm">
+    <columns>
+        <column name="Project"/>
+        <column name="NotificationName"/>
+        <column name="To"/>
+        <column name="Cc"/>
+        <column name="Bcc"/>
+    </columns>
+    <rows>
+        <row>
+            <cell>KGM</cell>
+            <cell>PO</cell>
+            <cell>tester@knextech.com</cell>
+            <cell>azlinsafinar.asri@knextech.com</cell>
+            <cell>syaza.yusop@knextech.com</cell>
+        </row>
+        <row>
+            <cell>KGM</cell>
+            <cell>BPA</cell>
+            <cell>tester@knextech.com</cell>
+            <cell></cell>
+            <cell>syaza.yusop@knextech.com</cell>
+        </row>
+    </rows>
+</dvm>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<api-library>
+    <name>generatenumberNew</name>
+    <code>GENERATENUMBERNEW</code>
+    <version>01.00.0000</version>
+    <implementationType>JAVASCRIPT</implementationType>
+    <sources>
+        <source>
+            <apiIdList>GENERATENUMBERNEW:01.00.0000:generatenumberNew.js:generatenumberNew:docnumNew</apiIdList>
+            <apiIdList>GENERATENUMBERNEW:01.00.0000:generatenumberNew.js:generatenumber:docnum</apiIdList>
+            <fileName>generatenumberNew.js</fileName>
+            <apiDefinitions>
+                <api apiid="GENERATENUMBERNEW:01.00.0000:generatenumberNew.js:generatenumberNew:docnumNew">
+                    <classification>ORCHESTRATION</classification>
+                    <duplicateFnFlag>false</duplicateFnFlag>
+                    <name>generatenumberNew</name>
+                    <inputParameters>
+                        <input>
+                            <icon>/oracle/ics/webconsole/view/images/string_24_ena.png</icon>
+                            <name>docnumNew</name>
+                            <type>string</type>
+                        </input>
+                    </inputParameters>
+                    <libraryCode>GENERATENUMBERNEW</libraryCode>
+                    <classification>ORCHESTRATION</classification>
+                    <classification>XPATH</classification>
+                    <outputParameters>
+                        <output>
+                            <icon>/oracle/ics/webconsole/view/images/string_24_ena.png</icon>
+                            <name>result2</name>
+                            <type>string</type>
+                        </output>
+                    </outputParameters>
+                    <unsupportedSyntax>false</unsupportedSyntax>
+                </api>
+                <api apiid="GENERATENUMBERNEW:01.00.0000:generatenumberNew.js:generatenumber:docnum">
+                    <classification>ORCHESTRATION</classification>
+                    <duplicateFnFlag>false</duplicateFnFlag>
+                    <name>generatenumber</name>
+                    <inputParameters>
+                        <input>
+                            <icon>/oracle/ics/webconsole/view/images/string_24_ena.png</icon>
+                            <name>docnum</name>
+                            <type>string</type>
+                        </input>
+                    </inputParameters>
+                    <libraryCode>GENERATENUMBERNEW</libraryCode>
+                    <classification>ORCHESTRATION</classification>
+                    <classification>XPATH</classification>
+                    <outputParameters>
+                        <output>
+                            <icon>/oracle/ics/webconsole/view/images/string_24_ena.png</icon>
+                            <name>result</name>
+                            <type>string</type>
+                        </output>
+                    </outputParameters>
+                    <unsupportedSyntax>false</unsupportedSyntax>
+                </api>
+            </apiDefinitions>
+            <libraryCode>GENERATENUMBERNEW</libraryCode>
+            <path>/tmp/WC/generatenumberNew/generatenumberNew.js</path>
+        </source>
+    </sources>
+</api-library>

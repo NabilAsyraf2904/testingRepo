@@ -1,0 +1,38 @@
+<adapter-config xsdTargetNamespace="http://xmlns.oracle.com/cloud/adapter/oracle:github/commitChange/types" name="commitChange_REQUESTPortType" adapter="oracle:github" wsdlLocation="commitChange_REQUEST.wsdl" xmlns="http://platform.integration.oracle/blocks/adapter/fw/metadata">
+  <connection-factory location="cloud/CloudAdapter">
+    <non-managed-connection managedConnectionFactoryClassName="oracle.cloud.adapter.metadata.MetadataCloudAdapterOutboundConnectionFactory">
+      <property name="PluginID" value="oracle:github"/>
+      <property name="RABEngineVersion" value="24.08.0.1"/>
+      <property name="applicationVersion" value="1.0"/>
+      <property name="connectionID" value="KNX_GITHUB"/>
+      <property name="csfMap" value="oracle.wsm.security"/>
+      <property name="csfkey" value="e17b15480ad83d07ff3abaeed0783829586d1330f71d0d2d0a054fb952529910"/>
+      <property name="hostName" value="%%null_hostName"/>
+      <property name="managedSecurity" value="true"/>
+      <property name="securityPolicy" value="ADD_OAUTH_AUTHORIZATION_CODE_CREDENTIALS"/>
+    </non-managed-connection>
+  </connection-factory>
+  <endpoint-interaction portType="commitChange_REQUESTPortType" operation="GetACommitCommentAction">
+    <interaction-spec className="oracle.tip.adapter.cloud.CloudInteractionSpec">
+      <property name="targetOperation" value="GetACommitCommentAction"/>
+      <property name="ADDVersion" value="2.0.0"/>
+      <property name="RequestElementNS" value="http://xmlns.oracle.com/cloud/adapter/oracle:github/commitChange/types"/>
+      <property name="RequestElementName" value="RequestWrapper"/>
+      <property name="RequestMediaType" value="application/json"/>
+      <property name="ResponseElementNS" value="http://xmlns.oracle.com/cloud/adapter/oracle:github/commitChange/types"/>
+      <property name="ResponseElementName" value="ResponseWrapper"/>
+      <property name="ResponseMediaType" value="application/json"/>
+      <property name="action" value="GetACommitCommentAction"/>
+      <property name="adapterType" value="APPLICATION"/>
+      <property name="cloudAdapterName" value="GitHub"/>
+      <property name="generatePartnerLink" value="false"/>
+      <property name="group" value="Commits"/>
+      <property name="integrationSchemaNamespace" value="http://xmlns.oracle.com/cloud/adapter/oracle:github/commitChange/types"/>
+      <property name="integrationWSDLNamespace" value="http://xmlns.oracle.com/cloud/adapter/oracle:github/commitChange"/>
+      <property name="interactionSpecClass" value="oracle.tip.adapter.cloud.CloudInteractionSpec"/>
+      <property name="isMetadataAdapter" value="true"/>
+      <property name="pluginID" value="oracle:github"/>
+      <property name="vendorName" value="Oracle Corporation"/>
+    </interaction-spec>
+  </endpoint-interaction>
+</adapter-config>

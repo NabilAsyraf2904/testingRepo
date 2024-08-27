@@ -1,0 +1,1 @@
+{"id":"KNX_CREATE_AP_INVOICE_01.00.0000","icsProject":{"version":"01.00.0000","percentageComplete":100,"modelType":"FREEFORM","projectCode":"KNX_CREATE_AP_INVOICE","processorCount":{"MESSAGE_TRACKER":1,"TRANSFORMER":3,"INTEGRATION_METADATA":1,"SOURCE":1,"TARGET":2},"smartTags":"app:rest,style:App Driven Orchestration"}}

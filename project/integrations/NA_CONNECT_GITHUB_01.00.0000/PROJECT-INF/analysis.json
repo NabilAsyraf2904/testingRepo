@@ -1,0 +1,1 @@
+{"id":"NA_CONNECT_GITHUB_01.00.0000","icsProject":{"version":"01.00.0000","percentageComplete":100,"modelType":"FREEFORM","projectCode":"NA_CONNECT_GITHUB","processorCount":{"MESSAGE_TRACKER":1,"SCHEDULE_RECEIVE":1,"INTEGRATION_METADATA":1,"TRANSFORMER":2,"TARGET":2},"smartTags":"app:oracle:github,style:Scheduled Orchestration"}}

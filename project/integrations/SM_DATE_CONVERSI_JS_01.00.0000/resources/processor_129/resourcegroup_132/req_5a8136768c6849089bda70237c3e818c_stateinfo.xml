@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<oracle-xsl-webmapper:StateInfo xmlns:oracle-xsl-webmapper="http://www.oracle.com/xsl/webmapper/state" version="1.1">
+    <oracle-xsl-webmapper:ErrorsCount>0</oracle-xsl-webmapper:ErrorsCount>
+    <oracle-xsl-webmapper:WarningsCount>0</oracle-xsl-webmapper:WarningsCount>
+    <oracle-xsl-webmapper:IsImported>false</oracle-xsl-webmapper:IsImported>
+    <oracle-xsl-webmapper:HasMappings>true</oracle-xsl-webmapper:HasMappings>
+    <oracle-xsl-webmapper:StateInfoIsStale>false</oracle-xsl-webmapper:StateInfoIsStale>
+    <oracle-xsl-webmapper:SourcesReferenced>
+        <element xmlns:ns3="http://www.oracle.com/2014/03/ics/callout">ns3:output_JavaScriptGetCurrentTimestamp_res</element>
+        <uriAbsoluteLocation>file:/tmp/WC/itg_f7165290-118b-4157-861d-8ca384a5817b/resources/processor_54/resourcegroup_55/ICSCallout_Output.xsd</uriAbsoluteLocation>
+        <param>JavaScriptGetCurrentTimestamp</param>
+        <primary>false</primary>
+    </oracle-xsl-webmapper:SourcesReferenced>
+    <oracle-xsl-webmapper:SourcesReferenced>
+        <element xmlns:ns3="http://www.oracle.com/2014/03/ics/callout">ns3:output_JavaScriptToLocalDate_res</element>
+        <uriAbsoluteLocation>file:/tmp/WC/itg_f7165290-118b-4157-861d-8ca384a5817b/resources/processor_59/resourcegroup_60/ICSCallout_Output.xsd</uriAbsoluteLocation>
+        <param>JavaScriptToLocalDate</param>
+        <primary>false</primary>
+    </oracle-xsl-webmapper:SourcesReferenced>
+    <oracle-xsl-webmapper:SourcesReferenced>
+        <element xmlns:ns3="http://www.oracle.com/2014/03/ics/callout">ns3:output_JavaScriptToDateOnly_res</element>
+        <uriAbsoluteLocation>file:/tmp/WC/itg_f7165290-118b-4157-861d-8ca384a5817b/resources/processor_68/resourcegroup_69/ICSCallout_Output.xsd</uriAbsoluteLocation>
+        <param>JavaScriptToDateOnly</param>
+        <primary>false</primary>
+    </oracle-xsl-webmapper:SourcesReferenced>
+    <oracle-xsl-webmapper:SourcesReferenced>
+        <element xmlns:ns3="http://xmlns.oracle.com/cloud/adapter/REST/date_REQUEST/jsGetCurrentTimestamp/types">ns3:execute</element>
+        <uriAbsoluteLocation>file:/tmp/WC/itg_f7165290-118b-4157-861d-8ca384a5817b/resources/application_32/outbound_33/resourcegroup_34/date_REQUEST.wsdl</uriAbsoluteLocation>
+        <primary>true</primary>
+    </oracle-xsl-webmapper:SourcesReferenced>
+    <oracle-xsl-webmapper:SourcesReferenced>
+        <element xmlns:ns3="http://www.oracle.com/2014/03/ics/callout">ns3:output_JavaScriptToTimezone_res</element>
+        <uriAbsoluteLocation>file:/tmp/WC/itg_f7165290-118b-4157-861d-8ca384a5817b/resources/processor_89/resourcegroup_90/ICSCallout_Output.xsd</uriAbsoluteLocation>
+        <param>JavaScriptToTimezone</param>
+        <primary>false</primary>
+    </oracle-xsl-webmapper:SourcesReferenced>
+    <oracle-xsl-webmapper:SourcesReferenced>
+        <element xmlns:ns3="http://www.oracle.com/2014/03/ics/callout">ns3:output_JavaScriptToISO_res</element>
+        <uriAbsoluteLocation>file:/tmp/WC/itg_f7165290-118b-4157-861d-8ca384a5817b/resources/processor_100/resourcegroup_101/ICSCallout_Output.xsd</uriAbsoluteLocation>
+        <param>JavaScriptToISO</param>
+        <primary>false</primary>
+    </oracle-xsl-webmapper:SourcesReferenced>
+    <oracle-xsl-webmapper:AllSources>
+        <element xmlns:ns3="http://xmlns.oracle.com/cloud/adapter/REST/date_REQUEST/jsGetCurrentTimestamp/types">ns3:execute</element>
+        <uriAbsoluteLocation>file:/tmp/WC/itg_f7165290-118b-4157-861d-8ca384a5817b/resources/application_32/outbound_33/resourcegroup_34/date_REQUEST.wsdl</uriAbsoluteLocation>
+        <primary>true</primary>
+    </oracle-xsl-webmapper:AllSources>
+    <oracle-xsl-webmapper:AllSources>
+        <element xmlns:ns3="http://www.oracle.com/2014/03/ics/callout">ns3:output_JavaScriptGetCurrentTimestamp_res</element>
+        <uriAbsoluteLocation>file:/tmp/WC/itg_f7165290-118b-4157-861d-8ca384a5817b/resources/processor_54/resourcegroup_55/ICSCallout_Output.xsd</uriAbsoluteLocation>
+        <param>JavaScriptGetCurrentTimestamp</param>
+        <primary>false</primary>
+    </oracle-xsl-webmapper:AllSources>
+    <oracle-xsl-webmapper:AllSources>
+        <element xmlns:ns3="http://www.oracle.com/2014/03/ics/callout">ns3:output_JavaScriptToDateOnly_res</element>
+        <uriAbsoluteLocation>file:/tmp/WC/itg_f7165290-118b-4157-861d-8ca384a5817b/resources/processor_68/resourcegroup_69/ICSCallout_Output.xsd</uriAbsoluteLocation>
+        <param>JavaScriptToDateOnly</param>
+        <primary>false</primary>
+    </oracle-xsl-webmapper:AllSources>
+    <oracle-xsl-webmapper:AllSources>
+        <element xmlns:ns3="http://www.oracle.com/2014/03/ics/callout">ns3:output_JavaScriptToISO_res</element>
+        <uriAbsoluteLocation>file:/tmp/WC/itg_f7165290-118b-4157-861d-8ca384a5817b/resources/processor_100/resourcegroup_101/ICSCallout_Output.xsd</uriAbsoluteLocation>
+        <param>JavaScriptToISO</param>
+        <primary>false</primary>
+    </oracle-xsl-webmapper:AllSources>
+    <oracle-xsl-webmapper:AllSources>
+        <element xmlns:ns3="http://www.oracle.com/2014/03/ics/callout">ns3:output_JavaScriptToLocalDate_res</element>
+        <uriAbsoluteLocation>file:/tmp/WC/itg_f7165290-118b-4157-861d-8ca384a5817b/resources/processor_59/resourcegroup_60/ICSCallout_Output.xsd</uriAbsoluteLocation>
+        <param>JavaScriptToLocalDate</param>
+        <primary>false</primary>
+    </oracle-xsl-webmapper:AllSources>
+    <oracle-xsl-webmapper:AllSources>
+        <element xmlns:ns3="http://www.oracle.com/2014/03/ics/callout">ns3:output_JavaScriptToTimezone_res</element>
+        <uriAbsoluteLocation>file:/tmp/WC/itg_f7165290-118b-4157-861d-8ca384a5817b/resources/processor_89/resourcegroup_90/ICSCallout_Output.xsd</uriAbsoluteLocation>
+        <param>JavaScriptToTimezone</param>
+        <primary>false</primary>
+    </oracle-xsl-webmapper:AllSources>
+</oracle-xsl-webmapper:StateInfo>

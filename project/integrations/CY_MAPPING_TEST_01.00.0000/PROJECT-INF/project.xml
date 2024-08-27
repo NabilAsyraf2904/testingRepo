@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns3:icsproject name="project_1" version="10.0" cversion="5" modelType="freeform" xmlns="http://www.oracle.com/2014/03/ics/project/definition" xmlns:ns2="http://www.oracle.com/2014/03/ics/flow/definition" xmlns:ns3="http://www.oracle.com/2014/03/ics/project">
+    <projectCode>CY_MAPPING_TEST</projectCode>
+    <projectVersion>01.00.0000</projectVersion>
+    <projectName>CY Mapping Test</projectName>
+    <percentComplete>100</percentComplete>
+    <projectHasErrors>false</projectHasErrors>
+    <projectHasWarnings>false</projectHasWarnings>
+    <ns3:icsflow name="flow_1">
+        <ns2:application name="application_13">
+            <ns2:role>source</ns2:role>
+            <ns2:adapter>
+                <ns2:type>app-adapter</ns2:type>
+                <ns2:code>MY_REST_ENDPOINT_INTERFAC</ns2:code>
+                <ns2:name>mappingTest</ns2:name>
+                <ns2:property name="hasAttachment" value="false"/>
+            </ns2:adapter>
+            <ns2:mep>push-sync</ns2:mep>
+            <ns2:outbound name="outbound_14">
+                <ns2:binding>rest</ns2:binding>
+                <ns2:operation>execute</ns2:operation>
+                <ns2:resourceGroup name="resourcegroup_15">
+                    <ns2:resource name="resource_16" location="../resources/application_13/outbound_14/resourcegroup_15/mappingTest_REQUEST.jca" type="jca"/>
+                    <ns2:resource name="resource_17" location="../resources/application_13/outbound_14/resourcegroup_15/mappingTest_REQUEST.wsdl" type="wsdl"/>
+                </ns2:resourceGroup>
+                <ns2:input name="input_19">
+                    <ns2:role>response</ns2:role>
+                    <ns2:messageContextRef refUri="messagecontext_18"/>
+                </ns2:input>
+                <ns2:input name="input_23">
+                    <ns2:role>fault</ns2:role>
+                    <ns2:subRole>APIInvocationError</ns2:subRole>
+                    <ns2:messageContextRef refUri="messagecontext_22"/>
+                </ns2:input>
+                <ns2:output name="output_21">
+                    <ns2:role>request</ns2:role>
+                    <ns2:messageContextRef refUri="messagecontext_20"/>
+                </ns2:output>
+            </ns2:outbound>
+        </ns2:application>
+        <ns2:processor name="processor_1">
+            <ns2:type>integrationMetadata</ns2:type>
+            <ns2:role>undefined</ns2:role>
+            <ns2:resourceGroup name="resourcegroup_2">
+                <ns2:resource name="resource_3" location="../resources/processor_1/resourcegroup_2/ICSIntegrationMetadata.xsd" type="xsd"/>
+            </ns2:resourceGroup>
+            <ns2:output name="output_5">
+                <ns2:messageContextRef refUri="messagecontext_4"/>
+            </ns2:output>
+        </ns2:processor>
+        <ns2:processor name="processor_6">
+            <ns2:type>messageTracker</ns2:type>
+            <ns2:role>messageTracker:global</ns2:role>
+            <ns2:trackingVariableGroup>
+                <ns2:trackingVariable>
+                    <ns2:role>tracking_var_1</ns2:role>
+                    <ns2:primary>true</ns2:primary>
+                    <ns2:name>StringInput</ns2:name>
+                    <ns2:xpath>/execute/request-wrapper/mappingRequest/StringInput</ns2:xpath>
+                    <ns2:messageContextRef refUri="messagecontext_20"/>
+                    <ns2:output name="output_8">
+                        <ns2:messageContextRef refUri="messagecontext_7"/>
+                    </ns2:output>
+                </ns2:trackingVariable>
+                <ns2:trackingVariable>
+                    <ns2:role>tracking_var_2</ns2:role>
+                    <ns2:primary>false</ns2:primary>
+                    <ns2:name>tracking_var_2</ns2:name>
+                    <ns2:messageContextRef refUri="messagecontext_20"/>
+                    <ns2:output name="output_10">
+                        <ns2:messageContextRef refUri="messagecontext_9"/>
+                    </ns2:output>
+                </ns2:trackingVariable>
+                <ns2:trackingVariable>
+                    <ns2:role>tracking_var_3</ns2:role>
+                    <ns2:primary>false</ns2:primary>
+                    <ns2:name>tracking_var_3</ns2:name>
+                    <ns2:messageContextRef refUri="messagecontext_20"/>
+                    <ns2:output name="output_12">
+                        <ns2:messageContextRef refUri="messagecontext_11"/>
+                    </ns2:output>
+                </ns2:trackingVariable>
+            </ns2:trackingVariableGroup>
+        </ns2:processor>
+        <ns2:processor name="processor_24">
+            <ns2:type>transformer</ns2:type>
+            <ns2:role>transformer:response-map</ns2:role>
+            <ns2:resourceGroup name="resourcegroup_27">
+                <ns2:resource name="resource_28" location="../resources/processor_24/resourcegroup_27/req_c7667e0889064806be03b8ecee72cb4c.xsl" type="xslt"/>
+            </ns2:resourceGroup>
+            <ns2:resourceRef refUri="messagecontext_64">
+                <ns2:role>secondary-source</ns2:role>
+                <ns2:subRole>readStage</ns2:subRole>
+            </ns2:resourceRef>
+            <ns2:input name="input_25">
+                <ns2:messageContextRef refUri="messagecontext_20"/>
+            </ns2:input>
+            <ns2:output name="output_26">
+                <ns2:messageContextRef refUri="messagecontext_18"/>
+            </ns2:output>
+            <ns2:property name="has-mappings" value="true"/>
+        </ns2:processor>
+        <ns2:processor name="processor_29">
+            <ns2:type>catchAll</ns2:type>
+            <ns2:role>undefined</ns2:role>
+            <ns2:resourceGroup name="resourcegroup_30">
+                <ns2:resource name="resource_31" location="../resources/processor_29/resourcegroup_30/ICSFault.xsd" type="xsd"/>
+            </ns2:resourceGroup>
+            <ns2:output name="output_33">
+                <ns2:messageContextRef refUri="messagecontext_32"/>
+            </ns2:output>
+        </ns2:processor>
+        <ns2:processor name="processor_41">
+            <ns2:type>stageFile</ns2:type>
+            <ns2:role>undefined</ns2:role>
+            <ns2:resourceGroup name="resourcegroup_42">
+                <ns2:resource name="resource_43" location="../resources/processor_41/resourcegroup_42/writeStage_REQUEST.wsdl" type="wsdl"/>
+                <ns2:resource name="resource_44" location="../resources/processor_41/resourcegroup_42/writeStage_REQUEST.jca" type="jca"/>
+            </ns2:resourceGroup>
+            <ns2:resourceGroup name="resourcegroup_255">
+                <ns2:role>exprBuilderProperties</ns2:role>
+                <ns2:resource name="resource_256" location="../resources/processor_41/resourcegroup_255/WRITE_FILENAMEexpr.properties" type="properties">
+                    <ns2:role>WRITE_FILENAME</ns2:role>
+                </ns2:resource>
+                <ns2:resource name="resource_257" location="../resources/processor_41/resourcegroup_255/WRITE_DIRNAMEexpr.properties" type="properties">
+                    <ns2:role>WRITE_DIRNAME</ns2:role>
+                </ns2:resource>
+            </ns2:resourceGroup>
+            <ns2:resourceRef refUri="messagecontext_20">
+                <ns2:role>primary-source</ns2:role>
+            </ns2:resourceRef>
+            <ns2:input name="input_46">
+                <ns2:messageContextRef refUri="messagecontext_45"/>
+            </ns2:input>
+            <ns2:output name="output_48">
+                <ns2:messageContextRef refUri="messagecontext_47"/>
+            </ns2:output>
+            <ns2:property name="operation" value="Write"/>
+            <ns2:processorName>writeStage</ns2:processorName>
+        </ns2:processor>
+        <ns2:processor name="processor_55">
+            <ns2:type>transformer</ns2:type>
+            <ns2:role>transformer:response-map</ns2:role>
+            <ns2:resourceGroup name="resourcegroup_58">
+                <ns2:resource name="resource_59" location="../resources/processor_55/resourcegroup_58/req_8cdd35af6d19482e9222ef247e6809fa.xsl" type="xslt"/>
+            </ns2:resourceGroup>
+            <ns2:resourceRef refUri="messagecontext_4">
+                <ns2:role>secondary-source</ns2:role>
+                <ns2:subRole>self</ns2:subRole>
+            </ns2:resourceRef>
+            <ns2:resourceRef refUri="messagecontext_7">
+                <ns2:role>secondary-source</ns2:role>
+                <ns2:subRole>tracking_var_1</ns2:subRole>
+            </ns2:resourceRef>
+            <ns2:resourceRef refUri="messagecontext_9">
+                <ns2:role>secondary-source</ns2:role>
+                <ns2:subRole>tracking_var_2</ns2:subRole>
+            </ns2:resourceRef>
+            <ns2:resourceRef refUri="messagecontext_11">
+                <ns2:role>secondary-source</ns2:role>
+                <ns2:subRole>tracking_var_3</ns2:subRole>
+            </ns2:resourceRef>
+            <ns2:input name="input_56">
+                <ns2:messageContextRef refUri="messagecontext_20"/>
+            </ns2:input>
+            <ns2:output name="output_57">
+                <ns2:messageContextRef refUri="messagecontext_45"/>
+            </ns2:output>
+            <ns2:property name="has-mappings" value="true"/>
+        </ns2:processor>
+        <ns2:processor name="processor_60">
+            <ns2:type>stageFile</ns2:type>
+            <ns2:role>undefined</ns2:role>
+            <ns2:resourceGroup name="resourcegroup_61">
+                <ns2:resource name="resource_62" location="../resources/processor_60/resourcegroup_61/readStage_REQUEST.wsdl" type="wsdl"/>
+                <ns2:resource name="resource_63" location="../resources/processor_60/resourcegroup_61/readStage_REQUEST.jca" type="jca"/>
+            </ns2:resourceGroup>
+            <ns2:resourceGroup name="resourcegroup_258">
+                <ns2:role>exprBuilderProperties</ns2:role>
+                <ns2:resource name="resource_259" location="../resources/processor_60/resourcegroup_258/READ_DIRNAMEexpr.properties" type="properties">
+                    <ns2:role>READ_DIRNAME</ns2:role>
+                </ns2:resource>
+                <ns2:resource name="resource_260" location="../resources/processor_60/resourcegroup_258/READ_FILENAMEexpr.properties" type="properties">
+                    <ns2:role>READ_FILENAME</ns2:role>
+                </ns2:resource>
+            </ns2:resourceGroup>
+            <ns2:resourceRef refUri="messagecontext_20">
+                <ns2:role>primary-source</ns2:role>
+            </ns2:resourceRef>
+            <ns2:output name="output_65">
+                <ns2:messageContextRef refUri="messagecontext_64"/>
+            </ns2:output>
+            <ns2:property name="operation" value="Read"/>
+            <ns2:property name="chunk" value="false"/>
+            <ns2:processorName>readStage</ns2:processorName>
+        </ns2:processor>
+        <ns2:processor name="processor_75">
+            <ns2:type>assignment</ns2:type>
+            <ns2:role>undefined</ns2:role>
+            <ns2:resourceGroup name="resourcegroup_93">
+                <ns2:resource name="resource_94" location="../resources/processor_75/resourcegroup_93/expr.properties" type="properties"/>
+            </ns2:resourceGroup>
+            <ns2:resourceRef refUri="messagecontext_20">
+                <ns2:role>primary-source</ns2:role>
+            </ns2:resourceRef>
+            <ns2:output name="output_79">
+                <ns2:messageContextRef refUri="messagecontext_78"/>
+            </ns2:output>
+        </ns2:processor>
+        <ns2:processor name="processor_169">
+            <ns2:type>activityStreamLogger</ns2:type>
+            <ns2:role>undefined</ns2:role>
+            <ns2:resourceGroup name="resourcegroup_198">
+                <ns2:role>exprBuilderProperties</ns2:role>
+                <ns2:resource name="resource_199" location="../resources/processor_169/resourcegroup_198/expr.properties" type="properties"/>
+            </ns2:resourceGroup>
+            <ns2:resourceRef refUri="messagecontext_20">
+                <ns2:role>primary-source</ns2:role>
+            </ns2:resourceRef>
+            <ns2:property name="traceOnly" value="false"/>
+            <ns2:processorName>Logger1</ns2:processorName>
+        </ns2:processor>
+        <ns2:processor name="processor_178">
+            <ns2:type>activityStreamLogger</ns2:type>
+            <ns2:role>undefined</ns2:role>
+            <ns2:resourceGroup name="resourcegroup_215">
+                <ns2:role>exprBuilderProperties</ns2:role>
+                <ns2:resource name="resource_216" location="../resources/processor_178/resourcegroup_215/expr.properties" type="properties"/>
+            </ns2:resourceGroup>
+            <ns2:resourceRef refUri="messagecontext_20">
+                <ns2:role>primary-source</ns2:role>
+            </ns2:resourceRef>
+            <ns2:property name="traceOnly" value="false"/>
+            <ns2:processorName>Logger2</ns2:processorName>
+        </ns2:processor>
+        <ns2:processor name="processor_187">
+            <ns2:type>activityStreamLogger</ns2:type>
+            <ns2:role>undefined</ns2:role>
+            <ns2:resourceGroup name="resourcegroup_211">
+                <ns2:role>exprBuilderProperties</ns2:role>
+                <ns2:resource name="resource_212" location="../resources/processor_187/resourcegroup_211/expr.properties" type="properties"/>
+            </ns2:resourceGroup>
+            <ns2:resourceRef refUri="messagecontext_20">
+                <ns2:role>primary-source</ns2:role>
+            </ns2:resourceRef>
+            <ns2:property name="traceOnly" value="false"/>
+            <ns2:processorName>Logger3</ns2:processorName>
+        </ns2:processor>
+        <ns2:processor name="processor_200">
+            <ns2:type>activityStreamLogger</ns2:type>
+            <ns2:role>undefined</ns2:role>
+            <ns2:resourceGroup name="resourcegroup_207">
+                <ns2:role>exprBuilderProperties</ns2:role>
+                <ns2:resource name="resource_208" location="../resources/processor_200/resourcegroup_207/expr.properties" type="properties"/>
+            </ns2:resourceGroup>
+            <ns2:resourceRef refUri="messagecontext_20">
+                <ns2:role>primary-source</ns2:role>
+            </ns2:resourceRef>
+            <ns2:property name="traceOnly" value="false"/>
+            <ns2:processorName>Logger4</ns2:processorName>
+        </ns2:processor>
+        <ns2:processor name="processor_223">
+            <ns2:type>catchAll</ns2:type>
+            <ns2:role>undefined</ns2:role>
+            <ns2:resourceGroup name="resourcegroup_224">
+                <ns2:resource name="resource_225" location="../resources/processor_223/resourcegroup_224/ICSFault.xsd" type="xsd"/>
+            </ns2:resourceGroup>
+            <ns2:output name="output_227">
+                <ns2:messageContextRef refUri="messagecontext_226"/>
+            </ns2:output>
+        </ns2:processor>
+        <ns2:processor name="processor_228">
+            <ns2:type>activityStreamLogger</ns2:type>
+            <ns2:role>undefined</ns2:role>
+            <ns2:resourceGroup name="resourcegroup_235">
+                <ns2:role>exprBuilderProperties</ns2:role>
+                <ns2:resource name="resource_236" location="../resources/processor_228/resourcegroup_235/expr.properties" type="properties"/>
+            </ns2:resourceGroup>
+            <ns2:resourceRef refUri="messagecontext_20">
+                <ns2:role>primary-source</ns2:role>
+            </ns2:resourceRef>
+            <ns2:property name="traceOnly" value="false"/>
+            <ns2:processorName>Logger5</ns2:processorName>
+        </ns2:processor>
+        <ns2:processor name="processor_237">
+            <ns2:type>activityStreamLogger</ns2:type>
+            <ns2:role>undefined</ns2:role>
+            <ns2:resourceGroup name="resourcegroup_261">
+                <ns2:role>exprBuilderProperties</ns2:role>
+                <ns2:resource name="resource_262" location="../resources/processor_237/resourcegroup_261/expr.properties" type="properties"/>
+            </ns2:resourceGroup>
+            <ns2:resourceRef refUri="messagecontext_20">
+                <ns2:role>primary-source</ns2:role>
+            </ns2:resourceRef>
+            <ns2:property name="traceOnly" value="false"/>
+            <ns2:processorName>Logger6</ns2:processorName>
+        </ns2:processor>
+        <ns2:processor name="processor_246">
+            <ns2:type>activityStreamLogger</ns2:type>
+            <ns2:role>undefined</ns2:role>
+            <ns2:resourceGroup name="resourcegroup_253">
+                <ns2:role>exprBuilderProperties</ns2:role>
+                <ns2:resource name="resource_254" location="../resources/processor_246/resourcegroup_253/expr.properties" type="properties"/>
+            </ns2:resourceGroup>
+            <ns2:resourceRef refUri="messagecontext_20">
+                <ns2:role>primary-source</ns2:role>
+            </ns2:resourceRef>
+            <ns2:property name="traceOnly" value="false"/>
+            <ns2:processorName>Logger7</ns2:processorName>
+        </ns2:processor>
+        <ns2:processor name="processor_263">
+            <ns2:type>activityStreamLogger</ns2:type>
+            <ns2:role>undefined</ns2:role>
+            <ns2:resourceGroup name="resourcegroup_270">
+                <ns2:role>exprBuilderProperties</ns2:role>
+                <ns2:resource name="resource_271" location="../resources/processor_263/resourcegroup_270/expr.properties" type="properties"/>
+            </ns2:resourceGroup>
+            <ns2:resourceRef refUri="messagecontext_20">
+                <ns2:role>primary-source</ns2:role>
+            </ns2:resourceRef>
+            <ns2:property name="traceOnly" value="false"/>
+            <ns2:processorName>Logger8</ns2:processorName>
+        </ns2:processor>
+        <ns2:messageContext name="messagecontext_4">
+            <ns2:resourceRef refUri="processor_1/resourcegroup_2/resource_3"/>
+            <ns2:rootElement elementName="metadata" namespace="http://www.oracle.com/2014/03/ic/integration/metadata"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_7">
+            <ns2:rootElement elementName="string" namespace="http://www.w3.org/2001/XMLSchema"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_9">
+            <ns2:rootElement elementName="string" namespace="http://www.w3.org/2001/XMLSchema"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_11">
+            <ns2:rootElement elementName="string" namespace="http://www.w3.org/2001/XMLSchema"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_18">
+            <ns2:resourceRef refUri="application_13/outbound_14/resourcegroup_15/resource_17"/>
+            <ns2:rootElement elementName="executeResponse" namespace="http://xmlns.oracle.com/cloud/adapter/REST/mappingTest_REQUEST/types"/>
+            <ns2:wsdlMessage messageName="executeResponseMessage" namespace="http://xmlns.oracle.com/cloud/adapter/REST/mappingTest_REQUEST" partName="parameters"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_20">
+            <ns2:resourceRef refUri="application_13/outbound_14/resourcegroup_15/resource_17"/>
+            <ns2:rootElement elementName="execute" namespace="http://xmlns.oracle.com/cloud/adapter/REST/mappingTest_REQUEST/types"/>
+            <ns2:wsdlMessage messageName="executeRequestMessage" namespace="http://xmlns.oracle.com/cloud/adapter/REST/mappingTest_REQUEST" partName="parameters"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_22">
+            <ns2:resourceRef refUri="application_13/outbound_14/resourcegroup_15/resource_17"/>
+            <ns2:rootElement elementName="APIInvocationError" namespace="http://xmlns.oracle.com/cloud/generic/rest/fault/REST/mappingTest"/>
+            <ns2:wsdlMessage messageName="APIInvocationError" namespace="http://xmlns.oracle.com/cloud/adapter/REST/mappingTest_REQUEST" partName="parameters"/>
+            <ns2:wsdlFault faultName="APIInvocationError" namespace="http://xmlns.oracle.com/cloud/adapter/REST/mappingTest_REQUEST"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_32">
+            <ns2:resourceRef refUri="processor_29/resourcegroup_30/resource_31"/>
+            <ns2:rootElement elementName="fault" namespace="http://www.oracle.com/2014/03/ics/fault"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_45">
+            <ns2:resourceRef refUri="processor_41/resourcegroup_42/resource_43"/>
+            <ns2:rootElement elementName="Write" namespace="http://xmlns.oracle.com/cloud/adapter/stagefile/writeStage_REQUEST/types"/>
+            <ns2:wsdlMessage messageName="WriteRequestMessage" namespace="http://xmlns.oracle.com/cloud/adapter/stagefile/writeStage_REQUEST" partName="parameters"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_47">
+            <ns2:resourceRef refUri="processor_41/resourcegroup_42/resource_43"/>
+            <ns2:rootElement elementName="WriteResponse" namespace="http://xmlns.oracle.com/cloud/adapter/stagefile/writeStage_REQUEST/types"/>
+            <ns2:wsdlMessage messageName="WriteResponseMessage" namespace="http://xmlns.oracle.com/cloud/adapter/stagefile/writeStage_REQUEST" partName="parameters"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_64">
+            <ns2:resourceRef refUri="processor_60/resourcegroup_61/resource_62"/>
+            <ns2:rootElement elementName="ReadResponse" namespace="http://xmlns.oracle.com/cloud/adapter/stagefile/readStage_REQUEST/types"/>
+            <ns2:wsdlMessage messageName="ReadResponseMessage" namespace="http://xmlns.oracle.com/cloud/adapter/stagefile/readStage_REQUEST" partName="parameters"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_78">
+            <ns2:rootElement elementName="string" namespace="http://www.w3.org/2001/XMLSchema"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_226">
+            <ns2:resourceRef refUri="processor_223/resourcegroup_224/resource_225"/>
+            <ns2:rootElement elementName="fault" namespace="http://www.oracle.com/2014/03/ics/fault"/>
+        </ns2:messageContext>
+        <ns2:commonNamespaceMaps/>
+        <ns2:orchestration>
+            <ns2:integrationMetadata id="im0" refUri="processor_1"/>
+            <ns2:globalTry id="gt0">
+                <ns2:receive trackingRefUri="processor_6" id="r0" refUri="application_13/outbound_14/output_21"/>
+                <ns2:transformer id="m1" refUri="processor_55"/>
+                <ns2:stageFile id="sf0" refUri="processor_41"/>
+                <ns2:stageFile id="sf1" refUri="processor_60"/>
+                <ns2:try id="t0" name="Scope1">
+                    <ns2:label id="l0" name="Assignments1">
+                        <ns2:assignment id="a0" refUri="processor_75"/>
+                    </ns2:label>
+                    <ns2:catchAll id="ta1" refUri="processor_223">
+                        <ns2:activityStreamLogger id="lg4" refUri="processor_228"/>
+                        <ns2:activityStreamLogger id="lg5" refUri="processor_237"/>
+                        <ns2:activityStreamLogger id="lg6" refUri="processor_246"/>
+                        <ns2:activityStreamLogger id="lg7" refUri="processor_263"/>
+                    </ns2:catchAll>
+                </ns2:try>
+                <ns2:transformer id="m0" refUri="processor_24"/>
+                <ns2:reply id="y0" refUri="application_13/outbound_14/input_19"/>
+                <ns2:catchAll id="ta0" refUri="processor_29">
+                    <ns2:activityStreamLogger id="lg0" refUri="processor_169"/>
+                    <ns2:activityStreamLogger id="lg1" refUri="processor_178"/>
+                    <ns2:activityStreamLogger id="lg2" refUri="processor_187"/>
+                    <ns2:activityStreamLogger id="lg3" refUri="processor_200"/>
+                    <ns2:ehStop id="eh0"/>
+                </ns2:catchAll>
+            </ns2:globalTry>
+        </ns2:orchestration>
+    </ns3:icsflow>
+</ns3:icsproject>

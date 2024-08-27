@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns3:icsproject name="project_1" version="10.0" cversion="5" modelType="freeform" xmlns="http://www.oracle.com/2014/03/ics/flow/definition" xmlns:ns2="http://www.oracle.com/2014/03/ics/project/definition" xmlns:ns3="http://www.oracle.com/2014/03/ics/project">
+    <ns2:projectCode>NA_MERGE_2_ARRAY</ns2:projectCode>
+    <ns2:projectVersion>01.00.0000</ns2:projectVersion>
+    <ns2:projectName>NA Merge 2 Array</ns2:projectName>
+    <ns2:percentComplete>100</ns2:percentComplete>
+    <ns2:projectHasErrors>false</ns2:projectHasErrors>
+    <ns2:projectHasWarnings>false</ns2:projectHasWarnings>
+    <ns3:icsflow name="flow_1">
+        <application name="application_13">
+            <role>source</role>
+            <adapter>
+                <type>app-adapter</type>
+                <code>MY_REST_ENDPOINT_INTERFAC</code>
+                <name>mergeArrayRequest</name>
+                <property name="hasAttachment" value="false"/>
+            </adapter>
+            <mep>push-sync</mep>
+            <outbound name="outbound_14">
+                <binding>rest</binding>
+                <operation>execute</operation>
+                <resourceGroup name="resourcegroup_15">
+                    <resource name="resource_17" location="../resources/application_13/outbound_14/resourcegroup_15/mergeArrayRequest_REQUEST.wsdl" type="wsdl"/>
+                    <resource name="resource_46" location="../resources/application_13/outbound_14/resourcegroup_15/mergeArrayRequest_REQUEST.jca" type="jca"/>
+                </resourceGroup>
+                <input name="input_19">
+                    <role>response</role>
+                    <messageContextRef refUri="messagecontext_18"/>
+                </input>
+                <input name="input_23">
+                    <role>fault</role>
+                    <subRole>APIInvocationError</subRole>
+                    <messageContextRef refUri="messagecontext_22"/>
+                </input>
+                <output name="output_21">
+                    <role>request</role>
+                    <messageContextRef refUri="messagecontext_20"/>
+                </output>
+            </outbound>
+        </application>
+        <application name="application_29">
+            <role>target</role>
+            <adapter>
+                <type>app-adapter</type>
+                <code>KNX_ERP_REST</code>
+                <name>getInspectionPlan</name>
+                <property name="hasAttachment" value="false"/>
+            </adapter>
+            <mep>push-sync</mep>
+            <inbound name="inbound_30">
+                <operation>execute</operation>
+                <resourceGroup name="resourcegroup_31">
+                    <resource name="resource_32" location="../resources/application_29/inbound_30/resourcegroup_31/getInspectionPlan_REQUEST.jca" type="jca"/>
+                    <resource name="resource_33" location="../resources/application_29/inbound_30/resourcegroup_31/ICSFault.xsd" type="xsd"/>
+                    <resource name="resource_34" location="../resources/application_29/inbound_30/resourcegroup_31/getInspectionPlan_REQUEST.wsdl" type="wsdl"/>
+                </resourceGroup>
+                <input name="input_36">
+                    <role>request</role>
+                    <messageContextRef refUri="messagecontext_35"/>
+                </input>
+                <output name="output_38">
+                    <role>response</role>
+                    <messageContextRef refUri="messagecontext_37"/>
+                </output>
+                <output name="output_40">
+                    <role>fault</role>
+                    <subRole>APIInvocationError</subRole>
+                    <messageContextRef refUri="messagecontext_39"/>
+                </output>
+            </inbound>
+        </application>
+        <processor name="processor_1">
+            <type>integrationMetadata</type>
+            <role>undefined</role>
+            <resourceGroup name="resourcegroup_2">
+                <resource name="resource_3" location="../resources/processor_1/resourcegroup_2/ICSIntegrationMetadata.xsd" type="xsd"/>
+            </resourceGroup>
+            <output name="output_5">
+                <messageContextRef refUri="messagecontext_4"/>
+            </output>
+        </processor>
+        <processor name="processor_6">
+            <type>messageTracker</type>
+            <role>messageTracker:global</role>
+            <trackingVariableGroup>
+                <trackingVariable>
+                    <role>tracking_var_1</role>
+                    <primary>true</primary>
+                    <name>UserSequence</name>
+                    <xpath>/execute/request-wrapper/sampleResultRequest/UserSequence</xpath>
+                    <messageContextRef refUri="messagecontext_20"/>
+                    <output name="output_8">
+                        <messageContextRef refUri="messagecontext_7"/>
+                    </output>
+                </trackingVariable>
+                <trackingVariable>
+                    <role>tracking_var_2</role>
+                    <primary>false</primary>
+                    <name>tracking_var_2</name>
+                    <messageContextRef refUri="messagecontext_20"/>
+                    <output name="output_10">
+                        <messageContextRef refUri="messagecontext_9"/>
+                    </output>
+                </trackingVariable>
+                <trackingVariable>
+                    <role>tracking_var_3</role>
+                    <primary>false</primary>
+                    <name>tracking_var_3</name>
+                    <messageContextRef refUri="messagecontext_20"/>
+                    <output name="output_12">
+                        <messageContextRef refUri="messagecontext_11"/>
+                    </output>
+                </trackingVariable>
+            </trackingVariableGroup>
+        </processor>
+        <processor name="processor_24">
+            <type>transformer</type>
+            <role>transformer:response-map</role>
+            <resourceGroup name="resourcegroup_27">
+                <resource name="resource_28" location="../resources/processor_24/resourcegroup_27/req_b7f6c132d4694717a739f0065db278aa.xsl" type="xslt"/>
+            </resourceGroup>
+            <resourceRef refUri="messagecontext_37">
+                <role>secondary-source</role>
+                <subRole>getInspectionPlan</subRole>
+            </resourceRef>
+            <input name="input_25">
+                <messageContextRef refUri="messagecontext_20"/>
+            </input>
+            <output name="output_26">
+                <messageContextRef refUri="messagecontext_18"/>
+            </output>
+            <property name="has-mappings" value="true"/>
+        </processor>
+        <processor name="processor_41">
+            <type>transformer</type>
+            <role>transformer:response-map</role>
+            <resourceGroup name="resourcegroup_44">
+                <resource name="resource_45" location="../resources/processor_41/resourcegroup_44/req_ee4ecffa68fa4e2c88485a75859b51f9.xsl" type="xslt"/>
+            </resourceGroup>
+            <resourceRef refUri="messagecontext_4">
+                <role>secondary-source</role>
+                <subRole>self</subRole>
+            </resourceRef>
+            <resourceRef refUri="messagecontext_7">
+                <role>secondary-source</role>
+                <subRole>tracking_var_1</subRole>
+            </resourceRef>
+            <resourceRef refUri="messagecontext_9">
+                <role>secondary-source</role>
+                <subRole>tracking_var_2</subRole>
+            </resourceRef>
+            <resourceRef refUri="messagecontext_11">
+                <role>secondary-source</role>
+                <subRole>tracking_var_3</subRole>
+            </resourceRef>
+            <input name="input_42">
+                <messageContextRef refUri="messagecontext_20"/>
+            </input>
+            <output name="output_43">
+                <messageContextRef refUri="messagecontext_35"/>
+            </output>
+            <property name="has-mappings" value="true"/>
+        </processor>
+        <messageContext name="messagecontext_4">
+            <resourceRef refUri="processor_1/resourcegroup_2/resource_3"/>
+            <rootElement elementName="metadata" namespace="http://www.oracle.com/2014/03/ic/integration/metadata"/>
+        </messageContext>
+        <messageContext name="messagecontext_7">
+            <rootElement elementName="string" namespace="http://www.w3.org/2001/XMLSchema"/>
+        </messageContext>
+        <messageContext name="messagecontext_9">
+            <rootElement elementName="string" namespace="http://www.w3.org/2001/XMLSchema"/>
+        </messageContext>
+        <messageContext name="messagecontext_11">
+            <rootElement elementName="string" namespace="http://www.w3.org/2001/XMLSchema"/>
+        </messageContext>
+        <messageContext name="messagecontext_18">
+            <resourceRef refUri="application_13/outbound_14/resourcegroup_15/resource_17"/>
+            <rootElement elementName="executeResponse" namespace="http://xmlns.oracle.com/cloud/adapter/REST/mergeArrayRequest_REQUEST/types"/>
+            <wsdlMessage messageName="executeResponseMessage" namespace="http://xmlns.oracle.com/cloud/adapter/REST/mergeArrayRequest_REQUEST" partName="parameters"/>
+        </messageContext>
+        <messageContext name="messagecontext_20">
+            <resourceRef refUri="application_13/outbound_14/resourcegroup_15/resource_17"/>
+            <rootElement elementName="execute" namespace="http://xmlns.oracle.com/cloud/adapter/REST/mergeArrayRequest_REQUEST/types"/>
+            <wsdlMessage messageName="executeRequestMessage" namespace="http://xmlns.oracle.com/cloud/adapter/REST/mergeArrayRequest_REQUEST" partName="parameters"/>
+        </messageContext>
+        <messageContext name="messagecontext_22">
+            <resourceRef refUri="application_13/outbound_14/resourcegroup_15/resource_17"/>
+            <rootElement elementName="APIInvocationError" namespace="http://xmlns.oracle.com/cloud/generic/rest/fault/REST/mergeArrayRequest"/>
+            <wsdlMessage messageName="APIInvocationError" namespace="http://xmlns.oracle.com/cloud/adapter/REST/mergeArrayRequest_REQUEST" partName="parameters"/>
+            <wsdlFault faultName="APIInvocationError" namespace="http://xmlns.oracle.com/cloud/adapter/REST/mergeArrayRequest_REQUEST"/>
+        </messageContext>
+        <messageContext name="messagecontext_35">
+            <resourceRef refUri="application_29/inbound_30/resourcegroup_31/resource_34"/>
+            <rootElement elementName="execute" namespace="http://xmlns.oracle.com/cloud/adapter/REST/getInspectionPlan_REQUEST/types"/>
+            <wsdlMessage messageName="executeRequestMessage" namespace="http://xmlns.oracle.com/cloud/adapter/REST/getInspectionPlan_REQUEST" partName="parameters"/>
+        </messageContext>
+        <messageContext name="messagecontext_37">
+            <resourceRef refUri="application_29/inbound_30/resourcegroup_31/resource_34"/>
+            <rootElement elementName="executeResponse" namespace="http://xmlns.oracle.com/cloud/adapter/REST/getInspectionPlan_REQUEST/types"/>
+            <wsdlMessage messageName="executeResponseMessage" namespace="http://xmlns.oracle.com/cloud/adapter/REST/getInspectionPlan_REQUEST" partName="parameters"/>
+        </messageContext>
+        <messageContext name="messagecontext_39">
+            <resourceRef refUri="application_29/inbound_30/resourcegroup_31/resource_34"/>
+            <rootElement elementName="APIInvocationError" namespace="http://xmlns.oracle.com/cloud/generic/rest/fault/REST/getInspectionPlan"/>
+            <wsdlMessage messageName="APIInvocationError" namespace="http://xmlns.oracle.com/cloud/adapter/REST/getInspectionPlan_REQUEST" partName="parameters"/>
+            <wsdlFault faultName="APIInvocationError" namespace="http://xmlns.oracle.com/cloud/adapter/REST/getInspectionPlan_REQUEST"/>
+        </messageContext>
+        <commonNamespaceMaps/>
+        <orchestration>
+            <integrationMetadata id="im0" refUri="processor_1"/>
+            <receive trackingRefUri="processor_6" id="r0" refUri="application_13/outbound_14/output_21"/>
+            <transformer id="m1" refUri="processor_41"/>
+            <invoke id="i0" refUri="application_29" name="REST2"/>
+            <transformer id="m0" refUri="processor_24"/>
+            <reply id="y0" refUri="application_13/outbound_14/input_19"/>
+        </orchestration>
+    </ns3:icsflow>
+</ns3:icsproject>

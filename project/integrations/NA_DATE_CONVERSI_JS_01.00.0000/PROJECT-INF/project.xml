@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns3:icsproject name="project_1" version="10.0" cversion="5" modelType="freeform" xmlns="http://www.oracle.com/2014/03/ics/project/definition" xmlns:ns2="http://www.oracle.com/2014/03/ics/flow/definition" xmlns:ns3="http://www.oracle.com/2014/03/ics/project">
+    <projectCode>NA_DATE_CONVERSI_JS</projectCode>
+    <projectVersion>01.00.0000</projectVersion>
+    <projectName>NA Date Conversion js</projectName>
+    <percentComplete>100</percentComplete>
+    <projectHasErrors>false</projectHasErrors>
+    <projectHasWarnings>false</projectHasWarnings>
+    <ns3:icsflow name="flow_1">
+        <ns2:application name="application_13">
+            <ns2:role>source</ns2:role>
+            <ns2:adapter>
+                <ns2:type>app-adapter</ns2:type>
+                <ns2:code>MY_REST_ENDPOINT_INTERFAC</ns2:code>
+                <ns2:name>dateConversionRequest</ns2:name>
+                <ns2:property name="hasAttachment" value="false"/>
+            </ns2:adapter>
+            <ns2:mep>push-sync</ns2:mep>
+            <ns2:outbound name="outbound_14">
+                <ns2:binding>rest</ns2:binding>
+                <ns2:operation>execute</ns2:operation>
+                <ns2:resourceGroup name="resourcegroup_15">
+                    <ns2:resource name="resource_17" location="../resources/application_13/outbound_14/resourcegroup_15/dateConversionRequest_REQUEST.wsdl" type="wsdl"/>
+                    <ns2:resource name="resource_114" location="../resources/application_13/outbound_14/resourcegroup_15/dateConversionRequest_REQUEST.jca" type="jca"/>
+                </ns2:resourceGroup>
+                <ns2:input name="input_19">
+                    <ns2:role>response</ns2:role>
+                    <ns2:messageContextRef refUri="messagecontext_18"/>
+                </ns2:input>
+                <ns2:input name="input_23">
+                    <ns2:role>fault</ns2:role>
+                    <ns2:subRole>APIInvocationError</ns2:subRole>
+                    <ns2:messageContextRef refUri="messagecontext_22"/>
+                </ns2:input>
+                <ns2:output name="output_21">
+                    <ns2:role>request</ns2:role>
+                    <ns2:messageContextRef refUri="messagecontext_20"/>
+                </ns2:output>
+            </ns2:outbound>
+        </ns2:application>
+        <ns2:processor name="processor_1">
+            <ns2:type>integrationMetadata</ns2:type>
+            <ns2:role>undefined</ns2:role>
+            <ns2:resourceGroup name="resourcegroup_2">
+                <ns2:resource name="resource_3" location="../resources/processor_1/resourcegroup_2/ICSIntegrationMetadata.xsd" type="xsd"/>
+            </ns2:resourceGroup>
+            <ns2:output name="output_5">
+                <ns2:messageContextRef refUri="messagecontext_4"/>
+            </ns2:output>
+        </ns2:processor>
+        <ns2:processor name="processor_6">
+            <ns2:type>messageTracker</ns2:type>
+            <ns2:role>messageTracker:global</ns2:role>
+            <ns2:trackingVariableGroup>
+                <ns2:trackingVariable>
+                    <ns2:role>tracking_var_1</ns2:role>
+                    <ns2:primary>true</ns2:primary>
+                    <ns2:name>date</ns2:name>
+                    <ns2:xpath>/execute/request-wrapper/date</ns2:xpath>
+                    <ns2:messageContextRef refUri="messagecontext_20"/>
+                    <ns2:output name="output_8">
+                        <ns2:messageContextRef refUri="messagecontext_7"/>
+                    </ns2:output>
+                </ns2:trackingVariable>
+                <ns2:trackingVariable>
+                    <ns2:role>tracking_var_2</ns2:role>
+                    <ns2:primary>false</ns2:primary>
+                    <ns2:name>inputFormat</ns2:name>
+                    <ns2:xpath>/execute/request-wrapper/inputFormat</ns2:xpath>
+                    <ns2:messageContextRef refUri="messagecontext_20"/>
+                    <ns2:output name="output_10">
+                        <ns2:messageContextRef refUri="messagecontext_9"/>
+                    </ns2:output>
+                </ns2:trackingVariable>
+                <ns2:trackingVariable>
+                    <ns2:role>tracking_var_3</ns2:role>
+                    <ns2:primary>false</ns2:primary>
+                    <ns2:name>outputFormat</ns2:name>
+                    <ns2:xpath>/execute/request-wrapper/outputFormat</ns2:xpath>
+                    <ns2:messageContextRef refUri="messagecontext_20"/>
+                    <ns2:output name="output_12">
+                        <ns2:messageContextRef refUri="messagecontext_11"/>
+                    </ns2:output>
+                </ns2:trackingVariable>
+            </ns2:trackingVariableGroup>
+        </ns2:processor>
+        <ns2:processor name="processor_24">
+            <ns2:type>transformer</ns2:type>
+            <ns2:role>transformer:response-map</ns2:role>
+            <ns2:resourceGroup name="resourcegroup_27">
+                <ns2:resource name="resource_28" location="../resources/processor_24/resourcegroup_27/req_d846e397cdf94269b5e666bccdb3dd42.xsl" type="xslt"/>
+            </ns2:resourceGroup>
+            <ns2:resourceRef refUri="messagecontext_32">
+                <ns2:role>secondary-source</ns2:role>
+                <ns2:subRole>dateConversionJS</ns2:subRole>
+            </ns2:resourceRef>
+            <ns2:resourceRef refUri="messagecontext_57">
+                <ns2:role>secondary-source</ns2:role>
+                <ns2:subRole>convertDateJS</ns2:subRole>
+            </ns2:resourceRef>
+            <ns2:input name="input_25">
+                <ns2:messageContextRef refUri="messagecontext_20"/>
+            </ns2:input>
+            <ns2:output name="output_26">
+                <ns2:messageContextRef refUri="messagecontext_18"/>
+            </ns2:output>
+            <ns2:property name="has-mappings" value="true"/>
+        </ns2:processor>
+        <ns2:processor name="processor_29">
+            <ns2:type>callout</ns2:type>
+            <ns2:role>undefined</ns2:role>
+            <ns2:resourceGroup name="resourcegroup_30">
+                <ns2:resource name="resource_31" location="../resources/processor_29/resourcegroup_30/ICSCallout_Output.xsd" type="xsd"/>
+            </ns2:resourceGroup>
+            <ns2:resourceGroup name="resourcegroup_115">
+                <ns2:role>exprBuilderProperties</ns2:role>
+                <ns2:resource name="resource_116" location="../resources/processor_29/resourcegroup_115/inputstringexpr.properties" type="properties">
+                    <ns2:role>inputstring</ns2:role>
+                </ns2:resource>
+                <ns2:resource name="resource_117" location="../resources/processor_29/resourcegroup_115/inputformatexpr.properties" type="properties">
+                    <ns2:role>inputformat</ns2:role>
+                </ns2:resource>
+                <ns2:resource name="resource_118" location="../resources/processor_29/resourcegroup_115/outputformatexpr.properties" type="properties">
+                    <ns2:role>outputformat</ns2:role>
+                </ns2:resource>
+            </ns2:resourceGroup>
+            <ns2:resourceRef refUri="messagecontext_20">
+                <ns2:role>primary-source</ns2:role>
+            </ns2:resourceRef>
+            <ns2:output name="output_33">
+                <ns2:messageContextRef refUri="messagecontext_32"/>
+            </ns2:output>
+            <ns2:property name="operation" value="DATE_CONVERSION_METHOD/01.00.0000/Date Conversion Method.js/formatdate123"/>
+            <ns2:property name="apiid" value="DATE_CONVERSION_METHOD:01.00.0000:Date Conversion Method.js:formatdate123:inputstring:inputformat:outputformat"/>
+            <ns2:processorName>dateConversionJS</ns2:processorName>
+        </ns2:processor>
+        <ns2:processor name="processor_42">
+            <ns2:type>callout</ns2:type>
+            <ns2:role>undefined</ns2:role>
+            <ns2:resourceGroup name="resourcegroup_55">
+                <ns2:resource name="resource_56" location="../resources/processor_42/resourcegroup_55/ICSCallout_Output.xsd" type="xsd"/>
+            </ns2:resourceGroup>
+            <ns2:resourceGroup name="resourcegroup_119">
+                <ns2:role>exprBuilderProperties</ns2:role>
+                <ns2:resource name="resource_120" location="../resources/processor_42/resourcegroup_119/inputstringexpr.properties" type="properties">
+                    <ns2:role>inputstring</ns2:role>
+                </ns2:resource>
+                <ns2:resource name="resource_121" location="../resources/processor_42/resourcegroup_119/inputformatexpr.properties" type="properties">
+                    <ns2:role>inputformat</ns2:role>
+                </ns2:resource>
+                <ns2:resource name="resource_122" location="../resources/processor_42/resourcegroup_119/outputformatexpr.properties" type="properties">
+                    <ns2:role>outputformat</ns2:role>
+                </ns2:resource>
+            </ns2:resourceGroup>
+            <ns2:resourceRef refUri="messagecontext_20">
+                <ns2:role>primary-source</ns2:role>
+            </ns2:resourceRef>
+            <ns2:output name="output_58">
+                <ns2:messageContextRef refUri="messagecontext_57"/>
+            </ns2:output>
+            <ns2:property name="operation" value="DATECONVERSION/01.00.0000/DateConversion.js/convertDate"/>
+            <ns2:property name="apiid" value="DATECONVERSION:01.00.0000:DateConversion.js:convertDate:inputstring:inputformat:outputformat"/>
+            <ns2:processorName>convertDateJS</ns2:processorName>
+        </ns2:processor>
+        <ns2:processor name="processor_76">
+            <ns2:type>contentBasedRouter</ns2:type>
+            <ns2:role>router:request-post-es</ns2:role>
+            <ns2:input name="input_77">
+                <ns2:messageContextRef refUri="messagecontext_20"/>
+            </ns2:input>
+            <ns2:output name="output_78">
+                <ns2:messageContextRef refUri="messagecontext_20"/>
+                <ns2:resourceGroup name="resourcegroup_123">
+                    <ns2:resource name="resource_124" location="../resources/processor_76/output_78/resourcegroup_123/expr.properties" type="properties"/>
+                </ns2:resourceGroup>
+            </ns2:output>
+            <ns2:output name="output_87">
+                <ns2:messageContextRef refUri="messagecontext_20"/>
+                <ns2:resourceGroup name="resourcegroup_125">
+                    <ns2:resource name="resource_126" location="../resources/processor_76/output_87/resourcegroup_125/expr.properties" type="properties"/>
+                </ns2:resourceGroup>
+            </ns2:output>
+        </ns2:processor>
+        <ns2:processor name="processor_100">
+            <ns2:type>callout</ns2:type>
+            <ns2:role>undefined</ns2:role>
+            <ns2:resourceGroup name="resourcegroup_101">
+                <ns2:resource name="resource_102" location="../resources/processor_100/resourcegroup_101/ICSCallout_Output.xsd" type="xsd"/>
+            </ns2:resourceGroup>
+            <ns2:resourceGroup name="resourcegroup_127">
+                <ns2:role>exprBuilderProperties</ns2:role>
+                <ns2:resource name="resource_128" location="../resources/processor_100/resourcegroup_127/inputstringexpr.properties" type="properties">
+                    <ns2:role>inputstring</ns2:role>
+                </ns2:resource>
+            </ns2:resourceGroup>
+            <ns2:resourceRef refUri="messagecontext_20">
+                <ns2:role>primary-source</ns2:role>
+            </ns2:resourceRef>
+            <ns2:output name="output_104">
+                <ns2:messageContextRef refUri="messagecontext_103"/>
+            </ns2:output>
+            <ns2:property name="operation" value="INPUTFORMAT/01.00.0000/inputFormat.js/detactFormat"/>
+            <ns2:property name="apiid" value="INPUTFORMAT:01.00.0000:inputFormat.js:detactFormat:inputstring"/>
+            <ns2:processorName>inputFormatJS</ns2:processorName>
+            <ns2:processorDescription></ns2:processorDescription>
+        </ns2:processor>
+        <ns2:processor name="processor_109">
+            <ns2:type>transformer</ns2:type>
+            <ns2:role>transformer:response-map</ns2:role>
+            <ns2:resourceGroup name="resourcegroup_112">
+                <ns2:resource name="resource_113" location="../resources/processor_109/resourcegroup_112/req_eb543e99f5674e27b49e91811278a390.xsl" type="xslt"/>
+            </ns2:resourceGroup>
+            <ns2:resourceRef refUri="messagecontext_103">
+                <ns2:role>secondary-source</ns2:role>
+                <ns2:subRole>inputFormatJS</ns2:subRole>
+            </ns2:resourceRef>
+            <ns2:input name="input_110">
+                <ns2:messageContextRef refUri="messagecontext_20"/>
+            </ns2:input>
+            <ns2:output name="output_111">
+                <ns2:messageContextRef refUri="messagecontext_18"/>
+            </ns2:output>
+            <ns2:property name="has-mappings" value="true"/>
+        </ns2:processor>
+        <ns2:messageContext name="messagecontext_4">
+            <ns2:resourceRef refUri="processor_1/resourcegroup_2/resource_3"/>
+            <ns2:rootElement elementName="metadata" namespace="http://www.oracle.com/2014/03/ic/integration/metadata"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_7">
+            <ns2:rootElement elementName="string" namespace="http://www.w3.org/2001/XMLSchema"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_9">
+            <ns2:rootElement elementName="string" namespace="http://www.w3.org/2001/XMLSchema"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_11">
+            <ns2:rootElement elementName="string" namespace="http://www.w3.org/2001/XMLSchema"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_18">
+            <ns2:resourceRef refUri="application_13/outbound_14/resourcegroup_15/resource_17"/>
+            <ns2:rootElement elementName="executeResponse" namespace="http://xmlns.oracle.com/cloud/adapter/REST/dateConversionRequest_REQUEST/types"/>
+            <ns2:wsdlMessage messageName="executeResponseMessage" namespace="http://xmlns.oracle.com/cloud/adapter/REST/dateConversionRequest_REQUEST" partName="parameters"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_20">
+            <ns2:resourceRef refUri="application_13/outbound_14/resourcegroup_15/resource_17"/>
+            <ns2:rootElement elementName="execute" namespace="http://xmlns.oracle.com/cloud/adapter/REST/dateConversionRequest_REQUEST/types"/>
+            <ns2:wsdlMessage messageName="executeRequestMessage" namespace="http://xmlns.oracle.com/cloud/adapter/REST/dateConversionRequest_REQUEST" partName="parameters"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_22">
+            <ns2:resourceRef refUri="application_13/outbound_14/resourcegroup_15/resource_17"/>
+            <ns2:rootElement elementName="APIInvocationError" namespace="http://xmlns.oracle.com/cloud/generic/rest/fault/REST/dateConversionRequest"/>
+            <ns2:wsdlMessage messageName="APIInvocationError" namespace="http://xmlns.oracle.com/cloud/adapter/REST/dateConversionRequest_REQUEST" partName="parameters"/>
+            <ns2:wsdlFault faultName="APIInvocationError" namespace="http://xmlns.oracle.com/cloud/adapter/REST/dateConversionRequest_REQUEST"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_32">
+            <ns2:resourceRef refUri="processor_29/resourcegroup_30/resource_31"/>
+            <ns2:rootElement elementName="output_dateConversionJS_formatted_date" namespace="http://www.oracle.com/2014/03/ics/callout"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_57">
+            <ns2:resourceRef refUri="processor_42/resourcegroup_55/resource_56"/>
+            <ns2:rootElement elementName="output_convertDateJS_formatted_date" namespace="http://www.oracle.com/2014/03/ics/callout"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_103">
+            <ns2:resourceRef refUri="processor_100/resourcegroup_101/resource_102"/>
+            <ns2:rootElement elementName="output_inputFormatJS_inputformat" namespace="http://www.oracle.com/2014/03/ics/callout"/>
+        </ns2:messageContext>
+        <ns2:commonNamespaceMaps/>
+        <ns2:orchestration>
+            <ns2:integrationMetadata id="im0" refUri="processor_1"/>
+            <ns2:receive trackingRefUri="processor_6" id="r0" refUri="application_13/outbound_14/output_21"/>
+            <ns2:router id="s0" refUri="processor_76">
+                <ns2:route id="sc0" refUri="processor_76/output_78">
+                    <ns2:callout id="co2" refUri="processor_100"/>
+                    <ns2:transformer id="m1" refUri="processor_109"/>
+                </ns2:route>
+                <ns2:route id="sc1" refUri="processor_76/output_87">
+                    <ns2:callout id="co0" refUri="processor_29"/>
+                    <ns2:callout id="co1" refUri="processor_42"/>
+                    <ns2:transformer id="m0" refUri="processor_24"/>
+                </ns2:route>
+            </ns2:router>
+            <ns2:reply id="y0" refUri="application_13/outbound_14/input_19"/>
+        </ns2:orchestration>
+    </ns3:icsflow>
+</ns3:icsproject>

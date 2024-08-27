@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<api-library>
+    <name>myAdd</name>
+    <code>MYADD</code>
+    <version>01.00.0000</version>
+    <implementationType>JAVASCRIPT</implementationType>
+    <sources>
+        <source>
+            <apiIdList>MYADD:01.00.0000:add.js:myAdd:input1:input2</apiIdList>
+            <fileName>add.js</fileName>
+            <apiDefinitions>
+                <api apiid="MYADD:01.00.0000:add.js:myAdd:input1:input2">
+                    <classification>ORCHESTRATION</classification>
+                    <duplicateFnFlag>false</duplicateFnFlag>
+                    <name>myAdd</name>
+                    <inputParameters>
+                        <input>
+                            <icon>/oracle/ics/webconsole/view/images/string_24_ena.png</icon>
+                            <name>input1</name>
+                            <type>string</type>
+                        </input>
+                        <input>
+                            <icon>/oracle/ics/webconsole/view/images/string_24_ena.png</icon>
+                            <name>input2</name>
+                            <type>string</type>
+                        </input>
+                    </inputParameters>
+                    <libraryCode>MYADD</libraryCode>
+                    <classification>ORCHESTRATION</classification>
+                    <classification>XPATH</classification>
+                    <outputParameters>
+                        <output>
+                            <icon>/oracle/ics/webconsole/view/images/string_24_ena.png</icon>
+                            <name>retValue</name>
+                            <type>string</type>
+                        </output>
+                    </outputParameters>
+                    <unsupportedSyntax>false</unsupportedSyntax>
+                </api>
+            </apiDefinitions>
+            <libraryCode>MYADD</libraryCode>
+            <path>/tmp/WC/myAdd/add.js</path>
+        </source>
+    </sources>
+</api-library>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<oracle-xsl-webmapper:StateInfo xmlns:oracle-xsl-webmapper="http://www.oracle.com/xsl/webmapper/state" version="1.1">
+    <oracle-xsl-webmapper:ErrorsCount>0</oracle-xsl-webmapper:ErrorsCount>
+    <oracle-xsl-webmapper:WarningsCount>0</oracle-xsl-webmapper:WarningsCount>
+    <oracle-xsl-webmapper:IsImported>false</oracle-xsl-webmapper:IsImported>
+    <oracle-xsl-webmapper:HasMappings>true</oracle-xsl-webmapper:HasMappings>
+    <oracle-xsl-webmapper:StateInfoIsStale>false</oracle-xsl-webmapper:StateInfoIsStale>
+    <oracle-xsl-webmapper:SourcesReferenced>
+        <element xmlns:ns3="http://xmlns.oracle.com/cloud/adapter/erp/mergeCustomerAccount_REQUEST/types">ns3:mergeCustomerAccountResponse</element>
+        <uriAbsoluteLocation>file:/tmp/WC/itg_10aa3a8c-a476-4683-8f77-fe8aaa89cb29/resources/application_1165/inbound_1166/resourcegroup_1167/mergeCustomerAccount_REQUEST.wsdl</uriAbsoluteLocation>
+        <param>mergeCustomerAccount</param>
+        <primary>false</primary>
+    </oracle-xsl-webmapper:SourcesReferenced>
+    <oracle-xsl-webmapper:SourcesReferenced>
+        <element xmlns:ns3="http://xmlns.oracle.com/cloud/adapter/stagefile/writeSiteDetailsStage_REQUEST/types">ns3:Write</element>
+        <uriAbsoluteLocation>file:/tmp/WC/itg_10aa3a8c-a476-4683-8f77-fe8aaa89cb29/resources/processor_1448/resourcegroup_1449/writeSiteDetailsStage_REQUEST.wsdl</uriAbsoluteLocation>
+        <param>writeSiteDetailsStage_REQUEST</param>
+        <primary>false</primary>
+    </oracle-xsl-webmapper:SourcesReferenced>
+    <oracle-xsl-webmapper:AllSources>
+        <element xmlns:ns3="http://www.oracle.com/2014/03/ics/schedule">ns3:schedule</element>
+        <uriAbsoluteLocation>file:/tmp/WC/itg_10aa3a8c-a476-4683-8f77-fe8aaa89cb29/resources/processor_8/resourcegroup_9/ICSSchedule_1.xsd</uriAbsoluteLocation>
+        <primary>true</primary>
+    </oracle-xsl-webmapper:AllSources>
+    <oracle-xsl-webmapper:AllSources>
+        <element xmlns:ns3="http://xmlns.oracle.com/cloud/adapter/erp/mergeCustomerAccount_REQUEST/types">ns3:mergeCustomerAccountResponse</element>
+        <uriAbsoluteLocation>file:/tmp/WC/itg_10aa3a8c-a476-4683-8f77-fe8aaa89cb29/resources/application_1165/inbound_1166/resourcegroup_1167/mergeCustomerAccount_REQUEST.wsdl</uriAbsoluteLocation>
+        <param>mergeCustomerAccount</param>
+        <primary>false</primary>
+    </oracle-xsl-webmapper:AllSources>
+    <oracle-xsl-webmapper:AllSources>
+        <element xmlns:ns3="http://xmlns.oracle.com/cloud/adapter/stagefile/writeSiteDetailsStage_REQUEST/types">ns3:Write</element>
+        <uriAbsoluteLocation>file:/tmp/WC/itg_10aa3a8c-a476-4683-8f77-fe8aaa89cb29/resources/processor_1448/resourcegroup_1449/writeSiteDetailsStage_REQUEST.wsdl</uriAbsoluteLocation>
+        <param>writeSiteDetailsStage_REQUEST</param>
+        <primary>false</primary>
+    </oracle-xsl-webmapper:AllSources>
+</oracle-xsl-webmapper:StateInfo>

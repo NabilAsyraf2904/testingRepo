@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns3:icsproject name="project_1" version="9.9" cversion="0" modelType="freeform" xmlns="http://www.oracle.com/2014/03/ics/project/definition" xmlns:ns2="http://www.oracle.com/2014/03/ics/flow/definition" xmlns:ns3="http://www.oracle.com/2014/03/ics/project">
+    <projectCode>KNX_GET_BOM_STRUCTUR</projectCode>
+    <projectVersion>01.00.0000</projectVersion>
+    <projectName>KNX Get BOM Structures</projectName>
+    <percentComplete>100</percentComplete>
+    <projectHasErrors>false</projectHasErrors>
+    <projectHasWarnings>false</projectHasWarnings>
+    <ns3:icsflow name="flow_1">
+        <ns2:application name="application_18">
+            <ns2:role>source</ns2:role>
+            <ns2:adapter>
+                <ns2:type>app-adapter</ns2:type>
+                <ns2:code>MY_REST_ENDPOINT_INTERFAC</ns2:code>
+                <ns2:name>getBOMStructures</ns2:name>
+                <ns2:property name="hasAttachment" value="false"/>
+            </ns2:adapter>
+            <ns2:mep>push-sync</ns2:mep>
+            <ns2:outbound name="outbound_19">
+                <ns2:binding>rest</ns2:binding>
+                <ns2:operation>execute</ns2:operation>
+                <ns2:resourceGroup name="resourcegroup_20">
+                    <ns2:resource name="resource_22" location="../resources/application_18/outbound_19/resourcegroup_20/getBOMStructures_REQUEST.wsdl" type="wsdl"/>
+                    <ns2:resource name="resource_72" location="../resources/application_18/outbound_19/resourcegroup_20/getBOMStructures_REQUEST.jca" type="jca"/>
+                </ns2:resourceGroup>
+                <ns2:input name="input_24">
+                    <ns2:role>response</ns2:role>
+                    <ns2:messageContextRef refUri="messagecontext_23"/>
+                </ns2:input>
+                <ns2:input name="input_28">
+                    <ns2:role>fault</ns2:role>
+                    <ns2:subRole>APIInvocationError</ns2:subRole>
+                    <ns2:messageContextRef refUri="messagecontext_27"/>
+                </ns2:input>
+                <ns2:output name="output_26">
+                    <ns2:role>request</ns2:role>
+                    <ns2:messageContextRef refUri="messagecontext_25"/>
+                </ns2:output>
+            </ns2:outbound>
+        </ns2:application>
+        <ns2:application name="application_39">
+            <ns2:role>target</ns2:role>
+            <ns2:adapter>
+                <ns2:type>app-adapter</ns2:type>
+                <ns2:code>KNX_ERP_REST</ns2:code>
+                <ns2:name>getItemStructures</ns2:name>
+                <ns2:property name="hasAttachment" value="false"/>
+            </ns2:adapter>
+            <ns2:mep>push-sync</ns2:mep>
+            <ns2:inbound name="inbound_40">
+                <ns2:binding>rest</ns2:binding>
+                <ns2:operation>execute</ns2:operation>
+                <ns2:resourceGroup name="resourcegroup_41">
+                    <ns2:resource name="resource_42" location="../resources/application_39/inbound_40/resourcegroup_41/getItemStructures_REQUEST.jca" type="jca"/>
+                    <ns2:resource name="resource_43" location="../resources/application_39/inbound_40/resourcegroup_41/ICSFault.xsd" type="xsd"/>
+                    <ns2:resource name="resource_44" location="../resources/application_39/inbound_40/resourcegroup_41/getItemStructures_REQUEST.wsdl" type="wsdl"/>
+                </ns2:resourceGroup>
+                <ns2:input name="input_46">
+                    <ns2:role>request</ns2:role>
+                    <ns2:messageContextRef refUri="messagecontext_45"/>
+                </ns2:input>
+                <ns2:output name="output_48">
+                    <ns2:role>response</ns2:role>
+                    <ns2:messageContextRef refUri="messagecontext_47"/>
+                </ns2:output>
+                <ns2:output name="output_50">
+                    <ns2:role>fault</ns2:role>
+                    <ns2:subRole>APIInvocationError</ns2:subRole>
+                    <ns2:messageContextRef refUri="messagecontext_49"/>
+                </ns2:output>
+            </ns2:inbound>
+        </ns2:application>
+        <ns2:application name="application_101">
+            <ns2:role>target</ns2:role>
+            <ns2:adapter>
+                <ns2:type>app-adapter</ns2:type>
+                <ns2:code>KNX_ERP_REST</ns2:code>
+                <ns2:name>getItemStructuresComponent</ns2:name>
+                <ns2:property name="hasAttachment" value="false"/>
+            </ns2:adapter>
+            <ns2:mep>push-sync</ns2:mep>
+            <ns2:inbound name="inbound_102">
+                <ns2:binding>rest</ns2:binding>
+                <ns2:operation>execute</ns2:operation>
+                <ns2:resourceGroup name="resourcegroup_103">
+                    <ns2:resource name="resource_104" location="../resources/application_101/inbound_102/resourcegroup_103/getItemStructuresComponent_REQUEST.jca" type="jca"/>
+                    <ns2:resource name="resource_105" location="../resources/application_101/inbound_102/resourcegroup_103/ICSFault.xsd" type="xsd"/>
+                    <ns2:resource name="resource_106" location="../resources/application_101/inbound_102/resourcegroup_103/getItemStructuresComponent_REQUEST.wsdl" type="wsdl"/>
+                </ns2:resourceGroup>
+                <ns2:input name="input_108">
+                    <ns2:role>request</ns2:role>
+                    <ns2:messageContextRef refUri="messagecontext_107"/>
+                </ns2:input>
+                <ns2:output name="output_110">
+                    <ns2:role>response</ns2:role>
+                    <ns2:messageContextRef refUri="messagecontext_109"/>
+                </ns2:output>
+                <ns2:output name="output_112">
+                    <ns2:role>fault</ns2:role>
+                    <ns2:subRole>APIInvocationError</ns2:subRole>
+                    <ns2:messageContextRef refUri="messagecontext_111"/>
+                </ns2:output>
+            </ns2:inbound>
+        </ns2:application>
+        <ns2:processor name="processor_11">
+            <ns2:type>messageTracker</ns2:type>
+            <ns2:role>messageTracker:global</ns2:role>
+            <ns2:trackingVariableGroup>
+                <ns2:trackingVariable>
+                    <ns2:role>tracking_var_1</ns2:role>
+                    <ns2:primary>true</ns2:primary>
+                    <ns2:name>source Item Number</ns2:name>
+                    <ns2:xpath>/execute/request-wrapper/bomStructuresRequest/sourceItemNumber</ns2:xpath>
+                    <ns2:messageContextRef refUri="messagecontext_25"/>
+                    <ns2:output name="output_13">
+                        <ns2:messageContextRef refUri="messagecontext_12"/>
+                    </ns2:output>
+                </ns2:trackingVariable>
+                <ns2:trackingVariable>
+                    <ns2:role>tracking_var_2</ns2:role>
+                    <ns2:primary>false</ns2:primary>
+                    <ns2:name>organization Code</ns2:name>
+                    <ns2:xpath>/execute/request-wrapper/bomStructuresRequest/organizationCode</ns2:xpath>
+                    <ns2:messageContextRef refUri="messagecontext_25"/>
+                    <ns2:output name="output_15">
+                        <ns2:messageContextRef refUri="messagecontext_14"/>
+                    </ns2:output>
+                </ns2:trackingVariable>
+                <ns2:trackingVariable>
+                    <ns2:role>tracking_var_3</ns2:role>
+                    <ns2:primary>false</ns2:primary>
+                    <ns2:name>tracking_var_3</ns2:name>
+                    <ns2:messageContextRef refUri="messagecontext_25"/>
+                    <ns2:output name="output_17">
+                        <ns2:messageContextRef refUri="messagecontext_16"/>
+                    </ns2:output>
+                </ns2:trackingVariable>
+            </ns2:trackingVariableGroup>
+        </ns2:processor>
+        <ns2:processor name="processor_29">
+            <ns2:type>transformer</ns2:type>
+            <ns2:role>transformer:response-map</ns2:role>
+            <ns2:resourceGroup name="resourcegroup_32">
+                <ns2:resource name="resource_33" location="../resources/processor_29/resourcegroup_32/req_aec20ea134344c4c9360e218b337262d.xsl" type="xslt"/>
+            </ns2:resourceGroup>
+            <ns2:resourceRef refUri="messagecontext_109">
+                <ns2:role>secondary-source</ns2:role>
+                <ns2:subRole>getItemStructuresComponent</ns2:subRole>
+            </ns2:resourceRef>
+            <ns2:input name="input_30">
+                <ns2:messageContextRef refUri="messagecontext_25"/>
+            </ns2:input>
+            <ns2:output name="output_31">
+                <ns2:messageContextRef refUri="messagecontext_23"/>
+            </ns2:output>
+            <ns2:property name="has-mappings" value="true"/>
+        </ns2:processor>
+        <ns2:processor name="processor_51">
+            <ns2:type>transformer</ns2:type>
+            <ns2:role>transformer:response-map</ns2:role>
+            <ns2:resourceGroup name="resourcegroup_54">
+                <ns2:resource name="resource_55" location="../resources/processor_51/resourcegroup_54/req_96aa392681974d50acfd970b48ee2ef2.xsl" type="xslt"/>
+            </ns2:resourceGroup>
+            <ns2:input name="input_52">
+                <ns2:messageContextRef refUri="messagecontext_25"/>
+            </ns2:input>
+            <ns2:output name="output_53">
+                <ns2:messageContextRef refUri="messagecontext_45"/>
+            </ns2:output>
+            <ns2:property name="has-mappings" value="true"/>
+        </ns2:processor>
+        <ns2:processor name="processor_113">
+            <ns2:type>transformer</ns2:type>
+            <ns2:role>transformer:response-map</ns2:role>
+            <ns2:resourceGroup name="resourcegroup_116">
+                <ns2:resource name="resource_117" location="../resources/processor_113/resourcegroup_116/req_a1a143adcc224a7491f4cf4754b2b440.xsl" type="xslt"/>
+            </ns2:resourceGroup>
+            <ns2:resourceRef refUri="messagecontext_47">
+                <ns2:role>secondary-source</ns2:role>
+                <ns2:subRole>getItemStructures</ns2:subRole>
+            </ns2:resourceRef>
+            <ns2:input name="input_114">
+                <ns2:messageContextRef refUri="messagecontext_25"/>
+            </ns2:input>
+            <ns2:output name="output_115">
+                <ns2:messageContextRef refUri="messagecontext_107"/>
+            </ns2:output>
+            <ns2:property name="has-mappings" value="true"/>
+        </ns2:processor>
+        <ns2:messageContext name="messagecontext_12">
+            <ns2:rootElement elementName="string" namespace="http://www.w3.org/2001/XMLSchema"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_14">
+            <ns2:rootElement elementName="string" namespace="http://www.w3.org/2001/XMLSchema"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_16">
+            <ns2:rootElement elementName="string" namespace="http://www.w3.org/2001/XMLSchema"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_23">
+            <ns2:resourceRef refUri="application_18/outbound_19/resourcegroup_20/resource_22"/>
+            <ns2:rootElement elementName="executeResponse" namespace="http://xmlns.oracle.com/cloud/adapter/REST/getBOMStructures_REQUEST/types"/>
+            <ns2:wsdlMessage messageName="executeResponseMessage" namespace="http://xmlns.oracle.com/cloud/adapter/REST/getBOMStructures_REQUEST" partName="parameters"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_25">
+            <ns2:resourceRef refUri="application_18/outbound_19/resourcegroup_20/resource_22"/>
+            <ns2:rootElement elementName="execute" namespace="http://xmlns.oracle.com/cloud/adapter/REST/getBOMStructures_REQUEST/types"/>
+            <ns2:wsdlMessage messageName="executeRequestMessage" namespace="http://xmlns.oracle.com/cloud/adapter/REST/getBOMStructures_REQUEST" partName="parameters"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_27">
+            <ns2:resourceRef refUri="application_18/outbound_19/resourcegroup_20/resource_22"/>
+            <ns2:rootElement elementName="APIInvocationError" namespace="http://xmlns.oracle.com/cloud/generic/rest/fault/REST/getBOMStructures"/>
+            <ns2:wsdlMessage messageName="APIInvocationError" namespace="http://xmlns.oracle.com/cloud/adapter/REST/getBOMStructures_REQUEST" partName="parameters"/>
+            <ns2:wsdlFault faultName="APIInvocationError" namespace="http://xmlns.oracle.com/cloud/adapter/REST/getBOMStructures_REQUEST"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_45">
+            <ns2:resourceRef refUri="application_39/inbound_40/resourcegroup_41/resource_44"/>
+            <ns2:rootElement elementName="execute" namespace="http://xmlns.oracle.com/cloud/adapter/REST/getItemStructures_REQUEST/types"/>
+            <ns2:wsdlMessage messageName="executeRequestMessage" namespace="http://xmlns.oracle.com/cloud/adapter/REST/getItemStructures_REQUEST" partName="parameters"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_47">
+            <ns2:resourceRef refUri="application_39/inbound_40/resourcegroup_41/resource_44"/>
+            <ns2:rootElement elementName="executeResponse" namespace="http://xmlns.oracle.com/cloud/adapter/REST/getItemStructures_REQUEST/types"/>
+            <ns2:wsdlMessage messageName="executeResponseMessage" namespace="http://xmlns.oracle.com/cloud/adapter/REST/getItemStructures_REQUEST" partName="parameters"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_49">
+            <ns2:resourceRef refUri="application_39/inbound_40/resourcegroup_41/resource_44"/>
+            <ns2:rootElement elementName="APIInvocationError" namespace="http://xmlns.oracle.com/cloud/generic/rest/fault/REST/getItemStructures"/>
+            <ns2:wsdlMessage messageName="APIInvocationError" namespace="http://xmlns.oracle.com/cloud/adapter/REST/getItemStructures_REQUEST" partName="parameters"/>
+            <ns2:wsdlFault faultName="APIInvocationError" namespace="http://xmlns.oracle.com/cloud/adapter/REST/getItemStructures_REQUEST"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_107">
+            <ns2:resourceRef refUri="application_101/inbound_102/resourcegroup_103/resource_106"/>
+            <ns2:rootElement elementName="execute" namespace="http://xmlns.oracle.com/cloud/adapter/REST/getItemStructuresComponent_REQUEST/types"/>
+            <ns2:wsdlMessage messageName="executeRequestMessage" namespace="http://xmlns.oracle.com/cloud/adapter/REST/getItemStructuresComponent_REQUEST" partName="parameters"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_109">
+            <ns2:resourceRef refUri="application_101/inbound_102/resourcegroup_103/resource_106"/>
+            <ns2:rootElement elementName="executeResponse" namespace="http://xmlns.oracle.com/cloud/adapter/REST/getItemStructuresComponent_REQUEST/types"/>
+            <ns2:wsdlMessage messageName="executeResponseMessage" namespace="http://xmlns.oracle.com/cloud/adapter/REST/getItemStructuresComponent_REQUEST" partName="parameters"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_111">
+            <ns2:resourceRef refUri="application_101/inbound_102/resourcegroup_103/resource_106"/>
+            <ns2:rootElement elementName="APIInvocationError" namespace="http://xmlns.oracle.com/cloud/generic/rest/fault/REST/getItemStructuresComponent"/>
+            <ns2:wsdlMessage messageName="APIInvocationError" namespace="http://xmlns.oracle.com/cloud/adapter/REST/getItemStructuresComponent_REQUEST" partName="parameters"/>
+            <ns2:wsdlFault faultName="APIInvocationError" namespace="http://xmlns.oracle.com/cloud/adapter/REST/getItemStructuresComponent_REQUEST"/>
+        </ns2:messageContext>
+        <ns2:commonNamespaceMaps/>
+        <ns2:orchestration>
+            <ns2:receive trackingRefUri="processor_11" id="r0" refUri="application_18/outbound_19/output_26"/>
+            <ns2:transformer id="m1" refUri="processor_51"/>
+            <ns2:invoke id="i0" refUri="application_39"/>
+            <ns2:transformer id="m2" refUri="processor_113"/>
+            <ns2:invoke id="i1" refUri="application_101"/>
+            <ns2:transformer id="m0" refUri="processor_29"/>
+            <ns2:reply id="y0" refUri="application_18/outbound_19/input_24"/>
+        </ns2:orchestration>
+    </ns3:icsflow>
+</ns3:icsproject>

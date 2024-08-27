@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns3:icsproject name="project_1" version="10.0" cversion="5" modelType="freeform" xmlns="http://www.oracle.com/2014/03/ics/project/definition" xmlns:ns2="http://www.oracle.com/2014/03/ics/flow/definition" xmlns:ns3="http://www.oracle.com/2014/03/ics/project">
+    <projectCode>AZ_EMPLOYEE_MERGE</projectCode>
+    <projectVersion>01.00.0000</projectVersion>
+    <projectName>AZ Employee Merge</projectName>
+    <percentComplete>100</percentComplete>
+    <projectHasErrors>false</projectHasErrors>
+    <projectHasWarnings>false</projectHasWarnings>
+    <ns3:icsflow name="flow_1">
+        <ns2:application name="application_13">
+            <ns2:role>source</ns2:role>
+            <ns2:adapter>
+                <ns2:type>app-adapter</ns2:type>
+                <ns2:code>MY_REST_ENDPOINT_INTERFAC</ns2:code>
+                <ns2:name>employee</ns2:name>
+                <ns2:property name="hasAttachment" value="false"/>
+            </ns2:adapter>
+            <ns2:mep>fire-and-forget</ns2:mep>
+            <ns2:outbound name="outbound_14">
+                <ns2:binding>rest</ns2:binding>
+                <ns2:operation>execute</ns2:operation>
+                <ns2:resourceGroup name="resourcegroup_15">
+                    <ns2:resource name="resource_17" location="../resources/application_13/outbound_14/resourcegroup_15/employee_REQUEST.wsdl" type="wsdl"/>
+                    <ns2:resource name="resource_74" location="../resources/application_13/outbound_14/resourcegroup_15/employee_REQUEST.jca" type="jca"/>
+                </ns2:resourceGroup>
+                <ns2:output name="output_19">
+                    <ns2:role>request</ns2:role>
+                    <ns2:messageContextRef refUri="messagecontext_18"/>
+                </ns2:output>
+            </ns2:outbound>
+        </ns2:application>
+        <ns2:application name="application_35">
+            <ns2:role>target</ns2:role>
+            <ns2:adapter>
+                <ns2:type>app-adapter</ns2:type>
+                <ns2:code>KNX_ATP</ns2:code>
+                <ns2:name>atpMergeEmployee</ns2:name>
+                <ns2:property name="hasAttachment" value="false"/>
+            </ns2:adapter>
+            <ns2:mep>fire-and-forget</ns2:mep>
+            <ns2:inbound name="inbound_36">
+                <ns2:operation>merge</ns2:operation>
+                <ns2:resourceGroup name="resourcegroup_37">
+                    <ns2:resource name="resource_38" location="../resources/application_35/inbound_36/resourcegroup_37/atpMergeEmployee_REQUEST.jca" type="jca"/>
+                    <ns2:resource name="resource_39" location="../resources/application_35/inbound_36/resourcegroup_37/ICSFault.xsd" type="xsd"/>
+                    <ns2:resource name="resource_40" location="../resources/application_35/inbound_36/resourcegroup_37/atpMergeEmployee_REQUEST.wsdl" type="wsdl"/>
+                </ns2:resourceGroup>
+                <ns2:input name="input_42">
+                    <ns2:role>request</ns2:role>
+                    <ns2:messageContextRef refUri="messagecontext_41"/>
+                </ns2:input>
+            </ns2:inbound>
+        </ns2:application>
+        <ns2:application name="application_48">
+            <ns2:role>target</ns2:role>
+            <ns2:adapter>
+                <ns2:type>app-adapter</ns2:type>
+                <ns2:code>KNX_ATP</ns2:code>
+                <ns2:name>atpMergeDepartment</ns2:name>
+                <ns2:property name="hasAttachment" value="false"/>
+            </ns2:adapter>
+            <ns2:mep>fire-and-forget</ns2:mep>
+            <ns2:inbound name="inbound_49">
+                <ns2:operation>merge</ns2:operation>
+                <ns2:resourceGroup name="resourcegroup_50">
+                    <ns2:resource name="resource_51" location="../resources/application_48/inbound_49/resourcegroup_50/atpMergeDepartment_REQUEST.jca" type="jca"/>
+                    <ns2:resource name="resource_52" location="../resources/application_48/inbound_49/resourcegroup_50/ICSFault.xsd" type="xsd"/>
+                    <ns2:resource name="resource_53" location="../resources/application_48/inbound_49/resourcegroup_50/atpMergeDepartment_REQUEST.wsdl" type="wsdl"/>
+                </ns2:resourceGroup>
+                <ns2:input name="input_55">
+                    <ns2:role>request</ns2:role>
+                    <ns2:messageContextRef refUri="messagecontext_54"/>
+                </ns2:input>
+            </ns2:inbound>
+        </ns2:application>
+        <ns2:application name="application_61">
+            <ns2:role>target</ns2:role>
+            <ns2:adapter>
+                <ns2:type>app-adapter</ns2:type>
+                <ns2:code>KNX_ATP</ns2:code>
+                <ns2:name>atpMergeLocation</ns2:name>
+                <ns2:property name="hasAttachment" value="false"/>
+            </ns2:adapter>
+            <ns2:mep>fire-and-forget</ns2:mep>
+            <ns2:inbound name="inbound_62">
+                <ns2:operation>merge</ns2:operation>
+                <ns2:resourceGroup name="resourcegroup_63">
+                    <ns2:resource name="resource_64" location="../resources/application_61/inbound_62/resourcegroup_63/atpMergeLocation_REQUEST.jca" type="jca"/>
+                    <ns2:resource name="resource_65" location="../resources/application_61/inbound_62/resourcegroup_63/ICSFault.xsd" type="xsd"/>
+                    <ns2:resource name="resource_66" location="../resources/application_61/inbound_62/resourcegroup_63/atpMergeLocation_REQUEST.wsdl" type="wsdl"/>
+                </ns2:resourceGroup>
+                <ns2:input name="input_68">
+                    <ns2:role>request</ns2:role>
+                    <ns2:messageContextRef refUri="messagecontext_67"/>
+                </ns2:input>
+            </ns2:inbound>
+        </ns2:application>
+        <ns2:processor name="processor_1">
+            <ns2:type>integrationMetadata</ns2:type>
+            <ns2:role>undefined</ns2:role>
+            <ns2:resourceGroup name="resourcegroup_2">
+                <ns2:resource name="resource_3" location="../resources/processor_1/resourcegroup_2/ICSIntegrationMetadata.xsd" type="xsd"/>
+            </ns2:resourceGroup>
+            <ns2:output name="output_5">
+                <ns2:messageContextRef refUri="messagecontext_4"/>
+            </ns2:output>
+        </ns2:processor>
+        <ns2:processor name="processor_6">
+            <ns2:type>messageTracker</ns2:type>
+            <ns2:role>messageTracker:global</ns2:role>
+            <ns2:trackingVariableGroup>
+                <ns2:trackingVariable>
+                    <ns2:role>tracking_var_1</ns2:role>
+                    <ns2:primary>true</ns2:primary>
+                    <ns2:name>EmployeeNumber</ns2:name>
+                    <ns2:xpath>/execute/request-wrapper/Employes/EmployeeNumber</ns2:xpath>
+                    <ns2:messageContextRef refUri="messagecontext_18"/>
+                    <ns2:output name="output_8">
+                        <ns2:messageContextRef refUri="messagecontext_7"/>
+                    </ns2:output>
+                </ns2:trackingVariable>
+                <ns2:trackingVariable>
+                    <ns2:role>tracking_var_2</ns2:role>
+                    <ns2:primary>false</ns2:primary>
+                    <ns2:name>EmployeeName</ns2:name>
+                    <ns2:xpath>/execute/request-wrapper/Employes/EmployeeName</ns2:xpath>
+                    <ns2:messageContextRef refUri="messagecontext_18"/>
+                    <ns2:output name="output_10">
+                        <ns2:messageContextRef refUri="messagecontext_9"/>
+                    </ns2:output>
+                </ns2:trackingVariable>
+                <ns2:trackingVariable>
+                    <ns2:role>tracking_var_3</ns2:role>
+                    <ns2:primary>false</ns2:primary>
+                    <ns2:name>EmployeeEmail</ns2:name>
+                    <ns2:xpath>/execute/request-wrapper/Employes/EmployeeEmail</ns2:xpath>
+                    <ns2:messageContextRef refUri="messagecontext_18"/>
+                    <ns2:output name="output_12">
+                        <ns2:messageContextRef refUri="messagecontext_11"/>
+                    </ns2:output>
+                </ns2:trackingVariable>
+            </ns2:trackingVariableGroup>
+        </ns2:processor>
+        <ns2:processor name="processor_20">
+            <ns2:type>for</ns2:type>
+            <ns2:role>undefined</ns2:role>
+            <ns2:resourceGroup name="resourcegroup_27">
+                <ns2:role>generatedArtifacts</ns2:role>
+                <ns2:resource name="resource_28" location="../resources/processor_20/resourcegroup_27/generated.wsdl" type="wsdl">
+                    <ns2:property name="parentRefUri" value="application_13/outbound_14/resourcegroup_15/resource_17"/>
+                </ns2:resource>
+            </ns2:resourceGroup>
+            <ns2:resourceGroup name="resourcegroup_77">
+                <ns2:role>exprBuilderProperties</ns2:role>
+                <ns2:resource name="resource_78" location="../resources/processor_20/resourcegroup_77/expr.properties" type="properties"/>
+            </ns2:resourceGroup>
+            <ns2:resourceRef refUri="messagecontext_18">
+                <ns2:role>primary-source</ns2:role>
+            </ns2:resourceRef>
+            <ns2:output name="output_30">
+                <ns2:messageContextRef refUri="messagecontext_29"/>
+            </ns2:output>
+            <ns2:property name="parallel" value="false"/>
+            <ns2:processorName>forEachEmployees</ns2:processorName>
+        </ns2:processor>
+        <ns2:processor name="processor_43">
+            <ns2:type>transformer</ns2:type>
+            <ns2:role>transformer:response-map</ns2:role>
+            <ns2:resourceGroup name="resourcegroup_46">
+                <ns2:resource name="resource_47" location="../resources/processor_43/resourcegroup_46/req_3178dee1a02a41c9ad5067e7d90f0eb4.xsl" type="xslt"/>
+            </ns2:resourceGroup>
+            <ns2:resourceRef refUri="messagecontext_29">
+                <ns2:role>secondary-source</ns2:role>
+                <ns2:subRole>currEmployee</ns2:subRole>
+            </ns2:resourceRef>
+            <ns2:input name="input_44">
+                <ns2:messageContextRef refUri="messagecontext_18"/>
+            </ns2:input>
+            <ns2:output name="output_45">
+                <ns2:messageContextRef refUri="messagecontext_41"/>
+            </ns2:output>
+            <ns2:property name="has-mappings" value="true"/>
+        </ns2:processor>
+        <ns2:processor name="processor_56">
+            <ns2:type>transformer</ns2:type>
+            <ns2:role>transformer:response-map</ns2:role>
+            <ns2:resourceGroup name="resourcegroup_59">
+                <ns2:resource name="resource_60" location="../resources/processor_56/resourcegroup_59/req_e89e337ecb694a598bb675e7b171a2a8.xsl" type="xslt"/>
+            </ns2:resourceGroup>
+            <ns2:resourceRef refUri="messagecontext_29">
+                <ns2:role>secondary-source</ns2:role>
+                <ns2:subRole>currEmployee</ns2:subRole>
+            </ns2:resourceRef>
+            <ns2:input name="input_57">
+                <ns2:messageContextRef refUri="messagecontext_18"/>
+            </ns2:input>
+            <ns2:output name="output_58">
+                <ns2:messageContextRef refUri="messagecontext_54"/>
+            </ns2:output>
+            <ns2:property name="has-mappings" value="true"/>
+        </ns2:processor>
+        <ns2:processor name="processor_69">
+            <ns2:type>transformer</ns2:type>
+            <ns2:role>transformer:response-map</ns2:role>
+            <ns2:resourceGroup name="resourcegroup_72">
+                <ns2:resource name="resource_73" location="../resources/processor_69/resourcegroup_72/req_0fe489e217de4c0aa774420005d83cd5.xsl" type="xslt"/>
+            </ns2:resourceGroup>
+            <ns2:resourceRef refUri="messagecontext_29">
+                <ns2:role>secondary-source</ns2:role>
+                <ns2:subRole>currEmployee</ns2:subRole>
+            </ns2:resourceRef>
+            <ns2:input name="input_70">
+                <ns2:messageContextRef refUri="messagecontext_18"/>
+            </ns2:input>
+            <ns2:output name="output_71">
+                <ns2:messageContextRef refUri="messagecontext_67"/>
+            </ns2:output>
+            <ns2:property name="has-mappings" value="true"/>
+        </ns2:processor>
+        <ns2:messageContext name="messagecontext_4">
+            <ns2:resourceRef refUri="processor_1/resourcegroup_2/resource_3"/>
+            <ns2:rootElement elementName="metadata" namespace="http://www.oracle.com/2014/03/ic/integration/metadata"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_7">
+            <ns2:rootElement elementName="string" namespace="http://www.w3.org/2001/XMLSchema"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_9">
+            <ns2:rootElement elementName="string" namespace="http://www.w3.org/2001/XMLSchema"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_11">
+            <ns2:rootElement elementName="string" namespace="http://www.w3.org/2001/XMLSchema"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_18">
+            <ns2:resourceRef refUri="application_13/outbound_14/resourcegroup_15/resource_17"/>
+            <ns2:rootElement elementName="execute" namespace="http://xmlns.oracle.com/cloud/adapter/REST/employee_REQUEST/types"/>
+            <ns2:wsdlMessage messageName="executeRequestMessage" namespace="http://xmlns.oracle.com/cloud/adapter/REST/employee_REQUEST" partName="parameters"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_29">
+            <ns2:resourceRef refUri="processor_20/resourcegroup_27/resource_28"/>
+            <ns2:rootElement elementName="Employes" namespace="http://xmlns.oracle.com/cloud/adapter/REST/employee/types"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_41">
+            <ns2:resourceRef refUri="application_35/inbound_36/resourcegroup_37/resource_40"/>
+            <ns2:rootElement elementName="EmployeeCollection" namespace="http://xmlns.oracle.com/cloud/adapter/atpdatabase/atpMergeEmployee_REQUEST/types"/>
+            <ns2:wsdlMessage messageName="args_in_msg" namespace="http://xmlns.oracle.com/cloud/adapter/atpdatabase/atpMergeEmployee_REQUEST" partName="parameters"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_54">
+            <ns2:resourceRef refUri="application_48/inbound_49/resourcegroup_50/resource_53"/>
+            <ns2:rootElement elementName="DepartmentCollection" namespace="http://xmlns.oracle.com/cloud/adapter/atpdatabase/atpMergeDepartment_REQUEST/types"/>
+            <ns2:wsdlMessage messageName="args_in_msg" namespace="http://xmlns.oracle.com/cloud/adapter/atpdatabase/atpMergeDepartment_REQUEST" partName="parameters"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_67">
+            <ns2:resourceRef refUri="application_61/inbound_62/resourcegroup_63/resource_66"/>
+            <ns2:rootElement elementName="LocationCollection" namespace="http://xmlns.oracle.com/cloud/adapter/atpdatabase/atpMergeLocation_REQUEST/types"/>
+            <ns2:wsdlMessage messageName="args_in_msg" namespace="http://xmlns.oracle.com/cloud/adapter/atpdatabase/atpMergeLocation_REQUEST" partName="parameters"/>
+        </ns2:messageContext>
+        <ns2:commonNamespaceMaps/>
+        <ns2:orchestration>
+            <ns2:integrationMetadata id="im0" refUri="processor_1"/>
+            <ns2:receive trackingRefUri="processor_6" id="r0" refUri="application_13/outbound_14/output_19"/>
+            <ns2:for id="f0" refUri="processor_20">
+                <ns2:transformer id="m2" refUri="processor_69"/>
+                <ns2:invoke id="i2" refUri="application_61" name="Oracle ATP3"/>
+                <ns2:transformer id="m1" refUri="processor_56"/>
+                <ns2:invoke id="i1" refUri="application_48" name="Oracle ATP2"/>
+                <ns2:transformer id="m0" refUri="processor_43"/>
+                <ns2:invoke id="i0" refUri="application_35" name="Oracle ATP1"/>
+            </ns2:for>
+            <ns2:stop id="st0"/>
+        </ns2:orchestration>
+    </ns3:icsflow>
+</ns3:icsproject>

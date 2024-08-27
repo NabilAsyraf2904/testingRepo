@@ -1,0 +1,1 @@
+{"id":"SM_MULTIPLE_ATP_METHOD_01.00.0000","icsProject":{"version":"01.00.0000","percentageComplete":100,"modelType":"FREEFORM","projectCode":"SM_MULTIPLE_ATP_METHOD","processorCount":{"INTEGRATION_METADATA":1,"PICK":1,"MESSAGE_TRACKER":2,"TRANSFORMER":6,"FOR":1,"SOURCE":2,"TARGET":4},"smartTags":"app:atpdatabase,style:App Driven Orchestration"}}

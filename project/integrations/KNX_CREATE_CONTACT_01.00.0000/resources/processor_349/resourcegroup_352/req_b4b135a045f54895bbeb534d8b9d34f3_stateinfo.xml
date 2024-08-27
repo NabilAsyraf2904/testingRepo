@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<oracle-xsl-webmapper:StateInfo xmlns:oracle-xsl-webmapper="http://www.oracle.com/xsl/webmapper/state" version="1.1">
+    <oracle-xsl-webmapper:ErrorsCount>0</oracle-xsl-webmapper:ErrorsCount>
+    <oracle-xsl-webmapper:WarningsCount>0</oracle-xsl-webmapper:WarningsCount>
+    <oracle-xsl-webmapper:IsImported>false</oracle-xsl-webmapper:IsImported>
+    <oracle-xsl-webmapper:HasMappings>true</oracle-xsl-webmapper:HasMappings>
+    <oracle-xsl-webmapper:StateInfoIsStale>false</oracle-xsl-webmapper:StateInfoIsStale>
+    <oracle-xsl-webmapper:SourcesReferenced>
+        <element xmlns:ns3="http://www.oracle.com/2014/03/ic/integration/metadata">ns3:metadata</element>
+        <uriAbsoluteLocation>file:/tmp/WC/itg_7b988f87-902e-4e07-80f4-400b63f90106/resources/processor_13/resourcegroup_14/ICSIntegrationMetadata.xsd</uriAbsoluteLocation>
+        <param>self</param>
+        <primary>false</primary>
+    </oracle-xsl-webmapper:SourcesReferenced>
+    <oracle-xsl-webmapper:SourcesReferenced>
+        <element xmlns:ns3="http://TargetNamespace.com/fileReference">ns3:Contact</element>
+        <uriAbsoluteLocation>file:/tmp/WC/itg_7b988f87-902e-4e07-80f4-400b63f90106/resources/processor_94/resourcegroup_386/generated.wsdl</uriAbsoluteLocation>
+        <param>currPerson</param>
+        <primary>false</primary>
+    </oracle-xsl-webmapper:SourcesReferenced>
+    <oracle-xsl-webmapper:AllSources>
+        <element xmlns:ns3="http://www.oracle.com/2014/03/ics/schedule">ns3:schedule</element>
+        <uriAbsoluteLocation>file:/tmp/WC/itg_7b988f87-902e-4e07-80f4-400b63f90106/resources/processor_8/resourcegroup_9/ICSSchedule_1.xsd</uriAbsoluteLocation>
+        <primary>true</primary>
+    </oracle-xsl-webmapper:AllSources>
+    <oracle-xsl-webmapper:AllSources>
+        <element xmlns:ns3="http://www.oracle.com/2014/03/ic/integration/metadata">ns3:metadata</element>
+        <uriAbsoluteLocation>file:/tmp/WC/itg_7b988f87-902e-4e07-80f4-400b63f90106/resources/processor_13/resourcegroup_14/ICSIntegrationMetadata.xsd</uriAbsoluteLocation>
+        <param>self</param>
+        <primary>false</primary>
+    </oracle-xsl-webmapper:AllSources>
+    <oracle-xsl-webmapper:AllSources>
+        <element xmlns:ns3="http://TargetNamespace.com/fileReference">ns3:Contact</element>
+        <uriAbsoluteLocation>file:/tmp/WC/itg_7b988f87-902e-4e07-80f4-400b63f90106/resources/processor_94/resourcegroup_386/generated.wsdl</uriAbsoluteLocation>
+        <param>currPerson</param>
+        <primary>false</primary>
+    </oracle-xsl-webmapper:AllSources>
+    <oracle-xsl-webmapper:AllSources>
+        <element xmlns:ns3="http://xmlns.oracle.com/cloud/list/pull">ns3:File</element>
+        <uriAbsoluteLocation>file:/tmp/WC/itg_7b988f87-902e-4e07-80f4-400b63f90106/resources/processor_47/resourcegroup_54/generated.wsdl</uriAbsoluteLocation>
+        <param>currFile</param>
+        <primary>false</primary>
+    </oracle-xsl-webmapper:AllSources>
+    <oracle-xsl-webmapper:AllSources>
+        <element xmlns:ns3="http://xmlns.oracle.com/cloud/adapter/ftp/deleteFile_REQUEST/types">ns3:DeleteFileResponse</element>
+        <uriAbsoluteLocation>file:/tmp/WC/itg_7b988f87-902e-4e07-80f4-400b63f90106/resources/application_79/inbound_80/resourcegroup_81/deleteFile_REQUEST.wsdl</uriAbsoluteLocation>
+        <param>deleteFile</param>
+        <primary>false</primary>
+    </oracle-xsl-webmapper:AllSources>
+    <oracle-xsl-webmapper:AllSources>
+        <element xmlns:ns3="http://xmlns.oracle.com/cloud/adapter/ftp/deleteFile_REQUEST/types">ns3:DeleteFile</element>
+        <uriAbsoluteLocation>file:/tmp/WC/itg_7b988f87-902e-4e07-80f4-400b63f90106/resources/application_79/inbound_80/resourcegroup_81/deleteFile_REQUEST.wsdl</uriAbsoluteLocation>
+        <param>deleteFile_REQUEST</param>
+        <primary>false</primary>
+    </oracle-xsl-webmapper:AllSources>
+    <oracle-xsl-webmapper:AllSources>
+        <element xmlns:ns3="http://xmlns.oracle.com/cloud/adapter/erp/findCustomerAccount_REQUEST/types">ns3:findCustomerAccountResponse</element>
+        <uriAbsoluteLocation>file:/tmp/WC/itg_7b988f87-902e-4e07-80f4-400b63f90106/resources/application_117/inbound_118/resourcegroup_119/findCustomerAccount_REQUEST.wsdl</uriAbsoluteLocation>
+        <param>findCustomerAccount</param>
+        <primary>false</primary>
+    </oracle-xsl-webmapper:AllSources>
+    <oracle-xsl-webmapper:AllSources>
+        <element xmlns:ns3="http://xmlns.oracle.com/cloud/adapter/erp/findCustomerAccount_REQUEST/types">ns3:findCustomerAccount</element>
+        <uriAbsoluteLocation>file:/tmp/WC/itg_7b988f87-902e-4e07-80f4-400b63f90106/resources/application_117/inbound_118/resourcegroup_119/findCustomerAccount_REQUEST.wsdl</uriAbsoluteLocation>
+        <param>findCustomerAccount_REQUEST</param>
+        <primary>false</primary>
+    </oracle-xsl-webmapper:AllSources>
+    <oracle-xsl-webmapper:AllSources>
+        <element xmlns:ns3="http://xmlns.oracle.com/cloud/adapter/ftp/listFileFTP_REQUEST/types">ns3:ListFileResponse</element>
+        <uriAbsoluteLocation>file:/tmp/WC/itg_7b988f87-902e-4e07-80f4-400b63f90106/resources/application_32/inbound_33/resourcegroup_34/listFileFTP_REQUEST.wsdl</uriAbsoluteLocation>
+        <param>listFileFTP</param>
+        <primary>false</primary>
+    </oracle-xsl-webmapper:AllSources>
+    <oracle-xsl-webmapper:AllSources>
+        <element xmlns:ns3="http://xmlns.oracle.com/cloud/adapter/ftp/listFileFTP_REQUEST/types">ns3:ListFile</element>
+        <uriAbsoluteLocation>file:/tmp/WC/itg_7b988f87-902e-4e07-80f4-400b63f90106/resources/application_32/inbound_33/resourcegroup_34/listFileFTP_REQUEST.wsdl</uriAbsoluteLocation>
+        <param>listFileFTP_REQUEST</param>
+        <primary>false</primary>
+    </oracle-xsl-webmapper:AllSources>
+    <oracle-xsl-webmapper:AllSources>
+        <element xmlns:ns3="http://xmlns.oracle.com/cloud/adapter/ftp/readContactDetails_REQUEST/types">ns3:SyncReadFileResponse</element>
+        <uriAbsoluteLocation>file:/tmp/WC/itg_7b988f87-902e-4e07-80f4-400b63f90106/resources/application_64/inbound_65/resourcegroup_66/readContactDetails_REQUEST.wsdl</uriAbsoluteLocation>
+        <param>readContactDetails</param>
+        <primary>false</primary>
+    </oracle-xsl-webmapper:AllSources>
+    <oracle-xsl-webmapper:AllSources>
+        <element xmlns:ns3="http://xmlns.oracle.com/cloud/adapter/ftp/readContactDetails_REQUEST/types">ns3:SyncReadFile</element>
+        <uriAbsoluteLocation>file:/tmp/WC/itg_7b988f87-902e-4e07-80f4-400b63f90106/resources/application_64/inbound_65/resourcegroup_66/readContactDetails_REQUEST.wsdl</uriAbsoluteLocation>
+        <param>readContactDetails_REQUEST</param>
+        <primary>false</primary>
+    </oracle-xsl-webmapper:AllSources>
+    <oracle-xsl-webmapper:AllSources>
+        <param>FTPPath</param>
+        <primary>false</primary>
+    </oracle-xsl-webmapper:AllSources>
+    <oracle-xsl-webmapper:AllSources>
+        <param>tracking_var_1</param>
+        <primary>false</primary>
+    </oracle-xsl-webmapper:AllSources>
+    <oracle-xsl-webmapper:AllSources>
+        <param>tracking_var_2</param>
+        <primary>false</primary>
+    </oracle-xsl-webmapper:AllSources>
+    <oracle-xsl-webmapper:AllSources>
+        <param>tracking_var_3</param>
+        <primary>false</primary>
+    </oracle-xsl-webmapper:AllSources>
+</oracle-xsl-webmapper:StateInfo>

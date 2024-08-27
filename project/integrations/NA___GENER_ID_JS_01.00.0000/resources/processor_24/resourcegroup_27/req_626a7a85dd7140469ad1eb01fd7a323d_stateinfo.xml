@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<oracle-xsl-webmapper:StateInfo xmlns:oracle-xsl-webmapper="http://www.oracle.com/xsl/webmapper/state" version="1.1">
+    <oracle-xsl-webmapper:ErrorsCount>0</oracle-xsl-webmapper:ErrorsCount>
+    <oracle-xsl-webmapper:WarningsCount>0</oracle-xsl-webmapper:WarningsCount>
+    <oracle-xsl-webmapper:IsImported>false</oracle-xsl-webmapper:IsImported>
+    <oracle-xsl-webmapper:HasMappings>true</oracle-xsl-webmapper:HasMappings>
+    <oracle-xsl-webmapper:StateInfoIsStale>false</oracle-xsl-webmapper:StateInfoIsStale>
+    <oracle-xsl-webmapper:SourcesReferenced>
+        <element xmlns:ns3="http://www.oracle.com/2014/03/ics/callout">ns3:output_generateIdJs_result</element>
+        <uriAbsoluteLocation>file:/tmp/WC/itg_d9e8fcbe-d54e-4c8e-9e9b-27b0270c1c34/resources/processor_50/resourcegroup_61/ICSCallout_Output.xsd</uriAbsoluteLocation>
+        <param>generateIdJs</param>
+        <primary>false</primary>
+    </oracle-xsl-webmapper:SourcesReferenced>
+    <oracle-xsl-webmapper:SourcesReferenced>
+        <element xmlns:ns3="http://www.oracle.com/2014/03/ics/callout">ns3:output_generateReferalCode_result</element>
+        <uriAbsoluteLocation>file:/tmp/WC/itg_d9e8fcbe-d54e-4c8e-9e9b-27b0270c1c34/resources/processor_107/resourcegroup_108/ICSCallout_Output.xsd</uriAbsoluteLocation>
+        <param>generateReferalCode</param>
+        <primary>false</primary>
+    </oracle-xsl-webmapper:SourcesReferenced>
+    <oracle-xsl-webmapper:SourcesReferenced>
+        <element xmlns:ns3="http://www.oracle.com/2014/03/ics/callout">ns3:output_generateNewNumber2_result</element>
+        <uriAbsoluteLocation>file:/tmp/WC/itg_d9e8fcbe-d54e-4c8e-9e9b-27b0270c1c34/resources/processor_84/resourcegroup_93/ICSCallout_Output.xsd</uriAbsoluteLocation>
+        <param>generateNewNumber2</param>
+        <primary>false</primary>
+    </oracle-xsl-webmapper:SourcesReferenced>
+    <oracle-xsl-webmapper:SourcesReferenced>
+        <element xmlns:ns3="http://www.oracle.com/2014/03/ics/callout">ns3:output_getDate_result</element>
+        <uriAbsoluteLocation>file:/tmp/WC/itg_d9e8fcbe-d54e-4c8e-9e9b-27b0270c1c34/resources/processor_127/resourcegroup_128/ICSCallout_Output.xsd</uriAbsoluteLocation>
+        <param>getDate</param>
+        <primary>false</primary>
+    </oracle-xsl-webmapper:SourcesReferenced>
+    <oracle-xsl-webmapper:SourcesReferenced>
+        <element xmlns:ns3="http://www.oracle.com/2014/03/ics/callout">ns3:output_checkStatus_result</element>
+        <uriAbsoluteLocation>file:/tmp/WC/itg_d9e8fcbe-d54e-4c8e-9e9b-27b0270c1c34/resources/processor_158/resourcegroup_159/ICSCallout_Output.xsd</uriAbsoluteLocation>
+        <param>checkStatus</param>
+        <primary>false</primary>
+    </oracle-xsl-webmapper:SourcesReferenced>
+    <oracle-xsl-webmapper:SourcesReferenced>
+        <element xmlns:ns3="http://www.oracle.com/2014/03/ics/callout">ns3:output_grandTotal_result</element>
+        <uriAbsoluteLocation>file:/tmp/WC/itg_d9e8fcbe-d54e-4c8e-9e9b-27b0270c1c34/resources/processor_180/resourcegroup_191/ICSCallout_Output.xsd</uriAbsoluteLocation>
+        <param>grandTotal</param>
+        <primary>false</primary>
+    </oracle-xsl-webmapper:SourcesReferenced>
+    <oracle-xsl-webmapper:SourcesReferenced>
+        <element xmlns:ns3="http://www.oracle.com/2014/03/ics/callout">ns3:output_inputPosition_result</element>
+        <uriAbsoluteLocation>file:/tmp/WC/itg_d9e8fcbe-d54e-4c8e-9e9b-27b0270c1c34/resources/processor_201/resourcegroup_228/ICSCallout_Output.xsd</uriAbsoluteLocation>
+        <param>inputPosition</param>
+        <primary>false</primary>
+    </oracle-xsl-webmapper:SourcesReferenced>
+    <oracle-xsl-webmapper:SourcesReferenced>
+        <element xmlns:ns3="http://www.oracle.com/2014/03/ics/callout">ns3:output_replaceString_response</element>
+        <uriAbsoluteLocation>file:/tmp/WC/itg_d9e8fcbe-d54e-4c8e-9e9b-27b0270c1c34/resources/processor_236/resourcegroup_267/ICSCallout_Output.xsd</uriAbsoluteLocation>
+        <param>replaceString</param>
+        <primary>false</primary>
+    </oracle-xsl-webmapper:SourcesReferenced>
+    <oracle-xsl-webmapper:AllSources>
+        <element xmlns:ns3="http://xmlns.oracle.com/cloud/adapter/REST/generateId_REQUEST/types">ns3:execute</element>
+        <uriAbsoluteLocation>file:/tmp/WC/itg_d9e8fcbe-d54e-4c8e-9e9b-27b0270c1c34/resources/application_13/outbound_14/resourcegroup_15/generateId_REQUEST.wsdl</uriAbsoluteLocation>
+        <primary>true</primary>
+    </oracle-xsl-webmapper:AllSources>
+    <oracle-xsl-webmapper:AllSources>
+        <element xmlns:ns3="http://www.oracle.com/2014/03/ics/callout">ns3:output_generateIdJs_result</element>
+        <uriAbsoluteLocation>file:/tmp/WC/itg_d9e8fcbe-d54e-4c8e-9e9b-27b0270c1c34/resources/processor_50/resourcegroup_61/ICSCallout_Output.xsd</uriAbsoluteLocation>
+        <param>generateIdJs</param>
+        <primary>false</primary>
+    </oracle-xsl-webmapper:AllSources>
+    <oracle-xsl-webmapper:AllSources>
+        <element xmlns:ns3="http://www.oracle.com/2014/03/ics/callout">ns3:output_generateNewNumber2_result</element>
+        <uriAbsoluteLocation>file:/tmp/WC/itg_d9e8fcbe-d54e-4c8e-9e9b-27b0270c1c34/resources/processor_84/resourcegroup_93/ICSCallout_Output.xsd</uriAbsoluteLocation>
+        <param>generateNewNumber2</param>
+        <primary>false</primary>
+    </oracle-xsl-webmapper:AllSources>
+    <oracle-xsl-webmapper:AllSources>
+        <element xmlns:ns3="http://www.oracle.com/2014/03/ics/callout">ns3:output_generateReferalCode_result</element>
+        <uriAbsoluteLocation>file:/tmp/WC/itg_d9e8fcbe-d54e-4c8e-9e9b-27b0270c1c34/resources/processor_107/resourcegroup_108/ICSCallout_Output.xsd</uriAbsoluteLocation>
+        <param>generateReferalCode</param>
+        <primary>false</primary>
+    </oracle-xsl-webmapper:AllSources>
+    <oracle-xsl-webmapper:AllSources>
+        <element xmlns:ns3="http://www.oracle.com/2014/03/ics/callout">ns3:output_getDate_result</element>
+        <uriAbsoluteLocation>file:/tmp/WC/itg_d9e8fcbe-d54e-4c8e-9e9b-27b0270c1c34/resources/processor_127/resourcegroup_128/ICSCallout_Output.xsd</uriAbsoluteLocation>
+        <param>getDate</param>
+        <primary>false</primary>
+    </oracle-xsl-webmapper:AllSources>
+    <oracle-xsl-webmapper:AllSources>
+        <element xmlns:ns3="http://www.oracle.com/2014/03/ics/callout">ns3:output_checkStatus_result</element>
+        <uriAbsoluteLocation>file:/tmp/WC/itg_d9e8fcbe-d54e-4c8e-9e9b-27b0270c1c34/resources/processor_158/resourcegroup_159/ICSCallout_Output.xsd</uriAbsoluteLocation>
+        <param>checkStatus</param>
+        <primary>false</primary>
+    </oracle-xsl-webmapper:AllSources>
+    <oracle-xsl-webmapper:AllSources>
+        <element xmlns:ns3="http://www.oracle.com/2014/03/ics/callout">ns3:output_grandTotal_result</element>
+        <uriAbsoluteLocation>file:/tmp/WC/itg_d9e8fcbe-d54e-4c8e-9e9b-27b0270c1c34/resources/processor_180/resourcegroup_191/ICSCallout_Output.xsd</uriAbsoluteLocation>
+        <param>grandTotal</param>
+        <primary>false</primary>
+    </oracle-xsl-webmapper:AllSources>
+    <oracle-xsl-webmapper:AllSources>
+        <element xmlns:ns3="http://www.oracle.com/2014/03/ics/callout">ns3:output_inputPosition_result</element>
+        <uriAbsoluteLocation>file:/tmp/WC/itg_d9e8fcbe-d54e-4c8e-9e9b-27b0270c1c34/resources/processor_201/resourcegroup_228/ICSCallout_Output.xsd</uriAbsoluteLocation>
+        <param>inputPosition</param>
+        <primary>false</primary>
+    </oracle-xsl-webmapper:AllSources>
+    <oracle-xsl-webmapper:AllSources>
+        <element xmlns:ns3="http://www.oracle.com/2014/03/ics/callout">ns3:output_replaceString_response</element>
+        <uriAbsoluteLocation>file:/tmp/WC/itg_d9e8fcbe-d54e-4c8e-9e9b-27b0270c1c34/resources/processor_236/resourcegroup_267/ICSCallout_Output.xsd</uriAbsoluteLocation>
+        <param>replaceString</param>
+        <primary>false</primary>
+    </oracle-xsl-webmapper:AllSources>
+</oracle-xsl-webmapper:StateInfo>

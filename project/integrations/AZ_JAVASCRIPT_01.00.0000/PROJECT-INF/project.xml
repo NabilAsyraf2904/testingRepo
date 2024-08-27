@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns3:icsproject name="project_1" version="10.0" cversion="5" modelType="freeform" xmlns="http://www.oracle.com/2014/03/ics/project/definition" xmlns:ns2="http://www.oracle.com/2014/03/ics/flow/definition" xmlns:ns3="http://www.oracle.com/2014/03/ics/project">
+    <projectCode>AZ_JAVASCRIPT</projectCode>
+    <projectVersion>01.00.0000</projectVersion>
+    <projectName>AZ Javascript</projectName>
+    <percentComplete>100</percentComplete>
+    <projectHasErrors>false</projectHasErrors>
+    <projectHasWarnings>false</projectHasWarnings>
+    <ns3:icsflow name="flow_1">
+        <ns2:application name="application_13">
+            <ns2:role>source</ns2:role>
+            <ns2:adapter>
+                <ns2:type>app-adapter</ns2:type>
+                <ns2:code>MY_REST_ENDPOINT_INTERFAC</ns2:code>
+                <ns2:name>javascript</ns2:name>
+                <ns2:property name="hasAttachment" value="false"/>
+            </ns2:adapter>
+            <ns2:mep>fire-and-forget</ns2:mep>
+            <ns2:outbound name="outbound_14">
+                <ns2:binding>rest</ns2:binding>
+                <ns2:operation>execute</ns2:operation>
+                <ns2:resourceGroup name="resourcegroup_15">
+                    <ns2:resource name="resource_17" location="../resources/application_13/outbound_14/resourcegroup_15/javascript_REQUEST.wsdl" type="wsdl"/>
+                    <ns2:resource name="resource_364" location="../resources/application_13/outbound_14/resourcegroup_15/javascript_REQUEST.jca" type="jca"/>
+                </ns2:resourceGroup>
+                <ns2:output name="output_19">
+                    <ns2:role>request</ns2:role>
+                    <ns2:messageContextRef refUri="messagecontext_18"/>
+                </ns2:output>
+            </ns2:outbound>
+        </ns2:application>
+        <ns2:processor name="processor_1">
+            <ns2:type>integrationMetadata</ns2:type>
+            <ns2:role>undefined</ns2:role>
+            <ns2:resourceGroup name="resourcegroup_2">
+                <ns2:resource name="resource_3" location="../resources/processor_1/resourcegroup_2/ICSIntegrationMetadata.xsd" type="xsd"/>
+            </ns2:resourceGroup>
+            <ns2:output name="output_5">
+                <ns2:messageContextRef refUri="messagecontext_4"/>
+            </ns2:output>
+        </ns2:processor>
+        <ns2:processor name="processor_6">
+            <ns2:type>messageTracker</ns2:type>
+            <ns2:role>messageTracker:global</ns2:role>
+            <ns2:trackingVariableGroup>
+                <ns2:trackingVariable>
+                    <ns2:role>tracking_var_1</ns2:role>
+                    <ns2:primary>true</ns2:primary>
+                    <ns2:name>number</ns2:name>
+                    <ns2:xpath>/execute/request-wrapper/javascriptRequest/number</ns2:xpath>
+                    <ns2:messageContextRef refUri="messagecontext_18"/>
+                    <ns2:output name="output_8">
+                        <ns2:messageContextRef refUri="messagecontext_7"/>
+                    </ns2:output>
+                </ns2:trackingVariable>
+                <ns2:trackingVariable>
+                    <ns2:role>tracking_var_2</ns2:role>
+                    <ns2:primary>false</ns2:primary>
+                    <ns2:name>tracking_var_2</ns2:name>
+                    <ns2:messageContextRef refUri="messagecontext_18"/>
+                    <ns2:output name="output_10">
+                        <ns2:messageContextRef refUri="messagecontext_9"/>
+                    </ns2:output>
+                </ns2:trackingVariable>
+                <ns2:trackingVariable>
+                    <ns2:role>tracking_var_3</ns2:role>
+                    <ns2:primary>false</ns2:primary>
+                    <ns2:name>tracking_var_3</ns2:name>
+                    <ns2:messageContextRef refUri="messagecontext_18"/>
+                    <ns2:output name="output_12">
+                        <ns2:messageContextRef refUri="messagecontext_11"/>
+                    </ns2:output>
+                </ns2:trackingVariable>
+            </ns2:trackingVariableGroup>
+        </ns2:processor>
+        <ns2:processor name="processor_103">
+            <ns2:type>callout</ns2:type>
+            <ns2:role>undefined</ns2:role>
+            <ns2:resourceGroup name="resourcegroup_104">
+                <ns2:resource name="resource_105" location="../resources/processor_103/resourcegroup_104/ICSCallout_Output.xsd" type="xsd"/>
+            </ns2:resourceGroup>
+            <ns2:resourceGroup name="resourcegroup_373">
+                <ns2:role>exprBuilderProperties</ns2:role>
+                <ns2:resource name="resource_374" location="../resources/processor_103/resourcegroup_373/param1expr.properties" type="properties">
+                    <ns2:role>param1</ns2:role>
+                </ns2:resource>
+                <ns2:resource name="resource_375" location="../resources/processor_103/resourcegroup_373/param2expr.properties" type="properties">
+                    <ns2:role>param2</ns2:role>
+                </ns2:resource>
+            </ns2:resourceGroup>
+            <ns2:resourceRef refUri="messagecontext_18">
+                <ns2:role>primary-source</ns2:role>
+            </ns2:resourceRef>
+            <ns2:output name="output_107">
+                <ns2:messageContextRef refUri="messagecontext_106"/>
+            </ns2:output>
+            <ns2:property name="operation" value="MULTIPLE/01.00.0000/multiple.js/add"/>
+            <ns2:property name="apiid" value="MULTIPLE:01.00.0000:multiple.js:add:param1:param2"/>
+            <ns2:processorName>addJs</ns2:processorName>
+        </ns2:processor>
+        <ns2:processor name="processor_114">
+            <ns2:type>callout</ns2:type>
+            <ns2:role>undefined</ns2:role>
+            <ns2:resourceGroup name="resourcegroup_115">
+                <ns2:resource name="resource_116" location="../resources/processor_114/resourcegroup_115/ICSCallout_Output.xsd" type="xsd"/>
+            </ns2:resourceGroup>
+            <ns2:resourceGroup name="resourcegroup_370">
+                <ns2:role>exprBuilderProperties</ns2:role>
+                <ns2:resource name="resource_371" location="../resources/processor_114/resourcegroup_370/param1expr.properties" type="properties">
+                    <ns2:role>param1</ns2:role>
+                </ns2:resource>
+                <ns2:resource name="resource_372" location="../resources/processor_114/resourcegroup_370/param2expr.properties" type="properties">
+                    <ns2:role>param2</ns2:role>
+                </ns2:resource>
+            </ns2:resourceGroup>
+            <ns2:resourceRef refUri="messagecontext_18">
+                <ns2:role>primary-source</ns2:role>
+            </ns2:resourceRef>
+            <ns2:output name="output_118">
+                <ns2:messageContextRef refUri="messagecontext_117"/>
+            </ns2:output>
+            <ns2:property name="operation" value="MULTIPLE/01.00.0000/multiple.js/multiply"/>
+            <ns2:property name="apiid" value="MULTIPLE:01.00.0000:multiple.js:multiply:param1:param2"/>
+            <ns2:processorName>multiplyJs</ns2:processorName>
+        </ns2:processor>
+        <ns2:processor name="processor_136">
+            <ns2:type>callout</ns2:type>
+            <ns2:role>undefined</ns2:role>
+            <ns2:resourceGroup name="resourcegroup_137">
+                <ns2:resource name="resource_138" location="../resources/processor_136/resourcegroup_137/ICSCallout_Output.xsd" type="xsd"/>
+            </ns2:resourceGroup>
+            <ns2:resourceGroup name="resourcegroup_365">
+                <ns2:role>exprBuilderProperties</ns2:role>
+                <ns2:resource name="resource_366" location="../resources/processor_136/resourcegroup_365/param1expr.properties" type="properties">
+                    <ns2:role>param1</ns2:role>
+                </ns2:resource>
+                <ns2:resource name="resource_367" location="../resources/processor_136/resourcegroup_365/param2expr.properties" type="properties">
+                    <ns2:role>param2</ns2:role>
+                </ns2:resource>
+            </ns2:resourceGroup>
+            <ns2:resourceRef refUri="messagecontext_18">
+                <ns2:role>primary-source</ns2:role>
+            </ns2:resourceRef>
+            <ns2:output name="output_140">
+                <ns2:messageContextRef refUri="messagecontext_139"/>
+            </ns2:output>
+            <ns2:property name="operation" value="MULTIPLE/01.00.0000/multiple.js/divide"/>
+            <ns2:property name="apiid" value="MULTIPLE:01.00.0000:multiple.js:divide:param1:param2"/>
+            <ns2:processorName>divideJs</ns2:processorName>
+        </ns2:processor>
+        <ns2:processor name="processor_184">
+            <ns2:type>callout</ns2:type>
+            <ns2:role>undefined</ns2:role>
+            <ns2:resourceGroup name="resourcegroup_185">
+                <ns2:resource name="resource_186" location="../resources/processor_184/resourcegroup_185/ICSCallout_Output.xsd" type="xsd"/>
+            </ns2:resourceGroup>
+            <ns2:resourceGroup name="resourcegroup_380">
+                <ns2:role>exprBuilderProperties</ns2:role>
+                <ns2:resource name="resource_381" location="../resources/processor_184/resourcegroup_380/amountexpr.properties" type="properties">
+                    <ns2:role>amount</ns2:role>
+                </ns2:resource>
+            </ns2:resourceGroup>
+            <ns2:resourceRef refUri="messagecontext_18">
+                <ns2:role>primary-source</ns2:role>
+            </ns2:resourceRef>
+            <ns2:output name="output_188">
+                <ns2:messageContextRef refUri="messagecontext_187"/>
+            </ns2:output>
+            <ns2:property name="operation" value="AZTEST/01.00.0000/GetDate.js/taxcalculation"/>
+            <ns2:property name="apiid" value="AZTEST:01.00.0000:GetDate.js:taxcalculation:amount"/>
+            <ns2:processorName>mathOperationJs</ns2:processorName>
+        </ns2:processor>
+        <ns2:processor name="processor_233">
+            <ns2:type>callout</ns2:type>
+            <ns2:role>undefined</ns2:role>
+            <ns2:resourceGroup name="resourcegroup_234">
+                <ns2:resource name="resource_235" location="../resources/processor_233/resourcegroup_234/ICSCallout_Output.xsd" type="xsd"/>
+            </ns2:resourceGroup>
+            <ns2:resourceGroup name="resourcegroup_378">
+                <ns2:role>exprBuilderProperties</ns2:role>
+                <ns2:resource name="resource_379" location="../resources/processor_233/resourcegroup_378/amountexpr.properties" type="properties">
+                    <ns2:role>amount</ns2:role>
+                </ns2:resource>
+            </ns2:resourceGroup>
+            <ns2:resourceRef refUri="messagecontext_18">
+                <ns2:role>primary-source</ns2:role>
+            </ns2:resourceRef>
+            <ns2:output name="output_237">
+                <ns2:messageContextRef refUri="messagecontext_236"/>
+            </ns2:output>
+            <ns2:property name="operation" value="AZTEST/01.00.0000/GetDate.js/float"/>
+            <ns2:property name="apiid" value="AZTEST:01.00.0000:GetDate.js:float:amount"/>
+            <ns2:processorName>floatOperationJs</ns2:processorName>
+        </ns2:processor>
+        <ns2:processor name="processor_262">
+            <ns2:type>callout</ns2:type>
+            <ns2:role>undefined</ns2:role>
+            <ns2:resourceGroup name="resourcegroup_263">
+                <ns2:resource name="resource_264" location="../resources/processor_262/resourcegroup_263/ICSCallout_Output.xsd" type="xsd"/>
+            </ns2:resourceGroup>
+            <ns2:resourceGroup name="resourcegroup_376">
+                <ns2:role>exprBuilderProperties</ns2:role>
+                <ns2:resource name="resource_377" location="../resources/processor_262/resourcegroup_376/numberexpr.properties" type="properties">
+                    <ns2:role>number</ns2:role>
+                </ns2:resource>
+            </ns2:resourceGroup>
+            <ns2:resourceRef refUri="messagecontext_18">
+                <ns2:role>primary-source</ns2:role>
+            </ns2:resourceRef>
+            <ns2:output name="output_266">
+                <ns2:messageContextRef refUri="messagecontext_265"/>
+            </ns2:output>
+            <ns2:property name="operation" value="MULTIPLE/01.00.0000/multiple.js/square"/>
+            <ns2:property name="apiid" value="MULTIPLE:01.00.0000:multiple.js:square:number"/>
+            <ns2:processorName>squareJs</ns2:processorName>
+        </ns2:processor>
+        <ns2:processor name="processor_355">
+            <ns2:type>callout</ns2:type>
+            <ns2:role>undefined</ns2:role>
+            <ns2:resourceGroup name="resourcegroup_356">
+                <ns2:resource name="resource_357" location="../resources/processor_355/resourcegroup_356/ICSCallout_Output.xsd" type="xsd"/>
+            </ns2:resourceGroup>
+            <ns2:resourceGroup name="resourcegroup_384">
+                <ns2:role>exprBuilderProperties</ns2:role>
+                <ns2:resource name="resource_385" location="../resources/processor_355/resourcegroup_384/fruitsexpr.properties" type="properties">
+                    <ns2:role>fruits</ns2:role>
+                </ns2:resource>
+            </ns2:resourceGroup>
+            <ns2:resourceRef refUri="messagecontext_18">
+                <ns2:role>primary-source</ns2:role>
+            </ns2:resourceRef>
+            <ns2:output name="output_359">
+                <ns2:messageContextRef refUri="messagecontext_358"/>
+            </ns2:output>
+            <ns2:property name="operation" value="MULTIPLE/01.00.0000/multiple.js/positionArray"/>
+            <ns2:property name="apiid" value="MULTIPLE:01.00.0000:multiple.js:positionArray:fruits"/>
+            <ns2:processorName>positionArrayJs</ns2:processorName>
+        </ns2:processor>
+        <ns2:messageContext name="messagecontext_4">
+            <ns2:resourceRef refUri="processor_1/resourcegroup_2/resource_3"/>
+            <ns2:rootElement elementName="metadata" namespace="http://www.oracle.com/2014/03/ic/integration/metadata"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_7">
+            <ns2:rootElement elementName="string" namespace="http://www.w3.org/2001/XMLSchema"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_9">
+            <ns2:rootElement elementName="string" namespace="http://www.w3.org/2001/XMLSchema"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_11">
+            <ns2:rootElement elementName="string" namespace="http://www.w3.org/2001/XMLSchema"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_18">
+            <ns2:resourceRef refUri="application_13/outbound_14/resourcegroup_15/resource_17"/>
+            <ns2:rootElement elementName="execute" namespace="http://xmlns.oracle.com/cloud/adapter/REST/javascript_REQUEST/types"/>
+            <ns2:wsdlMessage messageName="executeRequestMessage" namespace="http://xmlns.oracle.com/cloud/adapter/REST/javascript_REQUEST" partName="parameters"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_106">
+            <ns2:resourceRef refUri="processor_103/resourcegroup_104/resource_105"/>
+            <ns2:rootElement elementName="output_addJs_retValue" namespace="http://www.oracle.com/2014/03/ics/callout"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_117">
+            <ns2:resourceRef refUri="processor_114/resourcegroup_115/resource_116"/>
+            <ns2:rootElement elementName="output_multiplyJs_retValue" namespace="http://www.oracle.com/2014/03/ics/callout"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_139">
+            <ns2:resourceRef refUri="processor_136/resourcegroup_137/resource_138"/>
+            <ns2:rootElement elementName="output_divideJs_retValue" namespace="http://www.oracle.com/2014/03/ics/callout"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_187">
+            <ns2:resourceRef refUri="processor_184/resourcegroup_185/resource_186"/>
+            <ns2:rootElement elementName="output_mathOperationJs_result" namespace="http://www.oracle.com/2014/03/ics/callout"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_236">
+            <ns2:resourceRef refUri="processor_233/resourcegroup_234/resource_235"/>
+            <ns2:rootElement elementName="output_floatOperationJs_result" namespace="http://www.oracle.com/2014/03/ics/callout"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_265">
+            <ns2:resourceRef refUri="processor_262/resourcegroup_263/resource_264"/>
+            <ns2:rootElement elementName="output_squareJs_squareOfNumber" namespace="http://www.oracle.com/2014/03/ics/callout"/>
+        </ns2:messageContext>
+        <ns2:messageContext name="messagecontext_358">
+            <ns2:resourceRef refUri="processor_355/resourcegroup_356/resource_357"/>
+            <ns2:rootElement elementName="output_positionArrayJs_result" namespace="http://www.oracle.com/2014/03/ics/callout"/>
+        </ns2:messageContext>
+        <ns2:commonNamespaceMaps/>
+        <ns2:orchestration>
+            <ns2:integrationMetadata id="im0" refUri="processor_1"/>
+            <ns2:receive trackingRefUri="processor_6" id="r0" refUri="application_13/outbound_14/output_19"/>
+            <ns2:callout id="co0" refUri="processor_103"/>
+            <ns2:callout id="co3" refUri="processor_114"/>
+            <ns2:callout id="co4" refUri="processor_136"/>
+            <ns2:callout id="co8" refUri="processor_262"/>
+            <ns2:callout id="co6" refUri="processor_184"/>
+            <ns2:callout id="co7" refUri="processor_233"/>
+            <ns2:callout id="co1" refUri="processor_355"/>
+            <ns2:stop id="st0"/>
+        </ns2:orchestration>
+    </ns3:icsflow>
+</ns3:icsproject>

@@ -1,0 +1,39 @@
+<adapter-config xsdTargetNamespace="http://xmlns.oracle.com/cloud/adapter/REST/employee_REQUEST/types" name="employee_REQUESTPortType" adapter="REST" wsdlLocation="employee_REQUEST.wsdl" xmlns="http://platform.integration.oracle/blocks/adapter/fw/metadata">
+  <connection-factory location="cloud/CloudAdapter">
+    <non-managed-connection managedConnectionFactoryClassName="oracle.cloud.connector.rest.RestAdapterConnectionFactory">
+      <property name="cloud.adapter.plugin.version" value="23.3.5"/>
+      <property name="cloud.adapter.sdk.version" value="23.3.5"/>
+      <property name="rest.inbound.security.configurable" value="true"/>
+      <property name="security" value="oracle/multi_token_rest_service_policy"/>
+      <property name="securityPolicy" value="MULTI_TOKEN_INBOUND"/>
+    </non-managed-connection>
+  </connection-factory>
+  <endpoint-activation portType="employee_REQUESTPortType" operation="execute">
+    <activation-spec className="oracle.tip.adapter.cloud.CloudActivationSpec">
+      <property name="targetOperation" value="execute"/>
+      <property name="HTTPHeadersAdded" value="true"/>
+      <property name="HttpVerb" value="POST"/>
+      <property name="RequestElementNS" value="http://xmlns.oracle.com/cloud/adapter/REST/employee/types"/>
+      <property name="RequestElementName" value="request-wrapper"/>
+      <property name="RequestMediaType" value="application/json"/>
+      <property name="RequestSample" value="{  &quot;createEmployeeRequest&quot;:[{   &quot;EmployeeNumber&quot;:&quot;CY_1001&quot;,   &quot;EmployeeName&quot;:&quot;CY1001&quot;,   &quot;EmployeeEmail&quot;:&quot;CY1001_UPDATE@testemail.com&quot;,   &quot;Status&quot;:&quot;ACTIVE&quot;,   &quot;LastUser&quot;:&quot;CY&quot;,   &quot;CreatedBy&quot;:&quot;CY&quot;,   &quot;CreatedDate&quot;:&quot;2024-08-15&quot;,   &quot;UpdatedBy&quot;:&quot;CY&quot;,   &quot;UpdatedDate&quot;:&quot;2024-08-18&quot;,   &quot;Department&quot;:[{    &quot;DepartmentNumber&quot;:&quot;&quot;,    &quot;DepartmentName&quot;:&quot;&quot;,    &quot;Status&quot;:&quot;&quot;,    &quot;Location&quot;:[{     &quot;LocationNumber&quot;:&quot;CYLOC_1001&quot;,     &quot;LocationName&quot;:&quot;&quot;,     &quot;Status&quot;:&quot;ACTIVE&quot;    }]   }]  }] }"/>
+      <property name="ResourceURI" value="/employee"/>
+      <property name="activationSpecClass" value="oracle.tip.adapter.cloud.CloudActivationSpec"/>
+      <property name="allowChangeDefaultNamespace" value="false"/>
+      <property name="copyFaultFromModel" value="true"/>
+      <property name="forceWsdlTypesBuild" value="true"/>
+      <property name="generateConnectivityPropertiesInboundRequest" value="RESTINREQ"/>
+      <property name="generateConnectivityPropertiesInboundResponse" value="RESTINRES"/>
+      <property name="generateInboundCredentials" value="true"/>
+      <property name="generatePartnerLink" value="false"/>
+      <property name="integrationSchemaNamespace" value="http://xmlns.oracle.com/cloud/adapter/REST/employee_REQUEST/types"/>
+      <property name="integrationWSDLNamespace" value="http://xmlns.oracle.com/cloud/adapter/REST/employee_REQUEST"/>
+      <property name="invocationStyle" value="NOTIFICATION"/>
+      <property name="isRequestJsonSchema" value="false"/>
+      <property name="isRequestRawBytes" value="false"/>
+      <property name="operations" value="default"/>
+      <property name="postQueryParamsAsContent" value="false"/>
+      <property name="requestJsonTopLevelArray" value="false"/>
+    </activation-spec>
+  </endpoint-activation>
+</adapter-config>

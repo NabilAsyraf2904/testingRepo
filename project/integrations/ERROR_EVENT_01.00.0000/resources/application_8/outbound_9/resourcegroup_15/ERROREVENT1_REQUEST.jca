@@ -1,0 +1,41 @@
+<adapter-config xsdTargetNamespace="http://xmlns.oracle.com/cloud/adapter/appevent/ERROREVENT1_REQUEST/types" name="ERROREVENT1_REQUESTPortType" adapter="appevent" wsdlLocation="ERROREVENT1_REQUEST.wsdl" xmlns="http://platform.integration.oracle/blocks/adapter/fw/metadata">
+  <connection-factory location="cloud/CloudAdapter">
+    <non-managed-connection managedConnectionFactoryClassName="oracle.tip.tools.adapters.cloud.appevent.AppEventAdapterConnectionFactory">
+      <property name="applicationVersion" value="1.0"/>
+      <property name="cloud.adapter.plugin.init.version" value="24.04.0"/>
+      <property name="cloud.adapter.plugin.version" value="24.04.0"/>
+      <property name="cloud.adapter.sdk.init.version" value="23.02.2"/>
+      <property name="cloud.adapter.sdk.version" value="23.02.2"/>
+      <property name="cloudPollingEndpoint" value="true"/>
+      <property name="configureOption" value="events"/>
+      <property name="connectionUrl" value="https://oaes-prod-iad-cell-1.integration.us-ashburn-1.ocp.oracleiaas.com:8443/20230201"/>
+      <property name="securityPolicy" value="NONE"/>
+    </non-managed-connection>
+  </connection-factory>
+  <endpoint-activation portType="ERROREVENT1_REQUESTPortType" operation="execute">
+    <activation-spec className="oracle.tip.adapter.cloud.CloudActivationSpec">
+      <property name="targetOperation" value="execute"/>
+      <property name="EventTypeJsonSample" value="{     &quot;integration&quot;: &quot;value&quot;,      &quot;instanceId&quot;: &quot;value&quot;,      &quot;tyep&quot;: &quot;value&quot;,      &quot;date&quot;: &quot;value&quot; }"/>
+      <property name="EventTypeName" value="ERROREVENT"/>
+      <property name="EventTypeSchemaType" value="json"/>
+      <property name="EventTypeVersion" value="2"/>
+      <property name="HTTPHeadersAdded" value="true"/>
+      <property name="HttpVerb" value="POST"/>
+      <property name="RequestElementNS" value="http://xmlns.oracle.com/cloud/adapter/appevent/ERROREVENT1/types"/>
+      <property name="RequestElementName" value="request-wrapper"/>
+      <property name="RequestMediaType" value="application/cloudevents+json"/>
+      <property name="RequestSample" value="{     &quot;integration&quot;: &quot;value&quot;,      &quot;instanceId&quot;: &quot;value&quot;,      &quot;tyep&quot;: &quot;value&quot;,      &quot;date&quot;: &quot;value&quot; }"/>
+      <property name="ResourceURI" value="/exchanges/ocid1.oaesexchange.oc1.iad.amaaaaaa5vehu5yazecn2jn3bhoeaxa6xguuwkwalnyeodjuffhyqi27t2gq/event"/>
+      <property name="SingletonEndpoint" value="false"/>
+      <property name="allowChangeDefaultNamespace" value="false"/>
+      <property name="cloudPollingEndpoint" value="true"/>
+      <property name="generatePartnerLink" value="false"/>
+      <property name="integrationSchemaNamespace" value="http://xmlns.oracle.com/cloud/adapter/appevent/ERROREVENT1_REQUEST/types"/>
+      <property name="integrationWSDLNamespace" value="http://xmlns.oracle.com/cloud/adapter/appevent/ERROREVENT1_REQUEST"/>
+      <property name="invocationStyle" value="NOTIFICATION"/>
+      <property name="isRequestRawBytes" value="false"/>
+      <property name="postQueryParamsAsContent" value="false"/>
+      <property name="requestJsonTopLevelArray" value="false"/>
+    </activation-spec>
+  </endpoint-activation>
+</adapter-config>

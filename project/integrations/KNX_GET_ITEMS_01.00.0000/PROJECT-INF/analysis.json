@@ -1,0 +1,1 @@
+{"id":"KNX_GET_ITEMS_01.00.0000","icsProject":{"version":"01.00.0000","percentageComplete":100,"modelType":"FREEFORM","projectCode":"KNX_GET_ITEMS","processorCount":{"MESSAGE_TRACKER":1,"TRANSFORMER":2,"SOURCE":1,"TARGET":1},"smartTags":"app:rest,style:App Driven Orchestration"}}

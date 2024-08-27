@@ -1,0 +1,1 @@
+{"id":"POC_ENCRYPT_EMAIL_01.00.0000","icsProject":{"version":"01.00.0000","percentageComplete":100,"modelType":"FREEFORM","projectCode":"POC_ENCRYPT_EMAIL","processorCount":{"MESSAGE_TRACKER":1,"SCHEDULE_RECEIVE":1,"STAGE_FILE":1,"TRANSFORMER":1,"NOTIFICATION":1,"STAGE_WRITE":1},"smartTags":"style:Scheduled Orchestration"}}

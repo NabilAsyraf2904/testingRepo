@@ -1,1 +1,0 @@
-{"id":"NA_EMPLOYEE_01.00.0000","icsProject":{"version":"01.00.0000","percentageComplete":100,"modelType":"FREEFORM","projectCode":"NA_EMPLOYEE","processorCount":{"NOTE":2,"INTEGRATION_METADATA":1,"MESSAGE_TRACKER":1,"FOR":1,"CONTENT_BASED_ROUTER":3,"TRANSFORMER":10,"SOURCE":1,"TARGET":10},"smartTags":"app:REST, app:atpdatabase,style:App Driven Orchestration"}}

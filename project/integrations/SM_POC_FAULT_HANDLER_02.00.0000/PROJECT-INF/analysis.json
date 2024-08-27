@@ -1,1 +1,0 @@
-{"id":"SM_POC_FAULT_HANDLER_02.00.0000","icsProject":{"version":"02.00.0000","percentageComplete":100,"modelType":"FREEFORM","projectCode":"SM_POC_FAULT_HANDLER","processorCount":{"MESSAGE_TRACKER":1,"SCHEDULE_RECEIVE":1,"INTEGRATION_METADATA":1,"TRANSFORMER":5,"CATCH_ALL":2,"FOR":1,"CONTENT_BASED_ROUTER":1,"TARGET":5},"smartTags":"app:ftp,style:App Driven Orchestration"}}

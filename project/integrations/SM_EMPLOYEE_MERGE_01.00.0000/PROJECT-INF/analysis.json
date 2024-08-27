@@ -1,1 +1,0 @@
-{"id":"SM_EMPLOYEE_MERGE_01.00.0000","icsProject":{"version":"01.00.0000","percentageComplete":100,"modelType":"FREEFORM","projectCode":"SM_EMPLOYEE_MERGE","processorCount":{"INTEGRATION_METADATA":1,"MESSAGE_TRACKER":1,"TRANSFORMER":3,"FOR":1,"SOURCE":1,"TARGET":3},"smartTags":"app:REST, app:atpdatabase,style:App Driven Orchestration"}}

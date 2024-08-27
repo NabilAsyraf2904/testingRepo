@@ -1,1 +1,0 @@
-{"id":"SERVICEREQUESTCREATED|1","name":"ServiceRequestCreated","description":"","code":"SERVICEREQUESTCREATED","schemaType":"json sample payload","revision":"1","schema":"{\n    \"FirstName\": \"FirstName\",\n    \"LastName\": \"LastName\",\n    \"Issue\": \"Issue\",\n    \"Comment\": \"Comment\"\n}","hasPublisher":false,"hasSubscriber":false,"customHeaders":[]}

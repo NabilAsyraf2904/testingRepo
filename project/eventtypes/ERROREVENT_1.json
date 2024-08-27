@@ -1,1 +1,0 @@
-{"id":"ERROREVENT|1","name":"ErrorEvent","description":"","code":"ERROREVENT","schemaType":"json sample payload","revision":"1","schema":"{\n    \"integration\": \"value\", \n    \"instanceId\": \"value\", \n    \"date\": \"value\"\n}","hasPublisher":false,"hasSubscriber":false,"customHeaders":[]}
